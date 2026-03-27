@@ -10,6 +10,10 @@ import OwnerLogin from './pages/OwnerLogin';
 import GuidesHub from './pages/GuidesHub';
 import GuideArticle from './pages/GuideArticle';
 import AppealTracker from './pages/AppealTracker';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfUse from './pages/TermsOfUse';
+import Disclaimer from './pages/Disclaimer';
+import AffiliateDisclosure from './pages/AffiliateDisclosure';
 import './App.css';
 
 function OwnerAnalyticsRoute({ children }) {
@@ -67,6 +71,10 @@ function App() {
             <Route path="/analyzer" element={<EOBAnalyzer />} />
             <Route path="/results/:analysisId" element={<Results />} />
             <Route path="/appeal-tracker/:analysisId" element={<AppealTracker />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfUse />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
+            <Route path="/affiliate-disclosure" element={<AffiliateDisclosure />} />
             {enableAnalyticsDashboard && <Route path="/owner/login" element={<OwnerLogin />} />}
             {enableAnalyticsDashboard && (
               <Route
