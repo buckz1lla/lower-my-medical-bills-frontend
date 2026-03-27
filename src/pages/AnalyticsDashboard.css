@@ -1,0 +1,296 @@
+.analytics-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f5f9ff 0%, #eef3f9 100%);
+  padding: 28px 20px;
+}
+
+.analytics-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.analytics-header h2 {
+  margin: 0;
+  color: #0b3c5d;
+  font-size: 34px;
+}
+
+.analytics-header p {
+  margin-top: 8px;
+  color: #4c6275;
+}
+
+.analytics-toolbar {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.analytics-toolbar-inline {
+  display: flex;
+  justify-content: flex-end;
+  margin: 14px 0 10px;
+}
+
+.window-toggle {
+  display: inline-flex;
+  gap: 8px;
+  margin: 6px 0 14px;
+}
+
+.window-toggle-button {
+  border: 1px solid #c4d6e8;
+  background: #f7fbff;
+  color: #234a69;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.window-toggle-button:hover {
+  background: #ecf5ff;
+}
+
+.window-toggle-button-active {
+  background: #0b3c5d;
+  border-color: #0b3c5d;
+  color: #fff;
+}
+
+.toolbar-button {
+  background: #0b3c5d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toolbar-button:hover {
+  background: #0a314d;
+}
+
+.toolbar-button-secondary {
+  background: #6c7f91;
+}
+
+.toolbar-button-secondary:hover {
+  background: #5c6f81;
+}
+
+.analytics-section {
+  margin-top: 28px;
+  background: #ffffff;
+  border: 1px solid #d7e3ef;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(11, 60, 93, 0.06);
+}
+
+.analytics-section h3 {
+  margin: 0 0 14px;
+  color: #133f60;
+  font-size: 20px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric-card {
+  background: #f7fbff;
+  border: 1px solid #dce9f5;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.metric-title {
+  color: #4d647a;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.metric-value {
+  color: #0b3c5d;
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+.metric-subtitle {
+  color: #5f7488;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.analytics-table-wrap {
+  overflow-x: auto;
+}
+
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.analytics-table th,
+.analytics-table td {
+  border-bottom: 1px solid #e0e9f2;
+  padding: 10px 8px;
+  text-align: left;
+  color: #234a69;
+  font-size: 14px;
+}
+
+.analytics-table th {
+  color: #4e677d;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.analytics-error {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.analytics-info-msg {
+  color: #2a6e2a;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.api-key-box {
+  margin-top: 12px;
+  background: #fff6f6;
+  border: 1px solid #f5c7c7;
+  border-radius: 10px;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+  max-width: 440px;
+}
+
+.api-key-box label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #8c2f2f;
+}
+
+.api-key-box input {
+  padding: 10px;
+  border: 1px solid #d6bcbc;
+  border-radius: 8px;
+}
+
+.api-key-box button {
+  background: #8c2f2f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chart-wrap {
+  background: #fbfdff;
+  border: 1px solid #dce7f2;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.chart-svg {
+  width: 100%;
+  height: auto;
+}
+
+.chart-axis {
+  stroke: #98afc4;
+  stroke-width: 1;
+}
+
+.line {
+  fill: none;
+  stroke-width: 3;
+}
+
+.line-views {
+  stroke: #1a73e8;
+}
+
+.line-payments {
+  stroke: #00a56f;
+}
+
+.line-downloads {
+  stroke: #f57c00;
+}
+
+.line-revenue {
+  stroke: #8e24aa;
+}
+
+.chart-legend {
+  margin-top: 8px;
+  display: flex;
+  gap: 20px;
+  color: #35566f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.dot-views {
+  background: #1a73e8;
+}
+
+.dot-payments {
+  background: #00a56f;
+}
+
+.dot-downloads {
+  background: #f57c00;
+}
+
+.dot-revenue {
+  background: #8e24aa;
+}
+
+@media (max-width: 980px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .analytics-page {
+    padding: 18px 12px;
+  }
+
+  .analytics-header h2 {
+    font-size: 28px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

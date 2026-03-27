@@ -1,0 +1,64 @@
+.owner-login-page {
+  min-height: calc(100vh - 160px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.owner-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 1px solid #d7e3ef;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(11, 60, 93, 0.08);
+}
+
+.owner-login-card h2 {
+  margin: 0 0 8px;
+  color: #0b3c5d;
+}
+
+.owner-login-card p {
+  margin: 0 0 16px;
+  color: #4c6275;
+}
+
+.owner-login-card form {
+  display: grid;
+  gap: 10px;
+}
+
+.owner-login-card label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2a4c66;
+}
+
+.owner-login-card input {
+  border: 1px solid #c4d6e8;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.owner-login-card button {
+  border: none;
+  border-radius: 8px;
+  background: #0b3c5d;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.owner-login-card button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.owner-login-error {
+  color: #b00020;
+  font-size: 13px;
+  margin: 0;
+}
