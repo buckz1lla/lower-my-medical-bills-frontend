@@ -387,6 +387,16 @@ function Results() {
     return <span className={`severity-badge ${badgeClass}`}>{severity.toUpperCase()}</span>;
   };
 
+  const getConfidenceBadge = (opportunity) => {
+    const level = (opportunity?.confidence_level || 'low').toLowerCase();
+    const score = Number(opportunity?.confidence_score || 0);
+    return (
+      <span className={`confidence-badge confidence-${level}`}>
+        {`Confidence ${level.toUpperCase()} (${Math.round(score * 100)}%)`}
+      </span>
+    );
+  };
+
   const handleDownloadPDF = async () => {
     if (!analysis) return;
 
@@ -647,6 +657,46 @@ function Results() {
                         <span className="label">Time Needed:</span>
                         <span>{opp.time_estimate_days} days</span>
                       </div>
+                      <div className="detail-row">
+                        <span className="label">Confidence:</span>
+                        <span>{getConfidenceBadge(opp)}</span>
+                      </div>
+                      <div className="detail-section">
+                        <h5>Why This Was Flagged:</h5>
+                        <p>{opp.flag_reason || 'Rule trigger details are limited for this finding.'}</p>
+                      </div>
+                      <div className="detail-section">
+                        <h5>What To Verify Before Acting:</h5>
+                        <ul className="detail-checklist">
+                          {(opp.verification_steps || []).length === 0 && (
+                            <li>Confirm claim details directly with your insurer and provider billing office.</li>
+                          )}
+                          {(opp.verification_steps || []).map((step, idx) => (
+                            <li key={`verify-${opp.opportunity_id}-${idx}`}>{step}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="detail-section">
+                        <h5>Could Be Correct If:</h5>
+                        <ul className="detail-checklist detail-checklist-caveat">
+                          {(opp.could_be_correct_if || []).length === 0 && (
+                            <li>Plan-specific coverage rules could explain this result.</li>
+                          )}
+                          {(opp.could_be_correct_if || []).map((line, idx) => (
+                            <li key={`caveat-${opp.opportunity_id}-${idx}`}>{line}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      {(opp.missing_data_points || []).length > 0 && (
+                        <div className="detail-section">
+                          <h5>Missing Data Lowering Confidence:</h5>
+                          <ul className="detail-checklist detail-checklist-muted">
+                            {opp.missing_data_points.map((point, idx) => (
+                              <li key={`missing-${opp.opportunity_id}-${idx}`}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                       <div className="detail-section">
                         <h5>Recommended Action:</h5>
                         <p>{opp.recommended_action}</p>
