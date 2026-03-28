@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
 
-export default function OwnerLoginPage() {
+function OwnerLoginContent() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -61,5 +61,13 @@ export default function OwnerLoginPage() {
         </form>
       </section>
     </main>
+  );
+}
+
+export default function OwnerLoginPage() {
+  return (
+    <Suspense>
+      <OwnerLoginContent />
+    </Suspense>
   );
 }
