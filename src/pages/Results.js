@@ -521,6 +521,12 @@ function Results() {
   };
 
   const actionAppealsGuideLink = getAffiliateLink('appealsGuide', 'results-actions');
+  const showParserDebug = process.env.REACT_APP_SHOW_PARSER_DEBUG === 'true';
+  const parserSource = analysis?.key_metrics?.parser_source || 'unknown';
+  const analysisMode = analysis?.key_metrics?.analysis_mode || 'unknown';
+  const parserWarning = analysis?.key_metrics?.parser_warning || '';
+  const firstClaim = analysis?.claims?.[0] || null;
+  const firstLineItem = firstClaim?.line_items?.[0] || null;
 
   return (
     <div className="results">
@@ -558,6 +564,31 @@ function Results() {
           <div className="card-label">Your Responsibility</div>
         </div>
       </div>
+
+      {showParserDebug && (
+        <details className="parser-debug-panel">
+          <summary>Parser Debug (Owner View)</summary>
+          <div className="parser-debug-grid">
+            <div><span>Parser Source:</span> <strong>{parserSource}</strong></div>
+            <div><span>Analysis Mode:</span> <strong>{analysisMode}</strong></div>
+            <div><span>Claims Parsed:</span> <strong>{analysis?.claims?.length || 0}</strong></div>
+            <div><span>Opportunities:</span> <strong>{analysis?.savings_opportunities?.length || 0}</strong></div>
+            <div><span>First Claim ID:</span> <strong>{firstClaim?.claim_id || 'n/a'}</strong></div>
+            <div><span>First Provider:</span> <strong>{firstClaim?.provider_name || 'n/a'}</strong></div>
+            <div><span>First Service:</span> <strong>{firstLineItem?.service_description || 'n/a'}</strong></div>
+            <div><span>Line Status:</span> <strong>{firstLineItem?.status || 'n/a'}</strong></div>
+          </div>
+          <div className="parser-debug-totals">
+            <div>Parsed billed: <strong>${firstLineItem?.billed_amount?.toFixed ? firstLineItem.billed_amount.toFixed(2) : '0.00'}</strong></div>
+            <div>Parsed allowed: <strong>${firstLineItem?.allowed_amount?.toFixed ? firstLineItem.allowed_amount.toFixed(2) : '0.00'}</strong></div>
+            <div>Parsed insurer paid: <strong>${firstLineItem?.insurance_paid?.toFixed ? firstLineItem.insurance_paid.toFixed(2) : '0.00'}</strong></div>
+            <div>Parsed patient responsibility: <strong>${firstLineItem?.patient_responsibility?.toFixed ? firstLineItem.patient_responsibility.toFixed(2) : '0.00'}</strong></div>
+          </div>
+          {parserWarning && (
+            <p className="parser-debug-warning">{parserWarning}</p>
+          )}
+        </details>
+      )}
 
       {!hasDownloadedPackage && (
         <>
