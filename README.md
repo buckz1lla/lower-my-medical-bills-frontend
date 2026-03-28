@@ -19,7 +19,7 @@ Set these under **Settings → Environment Variables**:
 |---|---|
 | `NEXT_PUBLIC_API_URL` | `https://api.lowermymedicalbills.com` |
 | `NEXT_PUBLIC_ENABLE_ANALYTICS_DASHBOARD` | `false` |
-| `NEXT_PUBLIC_SHOW_ANALYTICS_LINK` | `false` |
+| `NEXT_PUBLIC_SHOW_PARSER_DEBUG` | `false` |
 | `NEXT_PUBLIC_ENABLE_PRICE_EXPERIMENT` | `false` |
 | `NEXT_PUBLIC_PRICE_CONTROL_CENTS` | `299` |
 | `NEXT_PUBLIC_PRICE_TEST_CENTS` | `499` |
@@ -36,29 +36,26 @@ After deploying, validate the API from the `nextjs-app/` directory:
 ```bash
 node scripts/smoke-test.js https://api.lowermymedicalbills.com
 ```
-- `REACT_APP_ADSENSE_SLOT_HOME_TOP=`
-- `REACT_APP_ADSENSE_SLOT_GUIDES_HUB=`
-- `REACT_APP_ADSENSE_SLOT_GUIDE_INLINE=`
 
 Keep affiliate and AdSense values empty until accounts are approved.
 
-## Domain and DNS checklist
+## Custom domain (Vercel)
 
-Recommended domain layout:
+**Vercel dashboard → your project → Settings → Domains → Add domain**
 
-- Frontend: `lowermymedicalbills.com`
-- API: `api.lowermymedicalbills.com`
+Add both `lowermymedicalbills.com` and `www.lowermymedicalbills.com`. Vercel will show you the exact records to create.
 
-Typical records (exact values come from your host dashboards):
+Typical DNS records at your registrar:
 
 | Type | Name | Value | Purpose |
-| --- | --- | --- | --- |
-| CNAME | `www` | `cname.vercel-dns.com` | Frontend on Vercel |
-| A or CNAME (flattened) | `@` | Vercel-provided value | Apex/root domain |
-| CNAME | `api` | your API host target | API subdomain |
+|---|---|---|---|
+| `A` | `@` | `76.76.21.21` | Apex → Vercel |
+| `CNAME` | `www` | `cname.vercel-dns.com` | www → Vercel |
+| `CNAME` | `api` | *(your API host)* | API subdomain |
 
-After DNS propagates:
+After DNS propagates (up to 48h, usually <1h):
 
-1. Verify `https://lowermymedicalbills.com` loads.
-2. Verify `https://api.lowermymedicalbills.com/health` returns healthy.
-3. Verify upload -> results flow works end to end.
+1. Confirm `https://lowermymedicalbills.com` loads the site.
+2. Confirm `https://api.lowermymedicalbills.com/health` returns `{"status":"ok"}`.
+3. Run the smoke test above.
+4. Do a full upload → results → checkout flow end-to-end.

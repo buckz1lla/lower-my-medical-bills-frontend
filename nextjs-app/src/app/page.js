@@ -1,5 +1,19 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Lower My Medical Bills - Free EOB Review & Billing Error Finder",
+  description:
+    "Upload your Explanation of Benefits to find billing errors, duplicate charges, and overcharges in minutes. Free analysis, pay only to unlock templates.",
+  alternates: { canonical: "https://www.lowermymedicalbills.com" },
+  openGraph: {
+    title: "Lower My Medical Bills - Free EOB Review",
+    description: "Find billing errors in your EOB for free. Unlock appeal templates to dispute charges.",
+    url: "https://www.lowermymedicalbills.com",
+    siteName: "Lower My Medical Bills",
+    type: "website",
+  },
+};
+
 const FEATURED_GUIDES = [
   {
     slug: "how-to-appeal-a-denied-insurance-claim",
