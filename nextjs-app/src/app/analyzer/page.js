@@ -1,28 +1,131 @@
-import Link from "next/link";
+"use client";
 
-export const metadata = {
-  title: "EOB Analyzer | Lower My Medical Bills",
-  description:
-    "Upload your Explanation of Benefits to detect billing errors and savings opportunities.",
-};
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
+
+const ALLOWED_TYPES = new Set([
+  "application/pdf",
+  "image/jpeg",
+  "image/png",
+  "text/csv",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+]);
 
 export default function AnalyzerPage() {
+  const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [isDragOver, setIsDragOver] = useState(false);
+  const router = useRouter();
+
+  const validateAndSetFile = (selectedFile) => {
+    if (!selectedFile) {
+      return;
+    }
+
+    if (!ALLOWED_TYPES.has(selectedFile.type)) {
+      setError("Please upload a PDF, image (JPG/PNG), or spreadsheet (CSV/XLSX)");
+      setFile(null);
+      return;
+    }
+
+    setFile(selectedFile);
+    setError("");
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!file) {
+      setError("Please select a file");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 60_000);
+
+      const response = await fetch(`${API_BASE}/api/eob/upload`, {
+        method: "POST",
+        body: formData,
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeout);
+
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(payload?.detail || "Error uploading file. Please try again.");
+      }
+
+      const payload = await response.json();
+      setFile(null);
+      router.push(`/results/${payload.analysis_id}`);
+    } catch (submitError) {
+      if (submitError.name === "AbortError") {
+        setError("Upload timed out while analyzing this file. Try a smaller PDF or CSV export.");
+      } else {
+        setError(submitError.message || "Error uploading file. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <main className="home-page">
-      <section className="how-grid">
-        <h1 style={{ fontFamily: "var(--font-heading)", marginBottom: 8 }}>
-          Analyzer Migration In Progress
-        </h1>
-        <p>
-          The analyzer workflow is being ported from CRA to Next.js. During this
-          phase, keep using the current production analyzer while we migrate
-          upload, results, and PDF export features.
+    <main className="content-page">
+      <section className="content-card analyzer-card">
+        <h1>Check My EOB for Savings</h1>
+        <p className="analyzer-subtitle">
+          Upload your Explanation of Benefits to identify potential billing errors and savings opportunities.
         </p>
-        <p style={{ marginTop: 10 }}>
-          <Link href="/" className="btn-primary">
-            Back to Home
-          </Link>
-        </p>
+
+        {error ? <div className="analyzer-alert analyzer-alert-error">{error}</div> : null}
+
+        <form onSubmit={handleSubmit} className="analyzer-form-next">
+          <label
+            htmlFor="eob-file"
+            className={`file-drop-zone ${isDragOver ? "file-drop-zone-active" : ""}`}
+            onDragOver={(event) => {
+              event.preventDefault();
+              setIsDragOver(true);
+            }}
+            onDragLeave={(event) => {
+              event.preventDefault();
+              setIsDragOver(false);
+            }}
+            onDrop={(event) => {
+              event.preventDefault();
+              setIsDragOver(false);
+              validateAndSetFile(event.dataTransfer.files?.[0]);
+            }}
+          >
+            <input
+              id="eob-file"
+              type="file"
+              className="hidden-file-input"
+              accept=".pdf,.jpg,.jpeg,.png,.csv,.xlsx"
+              onChange={(event) => validateAndSetFile(event.target.files?.[0])}
+            />
+            <span className="file-drop-icon">📄</span>
+            <span className="file-drop-title">
+              {file ? `Selected: ${file.name}` : "Click to upload or drag and drop"}
+            </span>
+            <span className="file-drop-hint">PDF, Images (JPG/PNG), or Spreadsheets (CSV/XLSX)</span>
+          </label>
+
+          <button type="submit" className="btn-primary analyzer-submit" disabled={!file || loading}>
+            {loading ? "Uploading and analyzing..." : "Analyze My EOB"}
+          </button>
+        </form>
       </section>
     </main>
   );
