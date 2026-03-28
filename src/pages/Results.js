@@ -866,8 +866,7 @@ function Results() {
               {actionAppealsGuideLink.isAffiliate ? 'Appeal Support' : 'Appeal Guide'}
             </button>
           </div>
-          {isPaid && (
-            <div className="action-item">
+          <div className="action-item">
               <div className="action-top">
                 <span className="action-icon">🗂️</span>
                 <div>
@@ -877,7 +876,6 @@ function Results() {
               </div>
               <button onClick={() => navigate(`/appeal-tracker/${analysisId}`)}>Open Tracker</button>
             </div>
-          )}
           <div className="action-item">
             <div className="action-top">
               <span className="action-icon">🔄</span>
