@@ -12,7 +12,7 @@
   box-shadow: 0 4px 20px rgba(0, 61, 130, 0.15);
 }
 
-.hero h2 {
+.hero h1 {
   font-size: 44px;
   margin-bottom: 16px;
   font-weight: 700;
@@ -208,4 +208,112 @@
   margin: 0;
   color: #3f6288;
   line-height: 1.6;
+}
+
+/* Trust section */
+.trust-section {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.trust-section h2 {
+  font-size: 36px;
+  margin-bottom: 48px;
+  color: #003d82;
+  font-weight: 700;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.trust-card {
+  background: #f7faff;
+  border: 1px solid #dbe8f7;
+  border-radius: 10px;
+  padding: 28px 24px;
+}
+
+.trust-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.trust-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #003d82;
+  font-weight: 600;
+}
+
+.trust-card p {
+  color: #555;
+  line-height: 1.7;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* FAQ section */
+.faq-section {
+  margin-bottom: 80px;
+}
+
+.faq-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #003d82;
+  font-weight: 700;
+  text-align: center;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border: 1px solid #dbe8f7;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  padding: 16px 20px;
+  font-weight: 600;
+  color: #003d82;
+  cursor: pointer;
+  font-size: 15px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  font-size: 20px;
+  font-weight: 400;
+  color: #0066cc;
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+.faq-item p {
+  padding: 0 20px 16px;
+  color: #555;
+  line-height: 1.7;
+  font-size: 15px;
+  margin: 0;
 }

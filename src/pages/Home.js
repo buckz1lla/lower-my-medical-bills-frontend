@@ -9,7 +9,7 @@ function Home() {
   return (
     <div className="home">
       <section className="hero">
-        <h2>Take Control of Your Medical Bills</h2>
+        <h1>Take Control of Your Medical Bills</h1>
         <p>Understand what you're paying for and discover potential savings opportunities</p>
         <Link to="/analyzer" className="cta-button">Start Analyzing Your EOB</Link>
       </section>
@@ -94,6 +94,53 @@ function Home() {
             <h4>Medical Bill Too High? What to Do First</h4>
             <p>Follow a first-48-hours checklist that protects leverage and keeps appeals viable.</p>
           </Link>
+        </div>
+      </section>
+
+      <section className="trust-section">
+        <h2>Your Privacy &amp; Security</h2>
+        <div className="trust-grid">
+          <div className="trust-card">
+            <div className="trust-icon">🔒</div>
+            <h3>Secure Uploads</h3>
+            <p>Files are transmitted over encrypted HTTPS and are not stored after analysis is complete.</p>
+          </div>
+          <div className="trust-card">
+            <div className="trust-icon">🚫</div>
+            <h3>No Account Required</h3>
+            <p>Analyze your EOB without creating an account or sharing personal health information.</p>
+          </div>
+          <div className="trust-card">
+            <div className="trust-icon">📋</div>
+            <h3>Plain-English Results</h3>
+            <p>We translate insurance jargon into clear action steps you can use today.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq-list">
+          <details className="faq-item">
+            <summary>What is an Explanation of Benefits (EOB)?</summary>
+            <p>An EOB is a statement from your insurance company showing what was billed, what the plan paid, and what you owe. It is not a bill itself, but it tells you how your claim was processed.</p>
+          </details>
+          <details className="faq-item">
+            <summary>What types of billing errors are most common?</summary>
+            <p>Common errors include duplicate charges, upcoding (billing for a more expensive service than was provided), unbundling (splitting one procedure into multiple charges), and out-of-network billing for in-network providers.</p>
+          </details>
+          <details className="faq-item">
+            <summary>Does this work for hospital bills, not just insurance EOBs?</summary>
+            <p>Our tool is optimized for EOB documents from your insurer. Itemized hospital bills in CSV format also work. We are adding direct hospital bill support soon.</p>
+          </details>
+          <details className="faq-item">
+            <summary>Is my medical information safe when I upload?</summary>
+            <p>Yes. Files are sent over encrypted HTTPS, analyzed in memory, and not retained on our servers after processing. We do not sell or share your data.</p>
+          </details>
+          <details className="faq-item">
+            <summary>What if my claim was denied — can I appeal?</summary>
+            <p>Yes. If we detect a denied claim on your EOB, we highlight it and can generate a customized appeal letter template you can submit to your insurer.</p>
+          </details>
         </div>
       </section>
     </div>
