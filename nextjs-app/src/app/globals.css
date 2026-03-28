@@ -824,23 +824,29 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  padding: 4px;
+  border-radius: 14px;
+  background: #eef4fb;
+  border: 1px solid #dbe8f7;
 }
 
 .results-tab-next {
-  border: 1px solid #dbe8f7;
-  background: #ffffff;
+  border: 1px solid transparent;
+  background: transparent;
   color: #4d5b69;
   border-radius: 999px;
-  padding: 8px 14px;
+  padding: 9px 15px;
   cursor: pointer;
   font-weight: 600;
+  transition: all 0.15s ease;
 }
 
 .results-tab-next-active {
-  background: #0c5db3;
+  background: #0066cc;
   color: #ffffff;
-  border-color: #0c5db3;
+  border-color: #0066cc;
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.26);
 }
 
 .results-list-next {
@@ -863,13 +869,16 @@ a {
 
 .result-card-next {
   background: #ffffff;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 16px;
+  border: 1px solid #dbe8f7;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(0, 61, 130, 0.05);
 }
 
 .result-card-next h3 {
   margin-bottom: 8px;
+  color: #12345d;
+  font-size: 1.18rem;
 }
 
 .result-card-next p,
@@ -886,12 +895,18 @@ a {
 
 .result-expand-btn-next {
   border: 1px solid #dbe8f7;
-  background: #f6f9fd;
+  background: #f4f8fd;
   border-radius: 8px;
   color: #003d82;
-  padding: 6px 10px;
+  padding: 7px 12px;
   cursor: pointer;
   font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.result-expand-btn-next:hover {
+  background: #e9f1fb;
+  border-color: #c8dcf4;
 }
 
 .result-details-next {
@@ -906,19 +921,26 @@ a {
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  align-items: center;
 }
 
 .result-pill-next {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #0c5db3;
+  color: #0a4f95;
+  background: #eaf2fc;
+  border: 1px solid #cfe0f4;
+  border-radius: 999px;
+  padding: 5px 9px;
 }
 
 .result-money-next {
-  color: #1b874b;
+  color: #1a854b;
   font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
 }
 
 .empty-state-next {
@@ -936,28 +958,33 @@ a {
 }
 
 .payment-gate-next {
-  border: 1px solid #d7e4f4;
-  border-radius: 12px;
+  border: 1px solid #d9e6f6;
+  border-radius: 16px;
   background: #ffffff;
-  padding: 16px;
-  margin-bottom: 16px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 18px rgba(0, 61, 130, 0.06);
 }
 
 .payment-gate-next h3 {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #003d82;
 }
 
 .payment-gate-next ul {
   padding-left: 18px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: #4d5b69;
   display: grid;
-  gap: 5px;
+  gap: 7px;
+  line-height: 1.45;
 }
 
 .payment-gate-note-next {
-  margin-top: 10px;
-  color: #4d5b69;
+  margin-top: 12px;
+  color: #5e6d7c;
+  font-size: 0.98rem;
 }
 
 .payment-message-next {
@@ -1016,7 +1043,14 @@ a {
 .templates-section-next,
 .action-section-next,
 .contextual-recommendations-next {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.action-section-next h3,
+.contextual-recommendations-next h3 {
+  color: #003d82;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
 
 .template-content-next {
@@ -1034,17 +1068,25 @@ a {
 .recommendations-grid-next {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
+  gap: 14px;
 }
 
 .action-button-next {
   border: 1px solid #dbe8f7;
-  border-radius: 10px;
-  padding: 10px 12px;
+  border-radius: 12px;
+  padding: 12px 14px;
   background: #ffffff;
   font-weight: 700;
   color: #003d82;
   cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.action-button-next:hover {
+  border-color: #b9d3ef;
+  background: #f4f9ff;
+  box-shadow: 0 4px 12px rgba(0, 61, 130, 0.1);
+  transform: translateY(-1px);
 }
 
 .action-button-next:disabled {
@@ -1053,7 +1095,32 @@ a {
 }
 
 .rec-icon-next {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f1f6fd;
+  border: 1px solid #d6e5f7;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .payment-gate-next {
+    padding: 16px;
+  }
+
+  .payment-gate-next h3,
+  .action-section-next h3,
+  .contextual-recommendations-next h3 {
+    font-size: 1.35rem;
+  }
+
+  .results-tabs-next {
+    padding: 6px;
+  }
 }
 
 .owner-login-page-next {
