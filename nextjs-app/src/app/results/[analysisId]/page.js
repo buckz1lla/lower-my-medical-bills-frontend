@@ -595,7 +595,10 @@ function ResultsContent() {
             opportunities.map((opportunity) => (
               <article className="result-card-next" key={opportunity.opportunity_id}>
                 <div className="result-card-next-top">
-                  <p className="result-pill-next">{opportunity.type.replaceAll("_", " ")}</p>
+                  <p className={`result-pill-next${
+                    opportunity.type === 'out_of_network' ? ' result-pill-danger-next' :
+                    opportunity.type.includes('saving') || opportunity.type.includes('overcharge') || opportunity.type.includes('duplicate') ? ' result-pill-savings-next' : ''
+                  }`}>{opportunity.type.replaceAll("_", " ")}</p>
                   <p className="result-money-next">{formatMoney(opportunity.estimated_savings)}</p>
                 </div>
                 <h3>{opportunity.description}</h3>
