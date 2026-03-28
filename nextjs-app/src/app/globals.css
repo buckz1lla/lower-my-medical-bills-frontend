@@ -878,3 +878,375 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   GUIDES HUB
+   ============================================================ */
+
+.guides-page {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.guides-hero {
+  margin-bottom: 28px;
+  background: linear-gradient(140deg, #f2f8ff, #e9f3ff 56%, #f8fcff);
+  border: 1px solid rgba(0, 102, 204, 0.18);
+  border-radius: 14px;
+  padding: 30px;
+}
+
+.guides-kicker {
+  margin: 0 0 8px;
+  color: #0b4f8d;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.guides-hero h1 {
+  margin: 0 0 10px;
+  color: #053561;
+  font-size: 34px;
+  font-family: var(--font-heading), serif;
+}
+
+.guides-hero p {
+  margin: 0;
+  color: #2d4f75;
+  line-height: 1.65;
+}
+
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.guide-card {
+  background: #fff;
+  border: 1px solid #dbe8f7;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 18px rgba(4, 72, 132, 0.05);
+}
+
+.guide-card h2 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  font-family: var(--font-heading), serif;
+}
+
+.guide-card h2 a {
+  color: #084880;
+  text-decoration: none;
+}
+
+.guide-card h2 a:hover {
+  text-decoration: underline;
+}
+
+.guide-card p {
+  margin: 0 0 14px;
+  color: #46688f;
+  line-height: 1.6;
+}
+
+.guide-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #6f879f;
+  font-size: 13px;
+}
+
+.guide-meta a {
+  color: #005ab5;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.guide-meta a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   GUIDE ARTICLE
+   ============================================================ */
+
+.guide-article-page {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.guide-back-link {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #0a63b6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.guide-back-link:hover {
+  text-decoration: underline;
+}
+
+.guide-header {
+  background: #fff;
+  border: 1px solid #dbe8f7;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 18px;
+}
+
+.guide-header h1 {
+  margin: 0 0 10px;
+  color: #073f72;
+  font-family: var(--font-heading), serif;
+  font-size: 28px;
+}
+
+.guide-header p {
+  margin: 0 0 10px;
+  color: #395f84;
+  line-height: 1.7;
+}
+
+.guide-header span {
+  color: #6f879f;
+  font-size: 13px;
+}
+
+.guide-section {
+  background: #fff;
+  border: 1px solid #e4edf8;
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 14px;
+}
+
+.guide-section h2 {
+  margin: 0 0 8px;
+  color: #0b4880;
+  font-size: 18px;
+  font-family: var(--font-heading), serif;
+}
+
+.guide-section p {
+  margin: 0;
+  color: #375a80;
+  line-height: 1.75;
+}
+
+.guide-cta-box {
+  border-radius: 12px;
+  padding: 22px;
+  margin: 20px 0;
+  background: linear-gradient(120deg, #eef7ff, #f7fbff);
+  border: 1px solid #bcdaf8;
+}
+
+.guide-cta-box h2 {
+  margin: 0 0 8px;
+  color: #063f73;
+  font-size: 18px;
+  font-family: var(--font-heading), serif;
+}
+
+.guide-cta-box p {
+  margin: 0 0 12px;
+  color: #365b7f;
+}
+
+.guide-primary-cta {
+  display: inline-block;
+  text-decoration: none;
+  background: #0066cc;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 7px;
+}
+
+.guide-primary-cta:hover {
+  background: #0051a8;
+}
+
+.guide-cta-box-secondary {
+  background: linear-gradient(120deg, #f4fff8, #f8fffb);
+  border-color: #aaded0;
+}
+
+.guide-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.guide-link-row a {
+  color: #0456a3;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.guide-link-row a:hover {
+  text-decoration: underline;
+}
+
+.guide-faq {
+  background: #fff;
+  border: 1px solid #dbe8f7;
+  border-radius: 12px;
+  padding: 22px;
+  margin-top: 14px;
+}
+
+.guide-faq h2 {
+  margin-top: 0;
+  color: #073f72;
+  font-size: 18px;
+  font-family: var(--font-heading), serif;
+}
+
+.guide-faq details {
+  border-top: 1px solid #edf3fa;
+  padding: 10px 0;
+}
+
+.guide-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #124f89;
+}
+
+.guide-faq p {
+  margin: 8px 0 0;
+  color: #385f84;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   APPEAL TRACKER
+   ============================================================ */
+
+.appeal-tracker-page {
+  max-width: 780px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.appeal-tracker-header {
+  margin-bottom: 18px;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 102, 204, 0.18);
+  background: linear-gradient(125deg, #ecf6ff, #f7fbff);
+}
+
+.appeal-kicker {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0c5aa2;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.appeal-tracker-header h1 {
+  margin: 0 0 8px;
+  color: #063f73;
+  font-family: var(--font-heading), serif;
+}
+
+.appeal-tracker-header p {
+  margin: 0;
+  color: #3f6289;
+  line-height: 1.7;
+}
+
+.appeal-tracker-card {
+  border: 1px solid #dbe8f7;
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.appeal-row {
+  margin-bottom: 14px;
+}
+
+.appeal-row label {
+  display: block;
+  margin-bottom: 6px;
+  color: #104b84;
+  font-weight: 600;
+}
+
+.appeal-row select,
+.appeal-row input,
+.appeal-row textarea {
+  width: 100%;
+  border: 1px solid #c8dcef;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  color: #2c4c70;
+}
+
+.appeal-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.appeal-actions button {
+  border: none;
+  border-radius: 8px;
+  background: #0066cc;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.appeal-actions button:hover:not(:disabled) {
+  background: #0051a8;
+}
+
+.appeal-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.appeal-back-link {
+  color: #0a63b6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.appeal-back-link:hover {
+  text-decoration: underline;
+}
+
+.appeal-meta {
+  margin: 12px 0 0;
+  color: #6f879f;
+  font-size: 13px;
+}
+
+.appeal-message {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #edf7ee;
+  border: 1px solid #b3daba;
+  color: #1a5c2e;
+  font-size: 14px;
+}
