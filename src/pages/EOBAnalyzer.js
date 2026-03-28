@@ -77,13 +77,20 @@ function EOBAnalyzer() {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
+        timeout: 60000,
       });
 
       setSuccess(true);
       setFile(null);
       navigate(`/results/${response.data.analysis_id}`);
     } catch (err) {
-      setError(err.response?.data?.detail || 'Error uploading file. Please try again.');
+      const detail = err.response?.data?.detail;
+      if (err.code === 'ECONNABORTED') {
+        setError('Upload timed out while analyzing this file. Try a smaller PDF or CSV export.');
+      } else {
+        setError(detail || 'Error uploading file. Please try again.');
+      }
+    } finally {
       setLoading(false);
     }
   };
