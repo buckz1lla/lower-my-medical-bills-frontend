@@ -372,10 +372,10 @@ export default function ResultsPage({ params }) {
     });
   };
 
-  const handleAffiliateClick = async (affiliate, link) => {
+  const handleAffiliateClick = useCallback(async (affiliate, link) => {
     await trackEvent("affiliate_link_clicked", { affiliate, analysisId });
     window.open(link, "_blank");
-  };
+  }, [analysisId]);
 
   const recommendations = useMemo(() => {
     if (!analysis) {
@@ -427,7 +427,7 @@ export default function ResultsPage({ params }) {
     });
 
     return next;
-  }, [analysis, analysisId]);
+  }, [analysis, handleAffiliateClick]);
 
   const opportunities = analysis?.savings_opportunities || [];
   const appeals = analysis?.appeal_recommendations || [];
