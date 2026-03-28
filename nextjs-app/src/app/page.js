@@ -14,122 +14,205 @@ export const metadata = {
   },
 };
 
-const FEATURED_GUIDES = [
-  {
-    slug: "how-to-appeal-a-denied-insurance-claim",
-    title: "How to Appeal a Denied Claim",
-    summary: "A 7-step process to challenge denials and improve approval odds.",
-  },
-  {
-    slug: "what-is-an-eob-and-how-to-read-it",
-    title: "How to Read Your EOB",
-    summary: "Decode billed, allowed, and patient responsibility without guesswork.",
-  },
-  {
-    slug: "surprise-out-of-network-bills",
-    title: "Fight a Surprise Out-of-Network Bill",
-    summary: "Federal law may cap what you owe. Here is how to use it.",
-  },
-];
-
 export default function Home() {
   return (
-    <div className="home-page">
-      <header className="hero">
-        <p className="hero-kicker">Medical Bill Review</p>
-        <h1>Catch Billing Errors Before You Pay</h1>
-        <p className="hero-copy">
-          Upload your Explanation of Benefits and get clear, actionable findings
-          on duplicates, denials, and out-of-network charges.
+    <div className="home-page home">
+      <section className="hero">
+        <h1>Take Control of Your Medical Bills</h1>
+        <p>
+          Understand what you&apos;re paying for and discover potential savings
+          opportunities.
         </p>
-        <div className="hero-actions">
-          <Link href="/analyzer" className="btn-primary">
-            Start Free EOB Analysis
-          </Link>
-          <Link href="/guides" className="btn-secondary">
-            See How It Works
+        <Link href="/analyzer" className="cta-button">
+          Start Analyzing Your EOB
+        </Link>
+      </section>
+
+      <section className="features">
+        <h3>What We Help You With</h3>
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon">&#128270;</div>
+            <h4>Check My EOB</h4>
+            <p>
+              Upload your Explanation of Benefits and get instant insights into
+              potential billing errors and savings opportunities.
+            </p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">&#128161;</div>
+            <h4>Understand Your Coverage</h4>
+            <p>
+              Learn about in-network vs out-of-network claims, deductibles, and
+              how your plan works for you.
+            </p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">&#128221;</div>
+            <h4>Appeal Support</h4>
+            <p>
+              Get guidance on appealing denied claims with step-by-step
+              instructions and success probability estimates.
+            </p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">&#128176;</div>
+            <h4>Identify Savings</h4>
+            <p>
+              Discover billing errors, duplicate charges, and other issues where
+              you might save money.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="how-it-works">
+        <h3>How It Works</h3>
+        <ol className="steps">
+          <li>
+            <span className="step-number">1</span>
+            <div className="step-content">
+              <h4>Upload Your EOB</h4>
+              <p>
+                Simply upload your Explanation of Benefits (PDF, image, or
+                spreadsheet).
+              </p>
+            </div>
+          </li>
+          <li>
+            <span className="step-number">2</span>
+            <div className="step-content">
+              <h4>We Analyze</h4>
+              <p>
+                Our system examines every claim for errors, billing issues, and
+                savings opportunities.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span className="step-number">3</span>
+            <div className="step-content">
+              <h4>Get Results</h4>
+              <p>
+                Receive a detailed report with prioritized actions you can take.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span className="step-number">4</span>
+            <div className="step-content">
+              <h4>Take Action</h4>
+              <p>
+                Follow our recommendations to appeal claims and recover money.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section className="resource-section">
+        <div className="resource-header">
+          <h3>Learn Before You Call Billing</h3>
+          <Link href="/guides" className="resource-link">
+            See all guides
           </Link>
         </div>
-      </header>
-
-      <main className="content">
-        <section className="stats-grid" aria-label="What users get">
-          <article className="stat-card">
-            <h2>3-minute review</h2>
-            <p>Upload and get a readable claim breakdown instantly.</p>
-          </article>
-          <article className="stat-card">
-            <h2>Plain-English output</h2>
-            <p>No insurance jargon. Just what you can challenge and how.</p>
-          </article>
-          <article className="stat-card">
-            <h2>Appeal guidance</h2>
-            <p>Denied claims are flagged with practical next steps.</p>
-          </article>
-        </section>
-
-        <section className="how-grid" aria-label="How it works">
-          <h2>How It Works</h2>
-          <ol>
-            <li>
-              <strong>Upload your EOB.</strong> PDF, image, or CSV exports are
-              accepted.
-            </li>
-            <li>
-              <strong>We parse each line item.</strong> Billed, allowed, paid,
-              and responsibility are reconciled.
-            </li>
-            <li>
-              <strong>You get actions to take.</strong> Use findings to call
-              billing or file appeals.
-            </li>
-          </ol>
-        </section>
-
-        <section className="faq" aria-label="Frequently asked questions">
-          <h2>FAQ</h2>
-          <details>
-            <summary>Is this a bill negotiation service?</summary>
+        <div className="resource-grid">
+          <Link href="/guides/how-to-appeal-a-denied-insurance-claim" className="resource-card">
+            <h4>How to Appeal a Denied Insurance Claim</h4>
             <p>
-              It is an analysis tool that helps you identify likely claim issues
-              and prepare a stronger conversation with billing or insurance.
+              Use a 7-step framework to file a stronger appeal and avoid common
+              denial traps.
             </p>
-          </details>
-          <details>
-            <summary>Do I need an account?</summary>
-            <p>No. You can run analysis without creating an account.</p>
-          </details>
-          <details>
-            <summary>Can this help with denied claims?</summary>
+          </Link>
+          <Link href="/guides/what-is-an-eob-and-how-to-read-it" className="resource-card">
+            <h4>What Is an EOB and How to Read It</h4>
             <p>
-              Yes. Denials are highlighted and paired with suggested appeal
-              actions.
+              Decode claim lines fast so you can spot errors and avoid paying
+              the wrong amount.
             </p>
-          </details>
-        </section>
+          </Link>
+          <Link href="/guides/medical-bill-too-high-what-to-do" className="resource-card">
+            <h4>Medical Bill Too High? What to Do First</h4>
+            <p>
+              Follow a first-48-hours checklist that protects leverage and keeps
+              appeals viable.
+            </p>
+          </Link>
+        </div>
+      </section>
 
-        <section className="home-guides" aria-label="Featured guides">
-          <h2>Free Guides</h2>
-          <div className="guides-grid">
-            {FEATURED_GUIDES.map((g) => (
-              <article key={g.slug} className="guide-card">
-                <h3>
-                  <Link href={`/guides/${g.slug}`}>{g.title}</Link>
-                </h3>
-                <p>{g.summary}</p>
-                <div className="guide-meta">
-                  <Link href={`/guides/${g.slug}`}>Read guide</Link>
-                </div>
-              </article>
-            ))}
+      <section className="trust-section">
+        <h2>Your Privacy &amp; Security</h2>
+        <div className="trust-grid">
+          <div className="trust-card">
+            <div className="trust-icon">&#128274;</div>
+            <h3>Secure Uploads</h3>
+            <p>
+              Files are transmitted over encrypted HTTPS and are not stored
+              after analysis is complete.
+            </p>
           </div>
-          <p style={{ marginTop: 18 }}>
-            <Link href="/guides" className="btn-secondary">
-              View all guides
-            </Link>
-          </p>
-        </section>
-      </main>
+          <div className="trust-card">
+            <div className="trust-icon">&#128100;</div>
+            <h3>No Account Required</h3>
+            <p>
+              Analyze your EOB without creating an account or sharing personal
+              health information.
+            </p>
+          </div>
+          <div className="trust-card">
+            <div className="trust-icon">&#128172;</div>
+            <h3>Plain-English Results</h3>
+            <p>
+              We translate insurance jargon into clear action steps you can use
+              today.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq-list">
+          <details className="faq-item">
+            <summary>What is an Explanation of Benefits (EOB)?</summary>
+            <p>
+              An EOB is a statement from your insurance company showing what was
+              billed, what the plan paid, and what you owe. It is not a bill
+              itself, but it tells you how your claim was processed.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>What types of billing errors are most common?</summary>
+            <p>
+              Common errors include duplicate charges, upcoding, unbundling, and
+              out-of-network billing for in-network providers.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>Does this work for hospital bills, not just insurance EOBs?</summary>
+            <p>
+              Our tool is optimized for EOB documents from your insurer.
+              Itemized hospital bills in CSV format also work.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>Is my medical information safe when I upload?</summary>
+            <p>
+              Yes. Files are sent over encrypted HTTPS, analyzed in memory, and
+              not retained on our servers after processing.
+            </p>
+          </details>
+          <details className="faq-item">
+            <summary>What if my claim was denied can I appeal?</summary>
+            <p>
+              Yes. If we detect a denied claim on your EOB, we highlight it and
+              can generate a customized appeal letter template.
+            </p>
+          </details>
+        </div>
+      </section>
     </div>
   );
 }
