@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, useParams } from "next/navigation";
 import Link from "next/link";
 import { jsPDF } from "jspdf";
 import { getAffiliateLink } from "@/lib/affiliateLinks";
@@ -193,7 +193,8 @@ function PaymentButton({ analysisId, pricing, disabled }) {
   );
 }
 
-function ResultsContent({ params }) {
+function ResultsContent() {
+  const params = useParams();
   const { analysisId } = params;
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -719,10 +720,10 @@ function ResultsContent({ params }) {
   );
 }
 
-export default function ResultsPage({ params }) {
+export default function ResultsPage() {
   return (
     <Suspense>
-      <ResultsContent params={params} />
+      <ResultsContent />
     </Suspense>
   );
 }
