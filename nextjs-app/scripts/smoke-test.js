@@ -28,11 +28,11 @@ const tests = [
   // Admin login (POST with no body → 422)
   { label: "Admin login reachable", url: `${API_BASE}/api/admin/login`, method: "POST", expect: [422] },
 
-  // Admin me (no session → 401/403)
-  { label: "Admin me auth guard", url: `${API_BASE}/api/admin/me`, expect: [401, 403] },
+  // Admin me (no session → 401)
+  { label: "Admin me auth guard", url: `${API_BASE}/api/admin/me`, expect: [401] },
 
-  // Analytics dashboard (no auth → 401/403)
-  { label: "Analytics today auth guard", url: `${API_BASE}/api/analytics/today`, expect: [401, 403] },
+  // Analytics summary (protected if ANALYTICS_API_KEY is set, open otherwise)
+  { label: "Analytics summary reachable", url: `${API_BASE}/api/analytics/summary`, expect: [200, 401] },
 ];
 
 let passed = 0;
