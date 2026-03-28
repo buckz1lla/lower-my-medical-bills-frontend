@@ -966,6 +966,79 @@ a {
   box-shadow: 0 6px 18px rgba(0, 61, 130, 0.06);
 }
 
+.payzone-next {
+  border: 2px solid #f0d6a2;
+  background: linear-gradient(180deg, #fffdf6 0%, #ffffff 70%);
+  box-shadow: 0 10px 24px rgba(138, 90, 0, 0.12);
+}
+
+.payzone-header-next {
+  margin-bottom: 10px;
+}
+
+.payzone-kicker-next {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #f0d6a2;
+  background: #fff7e6;
+  color: #8a5a00;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.payzone-subtitle-next {
+  margin-top: 4px;
+  color: #5e6d7c;
+}
+
+.payzone-meta-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 10px;
+}
+
+.payzone-price-next {
+  margin: 0;
+  color: #12345d;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.payzone-status-next {
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #f0d6a2;
+  background: #fff7e6;
+  color: #8a5a00;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.payzone-cta-next {
+  width: 100%;
+  max-width: 420px;
+  padding: 13px 16px;
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  box-shadow: 0 10px 22px rgba(0, 82, 163, 0.33);
+}
+
+.payzone-cta-next:hover {
+  background: linear-gradient(135deg, #0a5ab0 0%, #004889 100%);
+  box-shadow: 0 14px 28px rgba(0, 82, 163, 0.38);
+}
+
+.payzone-cta-next:disabled {
+  box-shadow: none;
+}
+
 .payment-gate-next h3 {
   margin-bottom: 10px;
   font-size: 1.8rem;
@@ -1110,6 +1183,15 @@ a {
 @media (max-width: 768px) {
   .payment-gate-next {
     padding: 16px;
+  }
+
+  .payzone-meta-next {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .payzone-cta-next {
+    max-width: 100%;
   }
 
   .payment-gate-next h3,

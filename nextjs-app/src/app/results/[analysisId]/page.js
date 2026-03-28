@@ -177,15 +177,32 @@ function PaymentButton({ analysisId, pricing, disabled }) {
   };
 
   return (
-    <section className="payment-gate-next">
-      <h3>Get Your Personalized Appeal Package</h3>
+    <section className="payment-gate-next payzone-next">
+      <div className="payzone-header-next">
+        <p className="payzone-kicker-next">Next Step</p>
+        <h3>Unlock Your Personalized Appeal Package</h3>
+        <p className="payzone-subtitle-next">
+          Complete checkout to access your full report toolkit and move forward with appeals.
+        </p>
+      </div>
+
+      <div className="payzone-meta-next">
+        <p className="payzone-price-next">{formatUsdFromCents(pricing.amountCents)} one-time</p>
+        <p className="payzone-status-next">Locked until payment</p>
+      </div>
+
       <ul>
         <li>Customized appeal letter template</li>
         <li>Phone scripts for insurer and provider</li>
         <li>Step-by-step appeal checklist</li>
         <li>Negotiation talking points</li>
       </ul>
-      <button className="btn-primary analyzer-submit" disabled={isLoading || disabled} onClick={handlePayment} type="button">
+      <button
+        className="btn-primary analyzer-submit payzone-cta-next"
+        disabled={isLoading || disabled}
+        onClick={handlePayment}
+        type="button"
+      >
         {isLoading ? "Redirecting to secure checkout..." : `Unlock Templates - ${formatUsdFromCents(pricing.amountCents)}`}
       </button>
       <p className="payment-gate-note-next">Secure Stripe checkout. One-time payment. No subscription.</p>
