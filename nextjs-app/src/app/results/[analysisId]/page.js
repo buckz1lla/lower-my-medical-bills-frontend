@@ -471,7 +471,8 @@ function ResultsContent() {
   }
 
   return (
-    <main className="home-page">
+    <main className="content-page results-page-next">
+      <section className="content-card results-shell-next">
       <section className="results-header-next">
         <h1>
           Your EOB Analysis Results <span className={`results-access-chip-next ${isPaid ? "results-access-chip-paid" : "results-access-chip-unpaid"}`}>{isPaid ? "Paid" : "Locked"}</span>
@@ -715,6 +716,7 @@ function ResultsContent() {
             </article>
           ))}
         </div>
+      </section>
       </section>
     </main>
   );

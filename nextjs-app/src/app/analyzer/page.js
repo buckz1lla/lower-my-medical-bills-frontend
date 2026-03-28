@@ -122,7 +122,11 @@ export default function AnalyzerPage() {
             <span className="file-drop-hint">PDF, Images (JPG/PNG), or Spreadsheets (CSV/XLSX)</span>
           </label>
 
-          <button type="submit" className="btn-primary analyzer-submit" disabled={!file || loading}>
+          <button
+            type="submit"
+            className={`btn-primary analyzer-submit ${file && !loading ? "analyzer-submit-ready" : ""}`}
+            disabled={!file || loading}
+          >
             {loading ? "Uploading and analyzing..." : "Analyze My EOB"}
           </button>
         </form>
