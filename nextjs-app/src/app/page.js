@@ -1,5 +1,23 @@
 import Link from "next/link";
 
+const FEATURED_GUIDES = [
+  {
+    slug: "how-to-appeal-a-denied-insurance-claim",
+    title: "How to Appeal a Denied Claim",
+    summary: "A 7-step process to challenge denials and improve approval odds.",
+  },
+  {
+    slug: "what-is-an-eob-and-how-to-read-it",
+    title: "How to Read Your EOB",
+    summary: "Decode billed, allowed, and patient responsibility without guesswork.",
+  },
+  {
+    slug: "surprise-out-of-network-bills",
+    title: "Fight a Surprise Out-of-Network Bill",
+    summary: "Federal law may cap what you owe. Here is how to use it.",
+  },
+];
+
 export default function Home() {
   return (
     <div className="home-page">
@@ -74,6 +92,28 @@ export default function Home() {
               actions.
             </p>
           </details>
+        </section>
+
+        <section className="home-guides" aria-label="Featured guides">
+          <h2>Free Guides</h2>
+          <div className="guides-grid">
+            {FEATURED_GUIDES.map((g) => (
+              <article key={g.slug} className="guide-card">
+                <h3>
+                  <Link href={`/guides/${g.slug}`}>{g.title}</Link>
+                </h3>
+                <p>{g.summary}</p>
+                <div className="guide-meta">
+                  <Link href={`/guides/${g.slug}`}>Read guide</Link>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p style={{ marginTop: 18 }}>
+            <Link href="/guides" className="btn-secondary">
+              View all guides
+            </Link>
+          </p>
         </section>
       </main>
     </div>
