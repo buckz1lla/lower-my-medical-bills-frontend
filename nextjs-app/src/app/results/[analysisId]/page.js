@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { jsPDF } from "jspdf";
@@ -193,7 +193,7 @@ function PaymentButton({ analysisId, pricing, disabled }) {
   );
 }
 
-export default function ResultsPage({ params }) {
+function ResultsContent({ params }) {
   const { analysisId } = params;
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -716,5 +716,13 @@ export default function ResultsPage({ params }) {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function ResultsPage({ params }) {
+  return (
+    <Suspense>
+      <ResultsContent params={params} />
+    </Suspense>
   );
 }
