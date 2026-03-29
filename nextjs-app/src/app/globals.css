@@ -943,6 +943,10 @@ a {
   color: #ffffff;
 }
 
+.result-card-next p.result-pill-next.result-pill-danger-next {
+  color: #ffffff;
+}
+
 .result-pill-savings-next {
   background: #dcfce7;
   border-color: #86efac;
@@ -954,6 +958,10 @@ a {
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 1;
+}
+
+.result-card-next p.result-money-next {
+  color: #1a854b;
 }
 
 .empty-state-next {
