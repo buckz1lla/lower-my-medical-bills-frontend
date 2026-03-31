@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Lower My Medical Bills - Free EOB Review & Billing Error Finder",
+  title: "Lower My Medical Bills - Free EOB Analyzer & Appeal Prep Tool",
   description:
-    "Upload your Explanation of Benefits to find billing errors, duplicate charges, and overcharges in minutes. Free analysis, pay only to unlock templates.",
+    "Upload your Explanation of Benefits to spot potential billing errors and get the documents you need to prepare a stronger appeal. Free analysis.",
   alternates: { canonical: "https://www.lowermymedicalbills.com" },
   openGraph: {
-    title: "Lower My Medical Bills - Free EOB Review",
-    description: "Find billing errors in your EOB for free. Unlock appeal templates to dispute charges.",
+    title: "Lower My Medical Bills - Free EOB Analyzer & Appeal Prep",
+    description: "Spot potential billing errors in your EOB for free. Unlock appeal prep documents to dispute charges.",
     url: "https://www.lowermymedicalbills.com",
     siteName: "Lower My Medical Bills",
     type: "website",
@@ -51,8 +51,8 @@ export default function Home() {
             <div className="feature-icon">&#128221;</div>
             <h4>Appeal Support</h4>
             <p>
-              Get guidance on appealing denied claims with step-by-step
-              instructions and success probability estimates.
+                Get step-by-step appeal preparation guidance for denied claims,
+                including what to document and who to contact.
             </p>
           </div>
           <div className="feature-card">
@@ -103,7 +103,8 @@ export default function Home() {
             <div className="step-content">
               <h4>Take Action</h4>
               <p>
-                Follow our recommendations to appeal claims and recover money.
+                 Use your report to prepare a stronger appeal with the right
+                 documents and talking points in hand.
               </p>
             </div>
           </li>
