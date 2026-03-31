@@ -232,9 +232,9 @@ function PaymentButton({ analysisId, pricing, disabled }) {
     <section className="payment-gate-next payzone-next">
       <div className="payzone-header-next">
         <p className="payzone-kicker-next">Next Step</p>
-        <h3>Unlock Your Personalized Appeal Package</h3>
+        <h3>Get Your Appeal Prep Toolkit</h3>
         <p className="payzone-subtitle-next">
-          Complete checkout to access your full report toolkit and move forward with appeals.
+          Checkout unlocks templates and guided checklists to help you prepare stronger calls and appeals.
         </p>
       </div>
 
@@ -246,7 +246,7 @@ function PaymentButton({ analysisId, pricing, disabled }) {
       <ul>
         <li>Customized appeal letter template</li>
         <li>Phone scripts for insurer and provider</li>
-        <li>Step-by-step appeal checklist</li>
+        <li>Step-by-step appeal and verification checklist</li>
         <li>Negotiation talking points</li>
       </ul>
       <button
@@ -255,9 +255,12 @@ function PaymentButton({ analysisId, pricing, disabled }) {
         onClick={handlePayment}
         type="button"
       >
-        {isLoading ? "Redirecting to secure checkout..." : `Unlock Templates - ${formatUsdFromCents(pricing.amountCents)}`}
+        {isLoading ? "Redirecting to secure checkout..." : `Get Toolkit - ${formatUsdFromCents(pricing.amountCents)}`}
       </button>
       <p className="payment-gate-note-next">Secure Stripe checkout. One-time payment. No subscription.</p>
+      <p className="safety-disclaimer-next">
+        Educational support only. Verify benefits, network status, and billing details with your insurer before filing appeals.
+      </p>
     </section>
   );
 }
@@ -760,7 +763,7 @@ function ResultsContent() {
       {hasDownloadedPackage && templates?.templates ? (
         <section className="templates-section-next">
           <h3>Your Appeal Templates and Scripts</h3>
-          <p>Use these personalized templates as your starting point.</p>
+          <p>Use these templates as your preparation starting point, then verify plan-specific facts before submitting.</p>
           <button className="btn-primary" type="button" onClick={handleDownloadPdf}>
             Download Appeal Package (PDF)
           </button>
@@ -801,6 +804,9 @@ function ResultsContent() {
 
       <section className="action-section-next">
         <h3>Next Steps</h3>
+        <p className="safety-disclaimer-next">
+          Guidance shown here is educational and may be incomplete. Confirm coverage rules, coding, and deadlines with your insurer.
+        </p>
         <div className="recommendations-grid-next">
           <button className="action-button-next" onClick={handleDownloadPdf} type="button" disabled={!hasDownloadedPackage}>
             {hasDownloadedPackage ? "Download PDF" : "Get Package First"}
