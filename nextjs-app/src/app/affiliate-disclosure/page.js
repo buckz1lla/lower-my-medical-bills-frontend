@@ -1,6 +1,8 @@
 export const metadata = {
   title: "Affiliate Disclosure | Lower My Medical Bills",
   description: "Disclosure about referral links and potential commissions.",
+  alternates: { canonical: "https://www.lowermymedicalbills.com/affiliate-disclosure" },
+  robots: { index: true, follow: true },
 };
 
 export default function AffiliateDisclosurePage() {

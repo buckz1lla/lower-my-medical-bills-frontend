@@ -2,6 +2,8 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Page Not Found | Lower My Medical Bills",
+  description: "The page you were looking for could not be found.",
+  robots: { index: false, follow: false },
 };
 
 export default function NotFound() {
