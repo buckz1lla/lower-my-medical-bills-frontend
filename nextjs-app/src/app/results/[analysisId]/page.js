@@ -16,6 +16,42 @@ const formatMoney = (value) => `$${Number(value || 0).toFixed(2)}`;
 
 const formatUsdFromCents = (value) => `$${(Number(value || 0) / 100).toFixed(2)}`;
 
+const isClaimOutOfNetwork = (claim) => {
+  if (!claim) {
+    return false;
+  }
+
+  if (claim.network_status === "out_of_network") {
+    return true;
+  }
+
+  return claim.in_network === false;
+};
+
+const formatNetworkStatus = (claim) => {
+  if (!claim) {
+    return "Unknown";
+  }
+
+  if (claim.network_status === "in_network") {
+    return "In network";
+  }
+
+  if (claim.network_status === "out_of_network") {
+    return "Out of network";
+  }
+
+  if (claim.in_network === true) {
+    return "In network";
+  }
+
+  if (claim.in_network === false) {
+    return "Out of network";
+  }
+
+  return "Unknown (verify with insurer)";
+};
+
 const pickPriceVariant = (analysisId) => {
   if (!PRICE_EXPERIMENT_ENABLED || !analysisId) {
     return { variant: "control", amountCents: PRICE_CONTROL_CENTS };
@@ -416,7 +452,7 @@ function ResultsContent() {
       });
     }
 
-    if ((analysis.claims || []).some((claim) => !claim.in_network)) {
+    if ((analysis.claims || []).some((claim) => isClaimOutOfNetwork(claim))) {
       next.push({
         title: "Learn Surprise Billing Protections",
         description: "The No Surprises Act may protect you from certain out-of-network charges.",
@@ -655,7 +691,7 @@ function ResultsContent() {
                 <p>Claim ID: {claim.claim_id}</p>
                 <p>Total billed: {formatMoney(claim.total_billed)}</p>
                 <p>Patient responsibility: {formatMoney(claim.total_patient_responsibility)}</p>
-                <p>Network: {claim.in_network ? "In network" : "Out of network"}</p>
+                <p>Network: {formatNetworkStatus(claim)}</p>
               </article>
             ))
           )}
