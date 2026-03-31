@@ -515,6 +515,20 @@ function ResultsContent() {
   const shouldUseCautiousSavingsLabel = hasLowConfidenceOpportunities || hasUnknownNetworkClaims || Boolean(parserWarning);
   const actionAppealsGuideLink = getAffiliateLink("appealsGuide", "results-actions");
 
+  const handleToggleOpportunity = (opportunity) => {
+    const isCurrentlyOpen = expandedOpportunity === opportunity.opportunity_id;
+    setExpandedOpportunity(isCurrentlyOpen ? null : opportunity.opportunity_id);
+
+    if (!isCurrentlyOpen) {
+      trackEvent("verification_details_viewed", {
+        analysisId,
+        opportunity_id: opportunity.opportunity_id,
+        opportunity_type: opportunity.type,
+        confidence_level: getConfidenceLevel(opportunity),
+      });
+    }
+  };
+
   if (loading) {
     return (
       <main className="content-page">
@@ -559,6 +573,25 @@ function ResultsContent() {
       <p className={`unlock-banner-next ${isPaid ? "unlock-banner-next-paid" : "unlock-banner-next-unpaid"}`}>
         {isPaid ? "Unlock confirmed: your appeal templates are ready below." : "Templates are locked until checkout is completed."}
       </p>
+
+      <section className="value-breakdown-next">
+        <article className="value-tier-next value-tier-next-free">
+          <h3>Included Free</h3>
+          <ul>
+            <li>Claim summary and totals</li>
+            <li>Confidence-rated opportunities</li>
+            <li>Verification checklist before action</li>
+          </ul>
+        </article>
+        <article className={`value-tier-next value-tier-next-toolkit ${isPaid ? "value-tier-next-active" : ""}`}>
+          <h3>{isPaid ? "Toolkit Unlocked" : `Appeal Prep Toolkit (${formatUsdFromCents(pricing.amountCents)})`}</h3>
+          <ul>
+            <li>Downloadable appeal package PDF</li>
+            <li>Insurer and provider phone scripts</li>
+            <li>Step-by-step appeal workflow documents</li>
+          </ul>
+        </article>
+      </section>
 
       <section className="summary-cards-next">
         <article className="summary-card-next summary-card-next-highlight">
@@ -673,7 +706,7 @@ function ResultsContent() {
                 <button
                   type="button"
                   className="result-expand-btn-next"
-                  onClick={() => setExpandedOpportunity(expandedOpportunity === opportunity.opportunity_id ? null : opportunity.opportunity_id)}
+                  onClick={() => handleToggleOpportunity(opportunity)}
                 >
                   {expandedOpportunity === opportunity.opportunity_id ? "Hide details" : "Show details"}
                 </button>

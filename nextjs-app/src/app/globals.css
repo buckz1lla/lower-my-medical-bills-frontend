@@ -791,6 +791,51 @@ a {
   color: #8a5a00;
 }
 
+.value-breakdown-next {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.value-tier-next {
+  border: 1px solid #dbe8f7;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 12px 14px;
+}
+
+.value-tier-next h3 {
+  margin: 0 0 8px;
+  color: #12345d;
+  font-size: 1rem;
+}
+
+.value-tier-next ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 5px;
+}
+
+.value-tier-next li {
+  color: #4d5b69;
+}
+
+.value-tier-next-free {
+  background: #f8fbff;
+}
+
+.value-tier-next-toolkit {
+  border-color: #f0d6a2;
+  background: #fffdf6;
+}
+
+.value-tier-next-active {
+  border-color: #bfe3c7;
+  background: #edf8f0;
+}
+
 .parser-debug-panel-next {
   margin-bottom: 18px;
   border: 1px solid #bfd4eb;
