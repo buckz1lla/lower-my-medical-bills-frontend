@@ -52,6 +52,22 @@ const formatNetworkStatus = (claim) => {
   return "Unknown (verify with insurer)";
 };
 
+const getConfidenceLevel = (opportunity) => {
+  const level = (opportunity?.confidence_level || "").toLowerCase();
+  if (level === "high" || level === "medium" || level === "low") {
+    return level;
+  }
+
+  const score = Number(opportunity?.confidence_score || 0);
+  if (score >= 0.8) {
+    return "high";
+  }
+  if (score >= 0.6) {
+    return "medium";
+  }
+  return "low";
+};
+
 const pickPriceVariant = (analysisId) => {
   if (!PRICE_EXPERIMENT_ENABLED || !analysisId) {
     return { variant: "control", amountCents: PRICE_CONTROL_CENTS };
@@ -490,6 +506,10 @@ function ResultsContent() {
   const parserWarning = analysis?.key_metrics?.parser_warning || "";
   const analysisMode = analysis?.key_metrics?.analysis_mode || "live";
   const isPaid = paymentStatus === "paid" || hasDownloadedPackage;
+  const claimsById = new Map((claims || []).map((claim) => [claim.claim_id, claim]));
+  const hasLowConfidenceOpportunities = opportunities.some((opportunity) => getConfidenceLevel(opportunity) === "low");
+  const hasUnknownNetworkClaims = claims.some((claim) => claim?.network_status === "unknown" || claim?.in_network === null);
+  const shouldUseCautiousSavingsLabel = hasLowConfidenceOpportunities || hasUnknownNetworkClaims || Boolean(parserWarning);
   const actionAppealsGuideLink = getAffiliateLink("appealsGuide", "results-actions");
 
   if (loading) {
@@ -540,7 +560,7 @@ function ResultsContent() {
       <section className="summary-cards-next">
         <article className="summary-card-next summary-card-next-highlight">
           <p className="summary-card-next-value">{formatMoney(analysis.total_potential_savings)}</p>
-          <p className="summary-card-next-label">Potential Savings</p>
+          <p className="summary-card-next-label">{shouldUseCautiousSavingsLabel ? "Potential Review Value" : "Estimated Savings"}</p>
         </article>
         <article className="summary-card-next">
           <p className="summary-card-next-value">{formatMoney(analysis.total_billed)}</p>
@@ -629,16 +649,24 @@ function ResultsContent() {
             <p className="empty-state-next">No savings opportunities detected for this upload.</p>
           ) : (
             opportunities.map((opportunity) => (
-              <article className="result-card-next" key={opportunity.opportunity_id}>
+              <article className={`result-card-next${getConfidenceLevel(opportunity) === "low" ? " result-card-next-caution" : ""}`} key={opportunity.opportunity_id}>
                 <div className="result-card-next-top">
                   <p className={`result-pill-next${
-                    opportunity.type === 'out_of_network' ? ' result-pill-danger-next' :
+                    opportunity.type === 'out_of_network' && (claimsById.get(opportunity.claim_id)?.network_status === "out_of_network" || claimsById.get(opportunity.claim_id)?.in_network === false) ? ' result-pill-danger-next' :
                     opportunity.type.includes('saving') || opportunity.type.includes('overcharge') || opportunity.type.includes('duplicate') ? ' result-pill-savings-next' : ''
                   }`}>{opportunity.type.replaceAll("_", " ")}</p>
-                  <p className="result-money-next">{formatMoney(opportunity.estimated_savings)}</p>
+                  <div className="result-money-wrap-next">
+                    <p className="result-money-next">{formatMoney(opportunity.estimated_savings)}</p>
+                    <p className={`result-confidence-badge-next result-confidence-badge-next-${getConfidenceLevel(opportunity)}`}>
+                      Confidence: {getConfidenceLevel(opportunity)}
+                    </p>
+                  </div>
                 </div>
                 <h3>{opportunity.description}</h3>
                 <p>{opportunity.recommended_action}</p>
+                {opportunity.type === "out_of_network" && claimsById.get(opportunity.claim_id)?.network_status === "unknown" ? (
+                  <p className="result-verify-banner-next">Needs verification: network status is unknown for this claim.</p>
+                ) : null}
                 <button
                   type="button"
                   className="result-expand-btn-next"
@@ -652,6 +680,37 @@ function ResultsContent() {
                     <p>Difficulty: {opportunity.difficulty_level}</p>
                     <p>Time estimate: {opportunity.time_estimate_days} day(s)</p>
                     <p>Confidence: {Math.round((opportunity.confidence_score || 0) * 100)}%</p>
+                    {opportunity.flag_reason ? <p>Why flagged: {opportunity.flag_reason}</p> : null}
+                    {(opportunity.verification_steps || []).length > 0 ? (
+                      <div className="result-details-list-next">
+                        <p>Verify before acting:</p>
+                        <ul>
+                          {opportunity.verification_steps.map((step, idx) => (
+                            <li key={`${opportunity.opportunity_id}-verify-${idx}`}>{step}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                    {(opportunity.could_be_correct_if || []).length > 0 ? (
+                      <div className="result-details-list-next">
+                        <p>This may be correct if:</p>
+                        <ul>
+                          {opportunity.could_be_correct_if.map((item, idx) => (
+                            <li key={`${opportunity.opportunity_id}-correct-${idx}`}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                    {(opportunity.missing_data_points || []).length > 0 ? (
+                      <div className="result-details-list-next">
+                        <p>Missing data points:</p>
+                        <ul>
+                          {opportunity.missing_data_points.map((item, idx) => (
+                            <li key={`${opportunity.opportunity_id}-missing-${idx}`}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
                   </div>
                 ) : null}
               </article>
