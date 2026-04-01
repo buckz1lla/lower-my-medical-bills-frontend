@@ -83,9 +83,9 @@ export default function AnalyzerPage() {
   return (
     <main className="content-page">
       <section className="content-card analyzer-card">
-        <h1>Check My EOB for Savings</h1>
+        <h1>Check My EOB and Prep My Appeal</h1>
         <p className="analyzer-subtitle">
-          Upload your Explanation of Benefits to identify potential billing errors and savings opportunities.
+          Upload your Explanation of Benefits to review potential billing issues and prepare your appeal plan.
         </p>
 
         {error ? <div className="analyzer-alert analyzer-alert-error">{error}</div> : null}

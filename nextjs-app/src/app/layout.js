@@ -13,9 +13,9 @@ const bodyFont = Source_Sans_3({
 });
 
 export const metadata = {
-  title: "Lower My Medical Bills - Free EOB Review & Billing Error Finder",
+  title: "Lower My Medical Bills - Free EOB Analyzer & Appeal Prep Tool",
   description:
-    "Upload your EOB to identify billing errors, duplicate charges, and savings opportunities.",
+    "Upload your EOB to spot potential billing issues and prepare stronger insurance appeals with clearer documentation.",
 };
 
 export default function RootLayout({ children }) {

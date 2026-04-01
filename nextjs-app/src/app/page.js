@@ -35,8 +35,8 @@ export default function Home() {
             <div className="feature-icon">&#128270;</div>
             <h4>Check My EOB</h4>
             <p>
-              Upload your Explanation of Benefits and get instant insights into
-              potential billing errors and savings opportunities.
+              Upload your Explanation of Benefits and review potential billing
+              issues before you call your insurer or provider.
             </p>
           </div>
           <div className="feature-card">
