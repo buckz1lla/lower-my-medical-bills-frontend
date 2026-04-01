@@ -97,3 +97,20 @@ These remain in place for dashboard continuity while queries migrate to canonica
 - Keep event names stable once used in dashboards.
 - If a new event is added, update this section in the same PR.
 - Include `analysisId` whenever the event is tied to a specific uploaded case.
+
+## Analytics QA checklist (post-deploy)
+
+Use this quick pass to validate instrumentation in under 10 minutes:
+
+1. Open `/analyzer`, select a file, and submit upload.
+	Expect events: `upload_started`, then `upload_completed`.
+2. Wait for `/results/[analysisId]` to load.
+	Expect event: `results_viewed`.
+3. Click at least one guide link from home or guides index.
+	Expect event: `guide_click` with `href` and `source`.
+4. Start checkout and complete one test payment.
+	Expect events: `checkout_started`, then `toolkit_unlocked`.
+5. Open the appeal tracker from results.
+	Expect event: `appeal_tracker_opened`.
+
+If any event is missing, check browser network requests to `/api/analytics/track` and verify `NEXT_PUBLIC_API_URL` points to the intended backend.
