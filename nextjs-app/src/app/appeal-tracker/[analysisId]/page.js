@@ -50,7 +50,10 @@ export default function AppealTrackerPage() {
         fetch(`${API_BASE}/api/appeals/tracker/${analysisId}`, {
           credentials: "include",
         }),
-        trackEvent("appeal_tracker_viewed", { analysisId }),
+        Promise.all([
+          trackEvent("appeal_tracker_viewed", { analysisId }),
+          trackEvent("appeal_tracker_opened", { analysisId }),
+        ]),
       ]);
 
       if (trackerRes.ok) {

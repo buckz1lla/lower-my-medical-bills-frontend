@@ -13,6 +13,24 @@ const ALLOWED_TYPES = new Set([
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 ]);
 
+const trackEvent = async (event, data = {}) => {
+  try {
+    await fetch(`${API_BASE}/api/analytics/track`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      keepalive: true,
+      body: JSON.stringify({
+        event,
+        data,
+        timestamp: new Date().toISOString(),
+        userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "unknown",
+      }),
+    });
+  } catch {
+    // Silent fail by design.
+  }
+};
+
 export default function AnalyzerPage() {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -47,6 +65,12 @@ export default function AnalyzerPage() {
     setError("");
 
     try {
+      await trackEvent("upload_started", {
+        file_name: file.name,
+        file_type: file.type,
+        file_size: file.size,
+      });
+
       const formData = new FormData();
       formData.append("file", file);
 
@@ -67,6 +91,13 @@ export default function AnalyzerPage() {
       }
 
       const payload = await response.json();
+
+      await trackEvent("upload_completed", {
+        analysisId: payload.analysis_id,
+        file_name: file.name,
+        file_type: file.type,
+      });
+
       setFile(null);
       router.push(`/results/${payload.analysis_id}`);
     } catch (submitError) {

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata = {
   title: "Lower My Medical Bills - Free EOB Analyzer & Appeal Prep Tool",
@@ -114,32 +115,44 @@ export default function Home() {
       <section className="resource-section">
         <div className="resource-header">
           <h3>Learn Before You Call Billing</h3>
-          <Link href="/guides" className="resource-link">
+          <TrackedLink href="/guides" className="resource-link" eventData={{ source: "home_resource_header" }}>
             See all guides
-          </Link>
+          </TrackedLink>
         </div>
         <div className="resource-grid">
-          <Link href="/guides/how-to-appeal-a-denied-insurance-claim" className="resource-card">
+          <TrackedLink
+            href="/guides/how-to-appeal-a-denied-insurance-claim"
+            className="resource-card"
+            eventData={{ source: "home_resource_card", slug: "how-to-appeal-a-denied-insurance-claim" }}
+          >
             <h4>How to Appeal a Denied Insurance Claim</h4>
             <p>
               Use a 7-step framework to file a stronger appeal and avoid common
               denial traps.
             </p>
-          </Link>
-          <Link href="/guides/what-is-an-eob-and-how-to-read-it" className="resource-card">
+          </TrackedLink>
+          <TrackedLink
+            href="/guides/what-is-an-eob-and-how-to-read-it"
+            className="resource-card"
+            eventData={{ source: "home_resource_card", slug: "what-is-an-eob-and-how-to-read-it" }}
+          >
             <h4>What Is an EOB and How to Read It</h4>
             <p>
               Decode claim lines fast so you can spot errors and avoid paying
               the wrong amount.
             </p>
-          </Link>
-          <Link href="/guides/medical-bill-too-high-what-to-do" className="resource-card">
+          </TrackedLink>
+          <TrackedLink
+            href="/guides/medical-bill-too-high-what-to-do"
+            className="resource-card"
+            eventData={{ source: "home_resource_card", slug: "medical-bill-too-high-what-to-do" }}
+          >
             <h4>Medical Bill Too High? What to Do First</h4>
             <p>
               Follow a first-48-hours checklist that protects leverage and keeps
               appeals viable.
             </p>
-          </Link>
+          </TrackedLink>
         </div>
       </section>
 

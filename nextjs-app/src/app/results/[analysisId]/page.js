@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
 import Link from "next/link";
 import { jsPDF } from "jspdf";
@@ -287,6 +287,7 @@ function ResultsContent() {
   const [emailCaptureLoading, setEmailCaptureLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const toolkitUnlockTrackedRef = useRef(false);
 
   const pricing = useMemo(() => pickPriceVariant(analysisId), [analysisId]);
 
@@ -370,6 +371,14 @@ function ResultsContent() {
           price_amount_cents: pricing.amountCents,
           totalSavings: payload.total_potential_savings,
           opportunitiesFound: (payload.savings_opportunities || []).length,
+        });
+
+        await trackEvent("results_viewed", {
+          analysisId,
+          price_variant: pricing.variant,
+          price_amount_cents: pricing.amountCents,
+          total_savings: payload.total_potential_savings,
+          opportunities_found: (payload.savings_opportunities || []).length,
         });
       } catch (loadError) {
         if (mounted) {
@@ -528,6 +537,18 @@ function ResultsContent() {
       });
     }
   };
+
+  useEffect(() => {
+    if (isPaid && !toolkitUnlockTrackedRef.current) {
+      toolkitUnlockTrackedRef.current = true;
+      trackEvent("toolkit_unlocked", {
+        analysisId,
+        payment_status: paymentStatus,
+        price_variant: pricing.variant,
+        amount_cents: pricing.amountCents,
+      });
+    }
+  }, [analysisId, isPaid, paymentStatus, pricing.amountCents, pricing.variant]);
 
   if (loading) {
     return (

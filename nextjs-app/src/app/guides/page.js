@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { guides } from "@/lib/guides";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata = {
   title: "Medical Billing & Appeal Guides | Lower My Medical Bills",
@@ -32,12 +33,16 @@ export default function GuidesPage() {
         {guides.map((guide) => (
           <article key={guide.slug} className="guide-card">
             <h2>
-              <Link href={`/guides/${guide.slug}`}>{guide.title}</Link>
+              <TrackedLink href={`/guides/${guide.slug}`} eventData={{ source: "guides_index_title", slug: guide.slug }}>
+                {guide.title}
+              </TrackedLink>
             </h2>
             <p>{guide.description}</p>
             <div className="guide-meta">
               <span>Updated {guide.updatedAt}</span>
-              <Link href={`/guides/${guide.slug}`}>Read guide</Link>
+              <TrackedLink href={`/guides/${guide.slug}`} eventData={{ source: "guides_index_cta", slug: guide.slug }}>
+                Read guide
+              </TrackedLink>
             </div>
           </article>
         ))}
