@@ -48,8 +48,8 @@ export default async function GuideArticlePage({ params }) {
       <section className="guide-cta-box">
         <h2>Ready to apply this to your own bill?</h2>
         <p>
-          Upload your EOB and get claim-by-claim savings opportunities with an
-          appeal plan.
+          Upload your EOB and get a claim-by-claim review with an appeal prep
+          plan.
         </p>
         <Link href="/analyzer" className="guide-primary-cta">
           Analyze My EOB

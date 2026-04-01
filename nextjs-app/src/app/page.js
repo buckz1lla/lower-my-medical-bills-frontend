@@ -57,10 +57,10 @@ export default function Home() {
           </div>
           <div className="feature-card">
             <div className="feature-icon">&#128176;</div>
-            <h4>Identify Savings</h4>
+            <h4>Spot Issues to Review</h4>
             <p>
-              Discover billing errors, duplicate charges, and other issues where
-              you might save money.
+              Surface billing errors, duplicate charges, and other claim details
+              worth reviewing before you appeal.
             </p>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function Home() {
               <h4>We Analyze</h4>
               <p>
                 Our system examines every claim for errors, billing issues, and
-                savings opportunities.
+                potential appeal opportunities.
               </p>
             </div>
           </li>
@@ -209,7 +209,7 @@ export default function Home() {
             <summary>What if my claim was denied can I appeal?</summary>
             <p>
               Yes. If we detect a denied claim on your EOB, we highlight it and
-              can generate a customized appeal letter template.
+              can generate a customized appeal prep document.
             </p>
           </details>
         </div>
