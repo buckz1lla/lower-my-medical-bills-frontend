@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
 const ENABLE_ANALYTICS_DASHBOARD = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS_DASHBOARD === "true";
+const LOW_VOLUME_MIN_VIEWS = 20;
 
 function MetricCard({ title, value, subtitle }) {
   return (
@@ -30,8 +31,11 @@ export default function OwnerAnalyticsPage() {
   const [priceExperiment, setPriceExperiment] = useState(null);
   const [emailSignups, setEmailSignups] = useState(null);
   const [appealRetention, setAppealRetention] = useState(null);
+  const [storageAlerts, setStorageAlerts] = useState(null);
   const [revenueDays, setRevenueDays] = useState(7);
   const [reminderStatus, setReminderStatus] = useState(null);
+  const [autoWindowAdjusted, setAutoWindowAdjusted] = useState(false);
+  const [autoWindowNote, setAutoWindowNote] = useState("");
 
   useEffect(() => {
     setApiKey(window.localStorage.getItem("analytics_api_key") || "");
@@ -58,16 +62,17 @@ export default function OwnerAnalyticsPage() {
 
     try {
       const cfg = requestConfig;
-      const [todayRes, sevenDayRes, revenueRes, priceRes, emailRes, appealRes] = await Promise.all([
+      const [todayRes, sevenDayRes, revenueRes, priceRes, emailRes, appealRes, alertsRes] = await Promise.all([
         fetch(`${API_BASE}/api/analytics/funnel${cfg.query}`, cfg),
         fetch(`${API_BASE}/api/analytics/funnel-7d${cfg.query}`, cfg),
         fetch(`${API_BASE}/api/analytics/revenue?days=${revenueDays}${cfg.query ? `&api_key=${encodeURIComponent(apiKey)}` : ""}`, cfg),
         fetch(`${API_BASE}/api/analytics/price-experiment?days=${revenueDays}${cfg.query ? `&api_key=${encodeURIComponent(apiKey)}` : ""}`, cfg),
         fetch(`${API_BASE}/api/analytics/email-signups?days=${revenueDays}${cfg.query ? `&api_key=${encodeURIComponent(apiKey)}` : ""}`, cfg),
         fetch(`${API_BASE}/api/analytics/appeal-retention?days=${revenueDays}${cfg.query ? `&api_key=${encodeURIComponent(apiKey)}` : ""}`, cfg),
+        fetch(`${API_BASE}/api/analytics/storage-alerts?days=${revenueDays}&max_items=20${cfg.query ? `&api_key=${encodeURIComponent(apiKey)}` : ""}`, cfg),
       ]);
 
-      const responses = [todayRes, sevenDayRes, revenueRes, priceRes, emailRes, appealRes];
+      const responses = [todayRes, sevenDayRes, revenueRes, priceRes, emailRes, appealRes, alertsRes];
       const unauthorized = responses.some((res) => res.status === 401);
       if (unauthorized) {
         throw new Error("401");
@@ -76,7 +81,7 @@ export default function OwnerAnalyticsPage() {
         throw new Error("Unable to load analytics right now.");
       }
 
-      const [todayData, sevenDayData, revenueData, priceData, emailData, appealData] = await Promise.all(
+      const [todayData, sevenDayData, revenueData, priceData, emailData, appealData, alertsData] = await Promise.all(
         responses.map((res) => res.json()),
       );
 
@@ -86,6 +91,15 @@ export default function OwnerAnalyticsPage() {
       setPriceExperiment(priceData);
       setEmailSignups(emailData);
       setAppealRetention(appealData);
+      setStorageAlerts(alertsData);
+
+      const sevenDayViews = Number(sevenDayData?.counts?.results_page_viewed || 0);
+      if (!autoWindowAdjusted && revenueDays === 7 && sevenDayViews < LOW_VOLUME_MIN_VIEWS) {
+        setRevenueDays(30);
+        setAutoWindowAdjusted(true);
+        setAutoWindowNote(`Auto-switched to 30d because 7d views are low (${sevenDayViews} < ${LOW_VOLUME_MIN_VIEWS}).`);
+      }
+
       setNeedsAuth(false);
     } catch (fetchError) {
       if (fetchError.message === "401") {
@@ -97,7 +111,7 @@ export default function OwnerAnalyticsPage() {
     } finally {
       setLoading(false);
     }
-  }, [apiKey, requestConfig, revenueDays]);
+  }, [apiKey, autoWindowAdjusted, requestConfig, revenueDays]);
 
   useEffect(() => {
     if (!ENABLE_ANALYTICS_DASHBOARD) {
@@ -165,6 +179,8 @@ export default function OwnerAnalyticsPage() {
     );
   }
 
+  const hasStorageFallbackAlerts = Number(storageAlerts?.count || 0) > 0;
+
   return (
     <main className="home-page analytics-page-next">
       <section className="analytics-header-next">
@@ -179,6 +195,18 @@ export default function OwnerAnalyticsPage() {
           </button>
         </div>
       </section>
+
+      {hasStorageFallbackAlerts ? (
+        <section className="analytics-alert-banner-next" role="alert" aria-live="polite">
+          <p>
+            Storage fallback detected in the selected window. Review the "Storage Fallback Alerts" section before shipping changes.
+          </p>
+        </section>
+      ) : (
+        <section className="analytics-ok-banner-next" aria-live="polite">
+          <p>No storage fallback alerts detected in the selected window.</p>
+        </section>
+      )}
 
       {error ? <p className="analytics-error-next">{error}</p> : null}
 
@@ -226,12 +254,18 @@ export default function OwnerAnalyticsPage() {
               key={days}
               type="button"
               className={`window-toggle-button-next ${revenueDays === days ? "window-toggle-button-next-active" : ""}`}
-              onClick={() => setRevenueDays(days)}
+              onClick={() => {
+                setRevenueDays(days);
+                if (days !== 30) {
+                  setAutoWindowNote("");
+                }
+              }}
             >
               {days}d
             </button>
           ))}
         </div>
+        {autoWindowNote && revenueDays === 30 ? <p className="analytics-info-next">{autoWindowNote}</p> : null}
         <div className="metrics-grid-next">
           <MetricCard title="Revenue" value={`$${Number(revenue?.total_revenue || 0).toFixed(2)}`} />
           <MetricCard title="Paid Orders" value={revenue?.payment_count ?? 0} />
@@ -260,6 +294,30 @@ export default function OwnerAnalyticsPage() {
           </p>
         ) : null}
         {reminderStatus?.error ? <p className="analytics-error-next">{reminderStatus.error}</p> : null}
+      </section>
+
+      <section className="analytics-section-next">
+        <h2>Storage Fallback Alerts</h2>
+        <div className="metrics-grid-next">
+          <MetricCard title="Alert Count" value={storageAlerts?.count ?? 0} subtitle={`Last ${revenueDays} days`} />
+          <MetricCard title="Most Recent Reason" value={storageAlerts?.alerts?.[0]?.reason || "none"} />
+          <MetricCard title="Most Recent Event" value={storageAlerts?.alerts?.[0]?.event || "none"} />
+          <MetricCard title="Most Recent Time" value={storageAlerts?.alerts?.[0]?.timestamp ? new Date(storageAlerts.alerts[0].timestamp).toLocaleString() : "n/a"} />
+        </div>
+        {storageAlerts?.alerts?.length ? (
+          <div className="alerts-list-next">
+            {storageAlerts.alerts.slice(0, 10).map((alert, idx) => (
+              <div className="alert-item-next" key={`${alert.timestamp || "t"}-${idx}`}>
+                <p><strong>{alert.reason || "unknown"}</strong></p>
+                <p>event: {alert.event || "n/a"}</p>
+                <p>time: {alert.timestamp ? new Date(alert.timestamp).toLocaleString() : "n/a"}</p>
+                <p>analysisId: {alert.analysisId || "n/a"}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="analytics-info-next">No fallback alerts in this window.</p>
+        )}
       </section>
     </main>
   );
