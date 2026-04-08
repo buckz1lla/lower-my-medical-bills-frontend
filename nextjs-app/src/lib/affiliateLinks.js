@@ -1,7 +1,7 @@
 const fallbackLinks = {
   plans: "https://www.healthcare.gov/see-plans/",
   rights: "https://www.cms.gov/nosurprises",
-  appealsGuide: "https://www.cms.gov/cciio/resources/files/appeals_brochure.pdf",
+  appealsGuide: "https://www.healthcare.gov/appeal-insurance-company-decision/",
   coverageOptions: "https://www.healthcare.gov/",
 };
 
