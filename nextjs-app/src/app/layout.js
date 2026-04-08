@@ -2,6 +2,8 @@ import { Lora, Source_Sans_3 } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
+const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-9219272095137377";
+
 const headingFont = Lora({
   variable: "--font-heading",
   subsets: ["latin"],
@@ -21,6 +23,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${headingFont.variable} ${bodyFont.variable}`}>
+      <head>
+        {adsenseClient ? (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+            crossOrigin="anonymous"
+          />
+        ) : null}
+      </head>
       <body>
         <header className="header">
           <div className="header-container">
