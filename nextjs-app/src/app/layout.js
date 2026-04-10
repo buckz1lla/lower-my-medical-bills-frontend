@@ -1,6 +1,7 @@
 import { Lora, Source_Sans_3 } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
+import RouteScripts from "./route-scripts";
 
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-9219272095137377";
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-TR4YNLEVS9";
@@ -24,29 +25,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${headingFont.variable} ${bodyFont.variable}`}>
-      <head>
-        {adsenseClient ? (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-            crossOrigin="anonymous"
-          />
-        ) : null}
-        {gaMeasurementId ? (
-          <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);} 
-gtag('js', new Date());
-gtag('config', '${gaMeasurementId}');`,
-              }}
-            />
-          </>
-        ) : null}
-      </head>
       <body>
+        <RouteScripts adsenseClient={adsenseClient} gaMeasurementId={gaMeasurementId} />
         <header className="header">
           <div className="header-container">
             <Link href="/" className="logo">
