@@ -1786,6 +1786,44 @@ a {
   line-height: 1.75;
 }
 
+.guide-section-wrap {
+  margin-bottom: 14px;
+}
+
+.guide-section-wrap .guide-section {
+  margin-bottom: 0;
+}
+
+.guide-inline-cta {
+  margin-top: 12px;
+  border-radius: 12px;
+  padding: 18px;
+  background: linear-gradient(120deg, #edf6ff, #f8fcff);
+  border: 1px solid #c9e1fb;
+  box-shadow: 0 4px 14px rgba(8, 72, 132, 0.08);
+}
+
+.guide-inline-cta-eyebrow {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0a63b6;
+}
+
+.guide-inline-cta h3 {
+  margin: 0 0 6px;
+  color: #053d71;
+  font-size: 18px;
+  font-family: var(--font-heading), serif;
+}
+
+.guide-inline-cta p {
+  margin: 0 0 10px;
+  color: #34577a;
+}
+
 .guide-cta-box {
   border-radius: 12px;
   padding: 22px;

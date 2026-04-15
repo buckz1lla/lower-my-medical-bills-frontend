@@ -1,5 +1,233 @@
 export const guides = [
   {
+    slug: 'out-of-network-er-bill-after-in-network-hospital',
+    title: 'Out-of-Network ER Bill After In-Network Hospital Visit: What to Do',
+    description: 'If you used an in-network hospital but got an out-of-network ER bill, use this fast dispute checklist.',
+    updatedAt: '2026-04-13',
+    sections: [
+      {
+        heading: 'Confirm where care happened',
+        body: 'Pull your EOB and verify whether the facility is listed as in-network while individual clinicians are marked out-of-network. That mismatch is the key trigger for dispute rights.',
+      },
+      {
+        heading: 'Check emergency status coding',
+        body: 'Ask your insurer whether the claim was processed as emergency care. If emergency status was missed, reprocessing can reduce your responsibility significantly.',
+      },
+      {
+        heading: 'Request reprocessing at in-network rates',
+        body: 'Call member services and request in-network adjudication based on emergency and facility-network protections. Ask for a written response and reference number.',
+      },
+      {
+        heading: 'Dispute with provider billing in parallel',
+        body: 'Tell the provider billing office you are disputing processing and request a hold on collections while payer review is active.',
+      },
+      {
+        heading: 'Escalate to federal or state complaint channels',
+        body: 'If corrected processing is denied, file through CMS No Surprises complaint flow and your state regulator. Include EOBs, dates, and call log references.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Do I have to pay the full out-of-network amount while dispute is open?',
+        a: 'Usually no. Request an active billing hold while appeal or complaint review is in progress.',
+      },
+      {
+        q: 'What documents help this dispute most?',
+        a: 'Submit the EOB, provider bill, proof of in-network facility status, and a dated call log with insurer reference numbers.',
+      },
+    ],
+  },
+  {
+    slug: 'surprise-anesthesia-bill-after-delivery',
+    title: 'Surprise Anesthesia Bill After Delivery: Fight It in 5 Steps',
+    description: 'A practical playbook for unexpected anesthesia charges after labor and delivery at an in-network hospital.',
+    updatedAt: '2026-04-13',
+    sections: [
+      {
+        heading: 'Identify the exact billing entity',
+        body: 'Anesthesia is often billed by a separate physician group. Match the bill to the claim line and tax ID so disputes go to the right party.',
+      },
+      {
+        heading: 'Compare provider network status vs hospital network',
+        body: 'If delivery occurred at an in-network hospital, out-of-network anesthesia charges may be disputable under surprise-billing protections.',
+      },
+      {
+        heading: 'Request insurer reprocessing first',
+        body: 'Ask the insurer to reprocess anesthesia claim lines as in-network where protections apply. Request written confirmation and timeline.',
+      },
+      {
+        heading: 'Ask anesthesia group for in-network adjustment',
+        body: 'Send provider billing the insurer determination and ask for adjustment to in-network allowed amount while dispute is pending.',
+      },
+      {
+        heading: 'Document every interaction',
+        body: 'Keep one timeline with dates, names, and reference IDs. If escalation is required, documentation often determines final outcome quality.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Is anesthesia billing usually separate from the hospital bill?',
+        a: 'Yes. It is commonly billed by a separate group, which is why network mismatches happen so often.',
+      },
+      {
+        q: 'Should I pay first and dispute later?',
+        a: 'Usually no. Request a temporary hold while insurer and provider review is active to preserve leverage.',
+      },
+    ],
+  },
+  {
+    slug: 'claim-denied-medical-necessity-appeal-guide',
+    title: 'Claim Denied for Medical Necessity: Appeal Guide',
+    description: 'Use this structured appeal method when your insurer says treatment was not medically necessary.',
+    updatedAt: '2026-04-13',
+    sections: [
+      {
+        heading: 'Get the denial rationale in writing',
+        body: 'Request full denial language, policy citation, and clinical review criteria used. You cannot build a strong appeal without exact reasoning.',
+      },
+      {
+        heading: 'Collect clinician support evidence',
+        body: 'Ask treating providers for notes explaining diagnosis severity, failed alternatives, and why requested treatment is appropriate now.',
+      },
+      {
+        heading: 'Map evidence to policy criteria',
+        body: 'Structure your appeal section-by-section against the insurer criteria so reviewers can quickly verify each requirement is met.',
+      },
+      {
+        heading: 'Request peer-to-peer or expedited review when urgent',
+        body: 'If care delays create clinical risk, ask provider office to initiate expedited review and peer discussion channels where available.',
+      },
+      {
+        heading: 'Escalate to independent external review',
+        body: 'If internal appeal fails, file external review promptly with complete packet. Independent reviewers can overturn weak necessity denials.',
+      },
+    ],
+    faq: [
+      {
+        q: 'What is the strongest evidence for medical necessity appeals?',
+        a: 'Detailed clinician notes tied directly to insurer criteria are usually most persuasive, especially when prior treatment failures are documented.',
+      },
+      {
+        q: 'Can I request expedited review for non-emergency care?',
+        a: 'Sometimes. If delay may worsen condition or function, ask your provider to document urgency and request expedited handling.',
+      },
+    ],
+  },
+  {
+    slug: 'denied-claim-after-prior-authorization',
+    title: 'Denied Claim After Prior Authorization: What to Do Next',
+    description: 'If your claim was denied even though you had prior auth, use this playbook to challenge it quickly.',
+    updatedAt: '2026-04-13',
+    sections: [
+      {
+        heading: 'Get proof of approval first',
+        body: 'Pull the prior authorization number, approval date, and covered service details from your portal, emails, or provider records. Appeals win faster when you show exact authorization evidence.',
+      },
+      {
+        heading: 'Match the denied claim to the approved service',
+        body: 'Compare CPT/HCPCS codes on the denial to what was authorized. Denials often happen when billing codes differ slightly from the approved request.',
+      },
+      {
+        heading: 'Ask insurer to reprocess before formal appeal',
+        body: 'Call member services and request immediate reprocessing based on prior authorization already on file. Ask for a reference number and expected completion date.',
+      },
+      {
+        heading: 'Submit a focused written appeal if needed',
+        body: 'Attach prior auth proof, denial EOB, and provider notes. State that the service was pre-approved and request reversal based on plan terms and insurer authorization history.',
+      },
+      {
+        heading: 'Escalate if deadlines are close',
+        body: 'If bills are aging, ask provider billing for a hold while appeal is active. If internal review fails, escalate to external review through your state process.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Can an insurer deny a service after approving prior authorization?',
+        a: 'They can, but denials are often reversible when you provide documentation that service details match the approved request.',
+      },
+      {
+        q: 'What is the fastest evidence to include in this appeal?',
+        a: 'Include the authorization number, approval date, service code details, and denial EOB in one packet to speed review.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-read-denial-codes-on-eob',
+    title: 'How to Read Denial Codes on an EOB',
+    description: 'Use denial reason codes to identify why a claim failed and which appeal path gives you the best odds.',
+    updatedAt: '2026-04-13',
+    sections: [
+      {
+        heading: 'Denial codes are your root-cause map',
+        body: 'Every denial code points to a specific processing issue such as eligibility, coding mismatch, missing prior auth, non-covered service, or network status.',
+      },
+      {
+        heading: 'Group codes into fixable vs non-fixable',
+        body: 'Fixable denials usually involve documentation gaps, coding corrections, or coordination of benefits updates. Non-fixable denials are often true plan exclusions.',
+      },
+      {
+        heading: 'Pair denial code with claim line details',
+        body: 'Review service date, provider, procedure codes, and modifiers tied to each denied line. Appeals are stronger when you target the exact denied line item.',
+      },
+      {
+        heading: 'Use the code to choose your script',
+        body: 'Your call script should start with the exact denial code and request the insurer-specific correction path for that code family.',
+      },
+      {
+        heading: 'Document each contact and outcome',
+        body: 'Track date, representative, reference number, and next step after every call. This audit trail is essential if you need external review later.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Where do I find denial codes on my EOB?',
+        a: 'Most insurers show denial or adjustment reason codes near each claim line, often with short code descriptions.',
+      },
+      {
+        q: 'Do the same denial codes mean the same thing across insurers?',
+        a: 'Not always. Code families may overlap, but wording and correction steps can differ by plan and claims platform.',
+      },
+    ],
+  },
+  {
+    slug: 'request-itemized-medical-bill-template',
+    title: 'How to Request an Itemized Medical Bill (Template + Checklist)',
+    description: 'Use this template to request itemized billing and catch duplicate or incorrect charges before you pay.',
+    updatedAt: '2026-04-13',
+    sections: [
+      {
+        heading: 'Why itemized bills matter',
+        body: 'Summary bills hide the details you need to dispute errors. An itemized bill breaks out each charge so you can compare against your EOB line by line.',
+      },
+      {
+        heading: 'What to request from billing office',
+        body: 'Ask for CPT/HCPCS codes, revenue codes, units, dates of service, and any adjustments already applied. Request delivery by secure portal or PDF.',
+      },
+      {
+        heading: 'Template request script',
+        body: 'Use clear wording: "I am requesting a complete itemized statement for all charges tied to account [number], including procedure codes, units, and dates, before I make payment."',
+      },
+      {
+        heading: 'What to check once you receive it',
+        body: 'Look for duplicate lines, services you did not receive, unbundled charges, and out-of-network flags that conflict with your insurer records.',
+      },
+      {
+        heading: 'Escalate if they refuse to provide details',
+        body: 'Ask for a supervisor, document refusal, and notify your insurer that provider billing details are being withheld during an active dispute.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Can a provider require payment before sending an itemized bill?',
+        a: 'Policies vary, but you can still request itemization and place the account in review while you verify charges.',
+      },
+      {
+        q: 'How quickly should I request itemization after getting a bill?',
+        a: 'Request it immediately. Early requests protect your appeal timeline and reduce risk of premature collections activity.',
+      },
+    ],
+  },
+  {
     slug: 'how-to-appeal-a-denied-insurance-claim',
     title: 'How to Appeal a Denied Insurance Claim',
     description: 'A practical 7-step process to challenge denied claims and improve approval odds.',
