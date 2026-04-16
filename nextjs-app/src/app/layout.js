@@ -17,9 +17,9 @@ const bodyFont = Source_Sans_3({
 });
 
 export const metadata = {
-  title: "Lower My Medical Bills - Free EOB Analyzer & Appeal Prep Tool",
+  title: "Lower My Medical Bills - Appeal-First Claim Review",
   description:
-    "Upload your EOB to spot potential billing issues and prepare stronger insurance appeals with clearer documentation.",
+    "Review your EOB with an appeal-first workflow that prioritizes claim risk and next actions.",
 };
 
 export default function RootLayout({ children }) {
@@ -34,9 +34,9 @@ export default function RootLayout({ children }) {
             </Link>
             <nav className="nav" aria-label="Main navigation">
               <Link href="/">Home</Link>
-              <Link href="/guides">Guides</Link>
+              <Link href="/guides">Playbooks</Link>
               <Link href="/analyzer" className="nav-link-primary">
-                Check My EOB
+                Start Review
               </Link>
             </nav>
           </div>

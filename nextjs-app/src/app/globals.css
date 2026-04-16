@@ -243,6 +243,98 @@ a {
   margin-bottom: 80px;
 }
 
+.signal-section {
+  margin: -26px 0 74px;
+  padding: 28px 24px;
+  border: 1px solid #dbcdb8;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 251, 243, 0.96) 0%, rgba(246, 255, 253, 0.96) 100%);
+  box-shadow: 0 12px 24px rgba(68, 54, 35, 0.08);
+}
+
+.signal-head {
+  margin-bottom: 18px;
+}
+
+.signal-head h3 {
+  color: #17413d;
+  font-size: 1.85rem;
+  margin-bottom: 8px;
+  font-family: var(--font-heading), serif;
+}
+
+.signal-head p {
+  color: #60706d;
+  max-width: 760px;
+}
+
+.signal-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.signal-card {
+  border: 1px solid #ddd2c0;
+  border-radius: 14px;
+  padding: 16px;
+  background: #fffdf8;
+}
+
+.signal-card h4 {
+  color: #2a2c2a;
+  margin-bottom: 10px;
+  font-size: 1.02rem;
+  font-family: var(--font-heading), serif;
+}
+
+.signal-card p {
+  color: #62716d;
+  font-size: 0.94rem;
+  margin-top: 8px;
+}
+
+.signal-meter {
+  height: 10px;
+  border-radius: 999px;
+  background: #ece5d7;
+  overflow: hidden;
+}
+
+.signal-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transform-origin: left;
+  animation: signalGrow 0.9s ease-out both;
+}
+
+.signal-fill-high {
+  width: 82%;
+  background: linear-gradient(90deg, #d26d2d 0%, #b44f1a 100%);
+}
+
+.signal-fill-mid {
+  width: 58%;
+  background: linear-gradient(90deg, #2f7f79 0%, #246963 100%);
+  animation-delay: 0.12s;
+}
+
+.signal-fill-low {
+  width: 34%;
+  background: linear-gradient(90deg, #9da69f 0%, #7f8b85 100%);
+  animation-delay: 0.24s;
+}
+
+@keyframes signalGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .features h3 {
   font-size: 36px;
   margin-bottom: 48px;
@@ -613,6 +705,15 @@ a {
 
   .resource-header h3 {
     font-size: 24px;
+  }
+
+  .signal-section {
+    margin: -16px 0 52px;
+    padding: 20px 16px;
+  }
+
+  .signal-head h3 {
+    font-size: 1.45rem;
   }
 
   .footer-nav {
