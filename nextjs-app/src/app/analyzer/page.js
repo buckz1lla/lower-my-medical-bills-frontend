@@ -137,6 +137,30 @@ export default function AnalyzerPage() {
           </div>
         </section>
 
+        <div className="trust-strip" aria-label="Pre-upload trust information">
+          <div className="trust-strip-item">
+            <span className="trust-strip-icon">📎</span>
+            <div>
+              <strong>What files work?</strong>
+              <span>PDF, JPG, PNG, CSV, or XLSX — up to ~10 MB</span>
+            </div>
+          </div>
+          <div className="trust-strip-item">
+            <span className="trust-strip-icon">📋</span>
+            <div>
+              <strong>What will I get back?</strong>
+              <span>A ranked claim signal list, verification checklist, and appeal prep sequence</span>
+            </div>
+          </div>
+          <div className="trust-strip-item">
+            <span className="trust-strip-icon">🔒</span>
+            <div>
+              <strong>Is my data safe?</strong>
+              <span>Your file is processed for this review only and not retained</span>
+            </div>
+          </div>
+        </div>
+
         {error ? <div className="analyzer-alert analyzer-alert-error">{error}</div> : null}
 
         <form onSubmit={handleSubmit} className="analyzer-form-next">

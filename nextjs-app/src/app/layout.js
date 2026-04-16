@@ -35,6 +35,7 @@ export default function RootLayout({ children }) {
             <nav className="nav" aria-label="Main navigation">
               <Link href="/">Home</Link>
               <Link href="/guides">Playbooks</Link>
+              <Link href="/about">About</Link>
               <Link href="/analyzer" className="nav-link-primary">
                 Start Review
               </Link>
@@ -54,6 +55,8 @@ export default function RootLayout({ children }) {
                 <Link href="/disclaimer">Disclaimer</Link>
                 <span className="separator">|</span>
                 <Link href="/affiliate-disclosure">Affiliate Disclosure</Link>
+                <span className="separator">|</span>
+                <Link href="/about">About</Link>
               </nav>
             </div>
           </div>
