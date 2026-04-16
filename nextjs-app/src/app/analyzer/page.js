@@ -119,6 +119,24 @@ export default function AnalyzerPage() {
           Upload your EOB to get a focused risk review and a practical action brief for your next steps.
         </p>
 
+        <section className="brief-preview" aria-label="Action brief preview">
+          <h2>What Your Action Brief Includes</h2>
+          <div className="brief-preview-grid">
+            <article className="brief-preview-item">
+              <h3>Claim Signal Queue</h3>
+              <p>Ranked issues by leverage, urgency, and confidence level.</p>
+            </article>
+            <article className="brief-preview-item">
+              <h3>Verification Checklist</h3>
+              <p>What to confirm before calling your insurer or provider.</p>
+            </article>
+            <article className="brief-preview-item">
+              <h3>Appeal Prep Path</h3>
+              <p>A clean sequence for documentation, escalation, and follow-up.</p>
+            </article>
+          </div>
+        </section>
+
         {error ? <div className="analyzer-alert analyzer-alert-error">{error}</div> : null}
 
         <form onSubmit={handleSubmit} className="analyzer-form-next">

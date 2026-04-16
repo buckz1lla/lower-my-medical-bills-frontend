@@ -682,28 +682,28 @@ function ResultsContent() {
           onClick={() => setActiveTab("opportunities")}
           type="button"
         >
-          Savings Opportunities ({opportunities.length})
+          Claim Signal Queue ({opportunities.length})
         </button>
         <button
           className={`results-tab-next ${activeTab === "appeals" ? "results-tab-next-active" : ""}`}
           onClick={() => setActiveTab("appeals")}
           type="button"
         >
-          Appeal Recommendations ({appeals.length})
+          Appeal Playbook ({appeals.length})
         </button>
         <button
           className={`results-tab-next ${activeTab === "claims" ? "results-tab-next-active" : ""}`}
           onClick={() => setActiveTab("claims")}
           type="button"
         >
-          All Claims ({claims.length})
+          Claim Ledger ({claims.length})
         </button>
       </section>
 
       {activeTab === "opportunities" ? (
         <section className="results-list-next">
           {opportunities.length === 0 ? (
-            <p className="empty-state-next">No savings opportunities detected for this upload.</p>
+            <p className="empty-state-next">No high-priority claim signals were detected for this upload.</p>
           ) : (
             opportunities.map((opportunity) => (
               <article className={`result-card-next${getConfidenceLevel(opportunity) === "low" ? " result-card-next-caution" : ""}`} key={opportunity.opportunity_id}>
@@ -779,7 +779,7 @@ function ResultsContent() {
       {activeTab === "appeals" ? (
         <section className="results-list-next">
           {appeals.length === 0 ? (
-            <p className="empty-state-next">No appeal recommendations for this upload.</p>
+            <p className="empty-state-next">No appeal playbook steps were generated for this upload.</p>
           ) : (
             appeals.map((appeal, index) => (
               <article className="result-card-next" key={`${appeal.claim_id}-${index}`}>
@@ -799,7 +799,7 @@ function ResultsContent() {
       {activeTab === "claims" ? (
         <section className="results-list-next">
           {claims.length === 0 ? (
-            <p className="empty-state-next">No claims were parsed from this file.</p>
+            <p className="empty-state-next">No claim ledger entries were parsed from this file.</p>
           ) : (
             claims.map((claim) => (
               <article className="result-card-next" key={claim.claim_id}>
