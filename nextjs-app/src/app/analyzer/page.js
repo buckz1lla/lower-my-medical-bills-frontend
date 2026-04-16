@@ -114,9 +114,9 @@ export default function AnalyzerPage() {
   return (
     <main className="content-page">
       <section className="content-card analyzer-card">
-        <h1>Check My EOB and Prep My Appeal</h1>
+        <h1>Run an Appeal-First EOB Review</h1>
         <p className="analyzer-subtitle">
-          Upload your Explanation of Benefits to review potential billing issues and prepare your appeal plan.
+          Upload your EOB to get a focused risk review and a practical action brief for your next steps.
         </p>
 
         {error ? <div className="analyzer-alert analyzer-alert-error">{error}</div> : null}
@@ -148,7 +148,7 @@ export default function AnalyzerPage() {
             />
             <span className="file-drop-icon">📄</span>
             <span className="file-drop-title">
-              {file ? `Selected: ${file.name}` : "Click to upload or drag and drop"}
+              {file ? `Selected: ${file.name}` : "Drop your file here or click to upload"}
             </span>
             <span className="file-drop-hint">PDF, Images (JPG/PNG), or Spreadsheets (CSV/XLSX)</span>
           </label>
@@ -158,7 +158,7 @@ export default function AnalyzerPage() {
             className={`btn-primary analyzer-submit ${file && !loading ? "analyzer-submit-ready" : ""}`}
             disabled={!file || loading}
           >
-            {loading ? "Uploading and analyzing..." : "Analyze My EOB"}
+            {loading ? "Review in progress..." : "Generate My Action Brief"}
           </button>
         </form>
       </section>

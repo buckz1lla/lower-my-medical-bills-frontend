@@ -2,13 +2,13 @@ import Link from "next/link";
 import TrackedLink from "@/components/TrackedLink";
 
 export const metadata = {
-  title: "Lower My Medical Bills - Free EOB Analyzer & Appeal Prep Tool",
+  title: "Lower My Medical Bills - Appeal-First EOB Review Tool",
   description:
-    "Upload your Explanation of Benefits to spot potential billing errors and get the documents you need to prepare a stronger appeal. Free analysis.",
+    "Upload your Explanation of Benefits to triage risk, prioritize next actions, and prepare a stronger insurance appeal.",
   alternates: { canonical: "https://www.lowermymedicalbills.com" },
   openGraph: {
-    title: "Lower My Medical Bills - Free EOB Analyzer & Appeal Prep",
-    description: "Spot potential billing errors in your EOB for free. Unlock appeal prep documents to dispute charges.",
+    title: "Lower My Medical Bills - Appeal-First EOB Review",
+    description: "Triage claim risk and prepare a stronger appeal plan from your EOB in minutes.",
     url: "https://www.lowermymedicalbills.com",
     siteName: "Lower My Medical Bills",
     type: "website",
@@ -19,93 +19,95 @@ export default function Home() {
   return (
     <div className="home-page home">
       <section className="hero">
-        <h1>Take Control of Your Medical Bills</h1>
+        <span className="hero-kicker">Appeal-first claim triage</span>
+        <h1>Turn a confusing EOB into a concrete action plan</h1>
         <p>
-          Understand what you&apos;re paying for and discover potential savings
-          opportunities.
+          We flag high-risk claim lines, explain why they matter, and help you
+          prepare for insurer and provider conversations with more confidence.
         </p>
         <Link href="/analyzer" className="cta-button">
-          Start Analyzing Your EOB
+          Start My Claim Review
         </Link>
       </section>
 
       <section className="features">
-        <h3>What We Help You With</h3>
+        <h3>What Makes Our Workflow Different</h3>
         <div className="features-grid">
           <div className="feature-card">
             <div className="feature-icon">&#128270;</div>
-            <h4>Check My EOB</h4>
+            <h4>Risk-First Review</h4>
             <p>
-              Upload your Explanation of Benefits and review potential billing
-              issues before you call your insurer or provider.
+              We prioritize the claim lines most likely to affect what you owe
+              so you can focus on the highest-leverage issues first.
             </p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">&#128161;</div>
-            <h4>Understand Your Coverage</h4>
+            <h4>Plain-English Explanations</h4>
             <p>
-              Learn about in-network vs out-of-network claims, deductibles, and
-              how your plan works for you.
+              Decode deductibles, coinsurance, and network status without
+              insurance jargon slowing you down.
             </p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">&#128221;</div>
-            <h4>Appeal Support</h4>
+            <h4>Appeal-Ready Prep</h4>
             <p>
-                Get step-by-step appeal preparation guidance for denied claims,
-                including what to document and who to contact.
+                Build a stronger case with a practical checklist, key claim
+                details, and what to gather before you escalate.
             </p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">&#128176;</div>
-            <h4>Spot Issues to Review</h4>
+            <h4>Next-Step Prioritization</h4>
             <p>
-              Surface billing errors, duplicate charges, and other claim details
-              worth reviewing before you appeal.
+              Know exactly what to do now, what can wait, and where you may be
+              able to reduce your out-of-pocket burden.
             </p>
           </div>
         </div>
       </section>
 
       <section className="how-it-works">
-        <h3>How It Works</h3>
+        <h3>Your 4-Step Review Path</h3>
         <ol className="steps">
           <li>
             <span className="step-number">1</span>
             <div className="step-content">
               <h4>Upload Your EOB</h4>
               <p>
-                Simply upload your Explanation of Benefits (PDF, image, or
-                spreadsheet).
+                Drop in your Explanation of Benefits file (PDF, image, CSV, or
+                XLSX).
               </p>
             </div>
           </li>
           <li>
             <span className="step-number">2</span>
             <div className="step-content">
-              <h4>We Analyze</h4>
+              <h4>We Triage the Claims</h4>
               <p>
-                Our system examines every claim for errors, billing issues, and
-                potential appeal opportunities.
+                We identify likely billing problems and categorize them by
+                urgency and potential impact.
               </p>
             </div>
           </li>
           <li>
             <span className="step-number">3</span>
             <div className="step-content">
-              <h4>Get Results</h4>
+              <h4>Review Your Action Brief</h4>
               <p>
-                Receive a detailed report with prioritized actions you can take.
+                See your top findings, what they mean, and how to approach each
+                one.
               </p>
             </div>
           </li>
           <li>
             <span className="step-number">4</span>
             <div className="step-content">
-              <h4>Take Action</h4>
+              <h4>Escalate with Confidence</h4>
               <p>
-                 Use your report to prepare a stronger appeal with the right
-                 documents and talking points in hand.
+                 Use your brief to call billing, contact your insurer, or draft
+                 a cleaner appeal packet.
               </p>
             </div>
           </li>
@@ -114,7 +116,7 @@ export default function Home() {
 
       <section className="resource-section">
         <div className="resource-header">
-          <h3>Learn Before You Call Billing</h3>
+          <h3>Build Your Billing Playbook</h3>
           <TrackedLink href="/guides" className="resource-link" eventData={{ source: "home_resource_header" }}>
             See all guides
           </TrackedLink>
@@ -157,22 +159,22 @@ export default function Home() {
       </section>
 
       <section className="trust-section">
-        <h2>Your Privacy &amp; Security</h2>
+        <h2>Privacy-Respecting by Default</h2>
         <div className="trust-grid">
           <div className="trust-card">
             <div className="trust-icon">&#128274;</div>
             <h3>Secure Uploads</h3>
             <p>
-              Files are transmitted over encrypted HTTPS and are not stored
-              after analysis is complete.
+              Files move through encrypted HTTPS and are removed after
+              processing whenever possible.
             </p>
           </div>
           <div className="trust-card">
             <div className="trust-icon">&#128100;</div>
             <h3>No Account Required</h3>
             <p>
-              Analyze your EOB without creating an account or sharing personal
-              health information.
+              Start a review without creating an account or committing to a
+              subscription flow.
             </p>
           </div>
           <div className="trust-card">
@@ -198,7 +200,7 @@ export default function Home() {
             </p>
           </details>
           <details className="faq-item">
-            <summary>What types of billing errors are most common?</summary>
+            <summary>What issues do you usually flag?</summary>
             <p>
               Common errors include duplicate charges, upcoding, unbundling, and
               out-of-network billing for in-network providers.
@@ -219,7 +221,7 @@ export default function Home() {
             </p>
           </details>
           <details className="faq-item">
-            <summary>What if my claim was denied can I appeal?</summary>
+            <summary>What if my claim was denied, can I still appeal?</summary>
             <p>
               Yes. If we detect a denied claim on your EOB, we highlight it and
               can generate a customized appeal prep document.
