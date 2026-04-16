@@ -1,5 +1,386 @@
 export const guides = [
   {
+    slug: 'why-am-i-paying-after-deductible-met',
+    title: 'Why Am I Still Paying After I Hit My Deductible?',
+    description: 'If your deductible is met but bills keep coming, use this checklist to spot processing issues fast.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'Confirm deductible status for the exact claim date',
+        body: 'Check your insurer accumulator for the date of service, not just your current dashboard total. Claims can be processed out of order and may reflect an earlier deductible balance.',
+      },
+      {
+        heading: 'Separate deductible from coinsurance and copays',
+        body: 'Meeting your deductible does not eliminate coinsurance or copays. Verify whether your EOB patient responsibility is coming from coinsurance instead of deductible.',
+      },
+      {
+        heading: 'Check for out-of-network processing',
+        body: 'Out-of-network claims may use a separate deductible or may not count toward your in-network out-of-pocket maximum. Confirm network status line by line.',
+      },
+      {
+        heading: 'Look for non-covered or excluded services',
+        body: 'Plan exclusions can still create patient balances after deductible is met. Your EOB reason code should clearly indicate if the service was excluded.',
+      },
+      {
+        heading: 'Request reprocessing when accumulator math looks wrong',
+        body: 'If totals do not reconcile, ask member services for claim reprocessing and a written accumulator explanation. Keep reference numbers for every call.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Can I still owe money after meeting my deductible?',
+        a: 'Yes. Coinsurance, copays, out-of-network rules, and non-covered services can still create balances.',
+      },
+      {
+        q: 'What is the fastest way to verify this?',
+        a: 'Compare the EOB cost-share fields to your plan accumulator and confirm network status for each claim line.',
+      },
+    ],
+  },
+  {
+    slug: 'out-of-pocket-maximum-not-applied-correctly',
+    title: 'Out-of-Pocket Maximum Not Applied Correctly: What to Do',
+    description: 'Use this step-by-step process when your insurer should have covered more after you hit your OOP max.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'Verify which costs count toward your OOP max',
+        body: 'Premiums and many non-covered services do not count. Confirm your plan document definitions before disputing claim totals.',
+      },
+      {
+        heading: 'Match claim dates to your accumulator timeline',
+        body: 'Out-of-pocket logic is date-sensitive. If older claims were processed late, newer claims may have been cost-shared incorrectly.',
+      },
+      {
+        heading: 'Check in-network versus out-of-network accumulators',
+        body: 'Many plans track separate OOP buckets. A claim processed out-of-network may bypass your in-network max entirely.',
+      },
+      {
+        heading: 'Request an accumulator correction review',
+        body: 'Ask your insurer for a formal accumulator audit and claim reprocessing. Request written confirmation of corrected totals.',
+      },
+      {
+        heading: 'Escalate with a structured appeal packet',
+        body: 'If correction is denied, file an appeal with EOBs, accumulator screenshots, and a timeline showing when the threshold was reached.',
+      },
+    ],
+    faq: [
+      {
+        q: 'How do I prove my OOP max was reached?',
+        a: 'Use insurer accumulator screenshots plus claim-level EOB dates and amounts in one chronological packet.',
+      },
+      {
+        q: 'Do pharmacy costs count toward medical OOP maximums?',
+        a: 'Sometimes. It depends on your plan design and whether medical and pharmacy benefits share accumulators.',
+      },
+    ],
+  },
+  {
+    slug: 'appeal-prior-authorization-denial',
+    title: 'How to Appeal a Prior Authorization Denial',
+    description: 'A practical template-driven process for overturning prior authorization denials faster.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'Get the denial rationale and policy criteria',
+        body: 'Request the exact denial reason, policy citation, and utilization-review criteria used by the plan. This is the backbone of your appeal.',
+      },
+      {
+        heading: 'Collect provider evidence that maps to criteria',
+        body: 'Ask your clinician to address each criterion directly, including diagnosis severity, failed alternatives, and urgency.',
+      },
+      {
+        heading: 'Submit a structured first-level appeal',
+        body: 'Format your letter in sections that mirror insurer requirements. Reviewers resolve appeals faster when evidence is criterion-by-criterion.',
+      },
+      {
+        heading: 'Request expedited review for urgent care',
+        body: 'When delays can worsen outcomes, request expedited handling and ask your provider to document medical urgency clearly.',
+      },
+      {
+        heading: 'Escalate to external review when needed',
+        body: 'If internal appeals fail, file for external review with your complete packet and all insurer correspondence.',
+      },
+    ],
+    faq: [
+      {
+        q: 'What makes prior auth appeals successful?',
+        a: 'Evidence mapped line-by-line to insurer criteria is usually the highest-impact improvement.',
+      },
+      {
+        q: 'Can my provider submit the appeal for me?',
+        a: 'Yes, many offices do. You should still request copies and track deadlines yourself.',
+      },
+    ],
+  },
+  {
+    slug: 'er-bill-too-high-how-emergency-claims-should-be-processed',
+    title: 'ER Bill Too High? How Emergency Claims Should Be Processed',
+    description: 'Learn the emergency-claim rules that most often cause overcharges and how to dispute them.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'Confirm emergency classification on the EOB',
+        body: 'Emergency claims should be processed under emergency benefit rules. If coding missed emergency status, reprocessing can reduce patient cost share.',
+      },
+      {
+        heading: 'Check facility and clinician network mismatches',
+        body: 'You may have used an in-network hospital while receiving out-of-network clinician bills. This is a frequent source of excess balances.',
+      },
+      {
+        heading: 'Review surprise-billing protections',
+        body: 'Federal and state protections may limit what you owe for emergency services regardless of clinician network status.',
+      },
+      {
+        heading: 'Request insurer reprocessing with written rationale',
+        body: 'Ask for in-network adjudication where protections apply and request written claim notes and reference numbers.',
+      },
+      {
+        heading: 'Open provider billing dispute in parallel',
+        body: 'Notify billing you are actively disputing claim processing and request a temporary collections hold.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Can emergency care be treated as out-of-network?',
+        a: 'Plans can label providers out-of-network, but patient liability may still be limited under emergency and surprise-billing protections.',
+      },
+      {
+        q: 'Should I pay first and dispute later?',
+        a: 'Usually no. Keep leverage by requesting holds while review is active.',
+      },
+    ],
+  },
+  {
+    slug: 'balance-billing-explained-when-it-may-be-illegal',
+    title: 'Balance Billing Explained (And When It May Be Illegal)',
+    description: 'Understand balance billing risk, when protections apply, and how to challenge improper charges.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'What balance billing means in plain language',
+        body: 'Balance billing is the amount a provider seeks beyond what your insurer allowed and paid. It is common with out-of-network care.',
+      },
+      {
+        heading: 'Situations where billing protections may apply',
+        body: 'Emergency services and certain in-network facility encounters often have federal or state guardrails that limit patient liability.',
+      },
+      {
+        heading: 'How to verify if your bill is protected',
+        body: 'Compare site of care, provider network status, and service type against No Surprises and state-level rules for your claim date.',
+      },
+      {
+        heading: 'Dispute process that preserves leverage',
+        body: 'Submit a written dispute with EOB, itemized bill, and timeline. Request account hold while insurer and provider review the claim.',
+      },
+      {
+        heading: 'Escalation paths when provider refuses correction',
+        body: 'Use CMS and state regulator complaint channels with complete documentation if direct billing negotiations stall.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Is balance billing always illegal?',
+        a: 'No. It depends on service type, network context, and whether legal protections apply to that scenario.',
+      },
+      {
+        q: 'What evidence should I keep?',
+        a: 'Keep EOBs, itemized bills, call logs, and all written responses from insurer and provider billing teams.',
+      },
+    ],
+  },
+  {
+    slug: 'medical-bill-sent-to-collections-while-disputing',
+    title: 'Medical Bill Sent to Collections While You Are Disputing?'
+    ,
+    description: 'Use this action plan when collections begin before your insurance dispute is resolved.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'Get dispute status in writing immediately',
+        body: 'Request written confirmation that your appeal or claim correction request is active and include reference numbers in all follow-ups.',
+      },
+      {
+        heading: 'Request a billing and collections hold',
+        body: 'Ask provider billing and any collections agency for a temporary hold while insurer review remains open.',
+      },
+      {
+        heading: 'Document every communication with dates',
+        body: 'A complete timeline often determines whether escalation succeeds. Keep call logs, letters, and portal screenshots.',
+      },
+      {
+        heading: 'Dispute inaccurate collections reporting quickly',
+        body: 'If balances are inaccurate during active review, file written disputes and include insurer claim-status documentation.',
+      },
+      {
+        heading: 'Escalate to regulators if process rights are ignored',
+        body: 'State insurance and consumer protection channels can help when billing or collections proceed despite active claim disputes.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Can collections continue during an active claim dispute?',
+        a: 'Policies vary, but many providers will pause activity when disputes are documented and escalated appropriately.',
+      },
+      {
+        q: 'What should I send first?',
+        a: 'Send written notice of active dispute plus claim IDs, EOBs, and insurer reference numbers.',
+      },
+    ],
+  },
+  {
+    slug: 'coordination-of-benefits-denial-how-to-fix-primary-secondary-insurance',
+    title: 'Coordination of Benefits Denial: Fix Primary vs Secondary Insurance',
+    description: 'COB denials are fixable with the right data. Use this process to correct payer order and reprocess claims.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'Identify the exact COB denial language',
+        body: 'Locate reason codes indicating other coverage or payer-order mismatch. This defines your correction path.',
+      },
+      {
+        heading: 'Confirm which plan is primary for that date',
+        body: 'Primary versus secondary status can differ by coverage type, employment status, and dependent rules.',
+      },
+      {
+        heading: 'Update both insurers with matching information',
+        body: 'Submit the same policy and member details to both plans to avoid repeated mismatch loops.',
+      },
+      {
+        heading: 'Request coordinated reprocessing of affected claims',
+        body: 'Ask both payers to reprocess in sequence and provide written confirmation of payment order.',
+      },
+      {
+        heading: 'Track corrected EOBs before paying balances',
+        body: 'Do not finalize payment until new EOBs reflect corrected COB adjudication and patient responsibility.',
+      },
+    ],
+    faq: [
+      {
+        q: 'What is the most common COB error?',
+        a: 'Incorrect primary plan assignment or outdated policy records is the most common cause.',
+      },
+      {
+        q: 'Can old claims be corrected?',
+        a: 'Often yes, if filing windows remain open and both insurers receive consistent updated information.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-read-cpt-and-hcpcs-codes-on-medical-bill',
+    title: 'How to Read CPT and HCPCS Codes on a Medical Bill',
+    description: 'Use billing codes to spot mismatches, duplicate charges, and stronger appeal opportunities.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'Where codes appear on bills and EOBs',
+        body: 'CPT and HCPCS codes usually appear per service line with date and units. Match these directly to claim lines on your EOB.',
+      },
+      {
+        heading: 'Why modifiers and units matter',
+        body: 'Small modifier differences can change reimbursement and patient liability materially. Unit errors can also inflate balances.',
+      },
+      {
+        heading: 'Compare coding against what you received',
+        body: 'Review each line for services not received, duplicate entries, or upcoding patterns that may warrant challenge.',
+      },
+      {
+        heading: 'Link code mismatches to denial reasons',
+        body: 'Many denials stem from coding conflicts. Use reason codes and line details together to choose the right correction request.',
+      },
+      {
+        heading: 'Build a code-focused dispute packet',
+        body: 'Include itemized bill, EOB, disputed code lines, and your requested correction in one concise submission.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Do I need medical coding expertise to dispute charges?',
+        a: 'No. You can still identify mismatches by comparing line descriptions, dates, units, and denial codes.',
+      },
+      {
+        q: 'Should I call provider billing or insurer first?',
+        a: 'Start with provider billing for coding clarification, then contact insurer with claim-specific details.',
+      },
+    ],
+  },
+  {
+    slug: 'negotiate-hospital-bill-payment-plan-vs-lump-sum',
+    title: 'Payment Plan vs Lump Sum: How to Negotiate a Hospital Bill',
+    description: 'Choose the best payment strategy after claim review and negotiate from a stronger position.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'Review and dispute first, negotiate second',
+        body: 'Always validate the bill against your EOB before discussing payment terms. Negotiating too early can lock in avoidable balances.',
+      },
+      {
+        heading: 'Ask for all available financial assistance options',
+        body: 'Hospitals often offer discounts, hardship programs, or charity care tiers that are not proactively advertised.',
+      },
+      {
+        heading: 'When lump-sum discounts make sense',
+        body: 'If your balance is validated and cash flow allows, a one-time payment can unlock deeper reductions than standard plans.',
+      },
+      {
+        heading: 'When payment plans are safer',
+        body: 'If income is variable, stable low-payment plans reduce default risk while you continue any pending insurance escalations.',
+      },
+      {
+        heading: 'Get negotiated terms in writing',
+        body: 'Confirm total owed, payment dates, interest terms, and account status updates before making the first payment.',
+      },
+    ],
+    faq: [
+      {
+        q: 'How much can hospitals typically reduce a bill?',
+        a: 'Discounts vary widely, but documented financial hardship and clean billing discrepancies both improve outcomes.',
+      },
+      {
+        q: 'Can I renegotiate after starting a payment plan?',
+        a: 'Often yes, especially if new claim corrections reduce balance or your financial situation changes.',
+      },
+    ],
+  },
+  {
+    slug: 'deductible-copay-coinsurance-out-of-pocket-max-difference',
+    title: 'Deductible vs Copay vs Coinsurance vs Out-of-Pocket Max',
+    description: 'A plain-English cost-share guide so you can predict what you owe before the next medical bill arrives.',
+    updatedAt: '2026-04-15',
+    sections: [
+      {
+        heading: 'Deductible: what you pay first each plan year',
+        body: 'Your deductible is the amount you pay before insurance cost-sharing starts for most non-preventive services.',
+      },
+      {
+        heading: 'Copay: fixed amount for specific services',
+        body: 'Copays are set dollar amounts, often used for office visits, urgent care, or prescriptions depending on your plan design.',
+      },
+      {
+        heading: 'Coinsurance: percentage after deductible',
+        body: 'Coinsurance is your percent share of allowed charges after deductible requirements are met.',
+      },
+      {
+        heading: 'Out-of-pocket max: your covered-service ceiling',
+        body: 'Once you hit your in-network out-of-pocket maximum for covered services, eligible in-network care is generally paid at 100% by the plan.',
+      },
+      {
+        heading: 'How these fields appear on an EOB',
+        body: 'Most EOBs break responsibility into deductible, copay, and coinsurance columns. Use these to verify claims were adjudicated correctly.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Which cost category causes the most confusion?',
+        a: 'Coinsurance after deductible is the most common surprise because people expect zero cost immediately after deductible is met.',
+      },
+      {
+        q: 'Do these rules apply the same way out-of-network?',
+        a: 'Usually no. Out-of-network benefits often use separate accumulators and higher patient cost share.',
+      },
+    ],
+  },
+  {
     slug: 'out-of-network-er-bill-after-in-network-hospital',
     title: 'Out-of-Network ER Bill After In-Network Hospital Visit: What to Do',
     description: 'If you used an in-network hospital but got an out-of-network ER bill, use this fast dispute checklist.',
