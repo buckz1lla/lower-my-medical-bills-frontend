@@ -234,6 +234,36 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="intent-upgrade-section" aria-label="High-value guidance blocks">
+        <h3>Use This Before You Make Your Next Billing Call</h3>
+        <div className="intent-upgrade-grid">
+          <article className="intent-upgrade-card">
+            <h4>Real Walkthrough Example</h4>
+            <p>
+              A member uploaded an EOB with a $1,120 patient balance after urgent care and imaging.
+              The review flagged one duplicate line item and one out-of-network misclassification. After
+              reprocessing, the corrected balance dropped to $595 before any payment negotiation.
+            </p>
+          </article>
+          <article className="intent-upgrade-card">
+            <h4>What to Do in 24 Hours</h4>
+            <ul>
+              <li>Get your itemized bill and EOB in the same folder.</li>
+              <li>Call insurer member services and request claim-level review notes.</li>
+              <li>Ask provider billing for a temporary hold while review is active.</li>
+            </ul>
+          </article>
+          <article className="intent-upgrade-card">
+            <h4>Common Mistakes to Avoid</h4>
+            <ul>
+              <li>Paying before line-by-line verification.</li>
+              <li>Calling without writing down reference numbers.</li>
+              <li>Accepting verbal promises without written confirmation.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section className="resource-section">
         <div className="resource-header">
           <h3>Build Your Billing Playbook</h3>

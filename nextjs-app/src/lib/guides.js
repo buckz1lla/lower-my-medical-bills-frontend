@@ -650,7 +650,7 @@ export const guides = [
     slug: 'what-is-an-eob-and-how-to-read-it',
     title: 'What Is an EOB and How to Read It',
     description: 'Decode billed amount, allowed amount, insurance paid, and patient responsibility without guesswork.',
-    updatedAt: '2026-03-26',
+    updatedAt: '2026-04-20',
     sections: [
       {
         heading: 'Billed vs. allowed amount',
@@ -668,6 +668,18 @@ export const guides = [
         heading: 'Reason codes are the signal',
         body: 'Reason codes explain exactly why money shifted from insurer to patient. Track repeated codes; they often reveal process errors you can appeal.',
       },
+      {
+        heading: 'Real walkthrough: one claim line from confusion to correction',
+        body: 'Suppose your EOB shows a billed amount of $420, an allowed amount of $210, insurance paid $126, and patient responsibility $84. The key is not the billed amount, it is whether the allowed amount and cost-share are consistent with your plan terms. If your provider bill asks for $210 or $420 instead of $84, that mismatch is your dispute trigger. Use the EOB values as the reference point when calling billing and ask why the statement does not match insurer adjudication.',
+      },
+      {
+        heading: 'What to do in 24 hours after receiving an EOB',
+        body: 'First, save the EOB PDF and write down claim ID, date of service, and reason codes. Second, compare the EOB patient-responsibility amount to the provider bill for the same date. Third, call member services to confirm claim status and deductible accumulator values if numbers look off. Fourth, if mismatch remains, request an itemized bill and ask provider billing for a temporary hold while review is active.',
+      },
+      {
+        heading: 'Common EOB reading mistakes that create overpayment risk',
+        body: 'The biggest mistake is treating the billed amount as what you owe. Another is ignoring reason codes that explain why cost shifted to you. Many patients also miss network-status indicators and pay before confirming whether in-network rules were applied. Finally, people often call without documenting reference numbers, which makes escalations harder when the same claim issue repeats later.',
+      },
     ],
     faq: [
       {
@@ -677,6 +689,10 @@ export const guides = [
       {
         q: 'What if my EOB and provider bill do not match?',
         a: 'Call the provider billing office first, then insurer member services with claim IDs and reason codes.',
+      },
+      {
+        q: 'What is the fastest way to use an EOB before paying anything?',
+        a: 'Compare the EOB patient responsibility amount to the provider statement for the same date of service and claim ID, then call insurer member services if those numbers do not match.',
       },
     ],
   },
@@ -697,6 +713,18 @@ export const guides = [
       {
         heading: 'Compare the itemized bill against your EOB line by line',
         body: 'Your EOB from the insurer shows how each claim line was adjudicated — what was billed, what the insurer allowed, how much the plan paid, and what portion was assigned to you. When you lay this next to the itemized bill, you are looking for four things: first, whether any service on the itemized bill does not appear on the EOB at all, which can mean the claim was never submitted or was submitted under a different code; second, whether the dates of service and procedure codes match between documents; third, whether the patient-responsibility column on the EOB aligns with what the provider is actually billing you; and fourth, whether the sum of your deductible, copay, and coinsurance on the EOB adds up to what you are being asked to pay. Discrepancies between these two documents are the starting point for every effective dispute.',
+      },
+      {
+        heading: 'Real walkthrough: from $1,120 demand to corrected balance',
+        body: 'In a common outpatient scenario, a patient received a bill for $1,120 after imaging and follow-up care. EOB review showed two issues: a duplicated procedure line and out-of-network processing on a provider listed in-network at the claim date. After requesting reprocessing with claim references and submitting a short written dispute to provider billing, the corrected patient responsibility dropped to $595 before any settlement request. The lesson is that line-level corrections usually come before negotiation and can materially change your starting balance.',
+      },
+      {
+        heading: 'What to do in the first 24 hours',
+        body: 'Use a simple clock-based sequence. Hour 0 to 2: collect EOB, provider statement, and request itemized billing. Hour 2 to 6: compare dates, codes, network status, and patient-responsibility totals line by line. Hour 6 to 12: call insurer member services, open any needed reprocessing request, and save reference numbers. Hour 12 to 24: send written follow-up to provider billing requesting a hold while dispute review is active.',
+      },
+      {
+        heading: 'Common mistakes that increase what patients end up paying',
+        body: 'The most costly mistake is paying quickly to stop reminder notices before verifying claim details. Another is combining multiple claim issues into one vague call instead of addressing each line item with exact codes and dates. Patients also lose leverage by negotiating before corrections are processed and by failing to request written confirmation of any hold, adjustment, or settlement term. Treat every interaction as documentation for a possible escalation path.',
       },
       {
         heading: 'Common billing errors that drive high balances',

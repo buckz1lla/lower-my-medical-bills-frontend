@@ -823,6 +823,51 @@ a {
   padding: 9px 20px;
 }
 
+.intent-upgrade-section {
+  margin-bottom: 54px;
+}
+
+.intent-upgrade-section h3 {
+  margin: 0 0 14px;
+  color: #173936;
+  font-size: 1.9rem;
+  font-family: var(--font-heading), serif;
+}
+
+.intent-upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.intent-upgrade-card {
+  background: #fffdf8;
+  border: 1px solid #ddd2c0;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 8px 18px rgba(67, 53, 33, 0.08);
+}
+
+.intent-upgrade-card h4 {
+  margin: 0 0 8px;
+  color: #1b4541;
+  font-size: 1.04rem;
+  font-family: var(--font-heading), serif;
+}
+
+.intent-upgrade-card p {
+  margin: 0;
+  color: #5e6b68;
+  line-height: 1.65;
+}
+
+.intent-upgrade-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #5e6b68;
+  line-height: 1.65;
+}
+
 .resource-section {
   margin-bottom: 60px;
 }
@@ -2390,6 +2435,58 @@ a {
   margin: 0;
   color: #2d4f75;
   line-height: 1.65;
+}
+
+.guides-intent-section {
+  margin: 0 0 20px;
+}
+
+.guides-intent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.guides-intent-card {
+  background: #fff;
+  border: 1px solid #dbe8f7;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.guides-intent-card h2 {
+  margin: 0 0 7px;
+  color: #0a4b85;
+  font-size: 1.05rem;
+  font-family: var(--font-heading), serif;
+}
+
+.guides-intent-card p,
+.guides-intent-card li {
+  color: #365477;
+  line-height: 1.6;
+  font-size: 0.93rem;
+}
+
+.guides-intent-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.guides-intent-card a {
+  color: #0a63b6;
+  font-weight: 700;
+}
+
+.guides-intent-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .intent-upgrade-grid,
+  .guides-intent-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .guides-grid {
