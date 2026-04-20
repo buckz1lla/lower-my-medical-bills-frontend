@@ -154,6 +154,11 @@ export default async function GuideArticlePage({ params }) {
         <h1>{guide.title}</h1>
         <p>{guide.description}</p>
         <span>Updated {guide.updatedAt}</span>
+        <nav className="guide-header-links" aria-label="Guide transparency links">
+          <Link href="/editorial-policy">Editorial policy</Link>
+          <Link href="/sources">Sources</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
       </header>
 
       {guide.sections.map((section, idx) => (

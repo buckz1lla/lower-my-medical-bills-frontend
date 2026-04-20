@@ -30,6 +30,16 @@ export default function Home() {
         </Link>
       </section>
 
+      <section className="home-trust-band" aria-label="Policy and transparency links">
+        <p>Built for transparency:</p>
+        <div className="home-trust-links">
+          <Link href="/editorial-policy">Editorial Policy</Link>
+          <Link href="/sources">Source Methodology</Link>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
+      </section>
+
       <section className="signal-section">
         <div className="signal-head">
           <h3>The Claim Signal Snapshot</h3>
