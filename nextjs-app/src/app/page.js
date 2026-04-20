@@ -147,6 +147,83 @@ export default function Home() {
         </ol>
       </section>
 
+      <section className="sample-brief-section" aria-label="Sample action brief preview">
+        <div className="sample-brief-label-row">
+          <h3>What Your Action Brief Looks Like</h3>
+          <span className="sample-badge">Sample Output</span>
+        </div>
+        <p className="sample-brief-intro">
+          This is a representative example of what the review surfaces. Your actual results depend on
+          the EOB you upload.
+        </p>
+
+        <div className="sample-brief-card">
+          <div className="sample-brief-header">
+            <span className="sample-brief-title">Action Brief — EOB Review</span>
+            <span className="sample-brief-meta">3 signals found &middot; 2 high priority</span>
+          </div>
+
+          <ol className="sample-signal-list">
+            <li className="sample-signal-item sample-signal-high">
+              <div className="sample-signal-top">
+                <span className="sample-priority-badge sample-priority-high">High Priority</span>
+                <span className="sample-signal-amount">Est. impact: ~$340</span>
+              </div>
+              <h4>Out-of-Network Misclassification</h4>
+              <p>
+                The rendering provider appears in the insurer&#39;s network directory but the claim was
+                processed at out-of-network rates, resulting in a higher patient share.
+              </p>
+              <div className="sample-signal-action">
+                <span className="sample-action-label">Verify:</span>
+                Confirm network status with your insurer using the provider NPI before paying.
+              </div>
+            </li>
+
+            <li className="sample-signal-item sample-signal-high">
+              <div className="sample-signal-top">
+                <span className="sample-priority-badge sample-priority-high">High Priority</span>
+                <span className="sample-signal-amount">Est. impact: ~$185</span>
+              </div>
+              <h4>Duplicate Line Item</h4>
+              <p>
+                Procedure code 99213 appears twice on the same date of service with identical
+                rendering provider and billed amount.
+              </p>
+              <div className="sample-signal-action">
+                <span className="sample-action-label">Verify:</span>
+                Request an itemized bill and confirm the charge appeared only once on the claim.
+              </div>
+            </li>
+
+            <li className="sample-signal-item sample-signal-watch">
+              <div className="sample-signal-top">
+                <span className="sample-priority-badge sample-priority-watch">Review Needed</span>
+                <span className="sample-signal-amount">Impact unclear</span>
+              </div>
+              <h4>Deductible Accumulation Gap</h4>
+              <p>
+                Year-to-date deductible applied on this EOB does not match the accumulation shown
+                on your prior EOB from 34 days earlier.
+              </p>
+              <div className="sample-signal-action">
+                <span className="sample-action-label">Verify:</span>
+                Request a current deductible accumulation statement from member services.
+              </div>
+            </li>
+          </ol>
+
+          <div className="sample-brief-footer">
+            <span className="sample-brief-disclaimer">
+              &#9432; Sample only. Not based on real data. Actual results depend on your EOB.
+            </span>
+            <Link href="/analyzer" className="cta-button sample-brief-cta">
+              Run My EOB Review
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="resource-section">
         <div className="resource-header">
           <h3>Build Your Billing Playbook</h3>
