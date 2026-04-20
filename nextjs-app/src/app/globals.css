@@ -2548,6 +2548,19 @@ a {
   border-color: #aaded0;
 }
 
+.guide-cta-box-pathway {
+  background: linear-gradient(120deg, #fff8ef, #fffdf7);
+  border-color: #e9d2a8;
+}
+
+.guide-cta-box-pathway h2 {
+  color: #664216;
+}
+
+.guide-cta-box-pathway p {
+  color: #76562b;
+}
+
 .guide-link-row {
   display: flex;
   flex-wrap: wrap;

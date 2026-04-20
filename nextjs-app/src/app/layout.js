@@ -59,6 +59,12 @@ export default function RootLayout({ children }) {
                 <span className="separator">|</span>
                 <Link href="/templates">Templates</Link>
                 <span className="separator">|</span>
+                <Link href="/editorial-policy">Editorial Policy</Link>
+                <span className="separator">|</span>
+                <Link href="/sources">Sources</Link>
+                <span className="separator">|</span>
+                <Link href="/contact">Contact</Link>
+                <span className="separator">|</span>
                 <Link href="/about">About</Link>
               </nav>
             </div>

@@ -6,6 +6,59 @@ import { notFound } from "next/navigation";
 
 const SITE_URL = "https://www.lowermymedicalbills.com";
 
+const GUIDE_PATHWAYS = {
+  "medical-bill-too-high-what-to-do": [
+    "request-itemized-medical-bill-template",
+    "medical-bill-negotiation-scripts-phone-email",
+    "hospital-charity-care-financial-assistance-guide",
+  ],
+  "how-to-appeal-a-denied-insurance-claim": [
+    "appeal-deadlines-internal-vs-external-review",
+    "how-to-read-denial-codes-on-eob",
+    "claim-denied-missing-information-how-to-fix",
+  ],
+  "surprise-out-of-network-bills": [
+    "balance-billing-explained-when-it-may-be-illegal",
+    "out-of-network-er-bill-after-in-network-hospital",
+    "single-case-agreement-network-gap-exception",
+  ],
+  "out-of-network-er-bill-after-in-network-hospital": [
+    "surprise-out-of-network-bills",
+    "balance-billing-explained-when-it-may-be-illegal",
+    "medical-bill-sent-to-collections-while-disputing",
+  ],
+  "denied-claim-after-prior-authorization": [
+    "appeal-prior-authorization-denial",
+    "claim-denied-medical-necessity-appeal-guide",
+    "appeal-deadlines-internal-vs-external-review",
+  ],
+  "claim-denied-medical-necessity-appeal-guide": [
+    "how-to-read-denial-codes-on-eob",
+    "how-to-appeal-a-denied-insurance-claim",
+    "appeal-deadlines-internal-vs-external-review",
+  ],
+  "medical-bill-sent-to-collections-while-disputing": [
+    "how-to-appeal-a-denied-insurance-claim",
+    "medical-bill-negotiation-scripts-phone-email",
+    "hospital-charity-care-financial-assistance-guide",
+  ],
+  "how-to-read-denial-codes-on-eob": [
+    "claim-denied-missing-information-how-to-fix",
+    "how-to-appeal-a-denied-insurance-claim",
+    "appeal-deadlines-internal-vs-external-review",
+  ],
+  "what-is-an-eob-and-how-to-read-it": [
+    "request-itemized-medical-bill-template",
+    "how-to-read-cpt-and-hcpcs-codes-on-medical-bill",
+    "medical-bill-too-high-what-to-do",
+  ],
+  "in-network-vs-out-of-network-costs": [
+    "single-case-agreement-network-gap-exception",
+    "surprise-out-of-network-bills",
+    "balance-billing-explained-when-it-may-be-illegal",
+  ],
+};
+
 export async function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
 }
@@ -74,8 +127,12 @@ export default async function GuideArticlePage({ params }) {
     },
   };
 
+  const guidedPathway = (GUIDE_PATHWAYS[guide.slug] || [])
+    .map((nextSlug) => findGuideBySlug(nextSlug))
+    .filter(Boolean);
+
   const relatedGuides = guides
-    .filter((g) => g.slug !== guide.slug)
+    .filter((g) => g.slug !== guide.slug && !guidedPathway.some((pathGuide) => pathGuide.slug === g.slug))
     .slice(0, 3);
 
   return (
@@ -168,6 +225,28 @@ export default async function GuideArticlePage({ params }) {
           </details>
         ))}
       </section>
+
+      {guidedPathway.length ? (
+        <section className="guide-cta-box guide-cta-box-pathway">
+          <h2>Continue your review path</h2>
+          <p>
+            Next reads selected for this scenario so you can move from diagnosis to
+            action without losing momentum.
+          </p>
+          <div className="guide-link-row">
+            {guidedPathway.map((item) => (
+              <TrackedLink
+                key={item.slug}
+                href={`/guides/${item.slug}`}
+                eventName="guide_pathway_click"
+                eventData={{ source: "guide_pathway", from_slug: guide.slug, to_slug: item.slug }}
+              >
+                {item.title}
+              </TrackedLink>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="guide-cta-box guide-cta-box-secondary">
         <h2>Related guides</h2>
