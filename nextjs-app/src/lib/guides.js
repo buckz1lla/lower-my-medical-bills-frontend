@@ -906,6 +906,216 @@ export const guides = [
       },
     ],
   },
+  {
+    slug: 'appeal-deadlines-internal-vs-external-review',
+    title: 'Medical Claim Appeal Deadlines: Internal vs External Review Timeline',
+    description: 'Use this timeline guide to avoid missed appeal windows and keep denied claims eligible for review.',
+    updatedAt: '2026-04-20',
+    sections: [
+      {
+        heading: 'Why appeal timing matters more than most people realize',
+        body: 'Denied-claim appeals are often lost on process rather than merit. If your submission arrives after the insurer deadline, the claim can be rejected without a full clinical or contractual review. The first thing to do after any denial is identify the appeal due date from your denial notice or EOB and capture it in one central tracker. Add two reminder dates: one at least two weeks before the deadline and one three business days before your final submission target.',
+      },
+      {
+        heading: 'Internal appeal windows are plan-specific and date-sensitive',
+        body: 'Most plans allow an internal appeal period measured from the denial date or the date on the adverse benefit determination letter. The exact number of days varies by policy and by claim type, so do not rely on generic internet timelines. Call member services and ask for the exact deadline for your claim ID, whether documentation must be received or only postmarked by that date, and where to send your packet. Record the representative name and reference number in your timeline log.',
+      },
+      {
+        heading: 'Expedited timelines for urgent medical scenarios',
+        body: 'If waiting through a standard appeal cycle could seriously jeopardize your health, many plans offer expedited review. The request typically needs provider support documenting medical urgency. Ask your clinician to submit a short urgency statement tied to the denial criteria. When expedited review is approved, you should receive a much faster decision than the standard cycle. If your expedited request is denied, ask for that denial in writing and proceed with the standard appeal immediately so you do not lose your original timeline.',
+      },
+      {
+        heading: 'External review starts only after internal steps are exhausted',
+        body: 'If your internal appeal is denied, you may be eligible for independent external review. That process has its own filing deadline, often shorter than patients expect. As soon as you receive the final internal denial, gather your full packet and submit external review paperwork right away. Include the denial letter, your internal appeal submission, supporting clinical records, and insurer reference numbers. Delays between internal denial and external filing are one of the most common preventable failures.',
+      },
+      {
+        heading: 'Build a deadline-first appeal tracker',
+        body: 'Use a simple spreadsheet with columns for claim ID, denial date, internal appeal due date, external review due date, submission channel, and proof of submission. Save certified mail receipts, fax confirmations, or portal screenshots that show time stamps. If a deadline dispute occurs, proof of timely submission can preserve your rights. Treat your timeline tracker as part of your evidence packet, not an optional admin step.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Can I appeal after the deadline if I have strong evidence?',
+        a: 'Sometimes, but success rates are lower. Some plans accept late appeals for good cause, but you should not count on exceptions when a deadline can be met.',
+      },
+      {
+        q: 'Should I wait to gather perfect documentation before filing?',
+        a: 'No. File by the deadline with your strongest current packet, then add supplemental records if the plan allows. Missing the deadline is usually worse than filing with incomplete evidence.',
+      },
+      {
+        q: 'How do I prove I submitted an appeal on time?',
+        a: 'Keep timestamped portal confirmations, certified mail receipts, or fax confirmations tied to the claim ID and denial date.',
+      },
+    ],
+  },
+  {
+    slug: 'hospital-charity-care-financial-assistance-guide',
+    title: 'Hospital Charity Care and Financial Assistance: How to Qualify and Apply',
+    description: 'A practical playbook for reducing large hospital balances through charity care and hardship policies.',
+    updatedAt: '2026-04-20',
+    sections: [
+      {
+        heading: 'What charity care is and who typically qualifies',
+        body: 'Charity care is a hospital financial assistance program that reduces or eliminates qualifying patient balances based on income, household size, and sometimes asset rules. Nonprofit hospitals are expected to publish financial assistance policies, but many patients are never proactively guided to them. Eligibility thresholds vary widely, often expressed as a percentage of the federal poverty level. Even if you think your income is too high, apply anyway because partial reductions may still be available.',
+      },
+      {
+        heading: 'Request the policy and application before paying',
+        body: 'Call billing and ask for the exact financial assistance policy, application form, and required documentation list. Request these in writing through the patient portal or email so you have a paper trail. If your account is already in billing cycles, ask for a temporary hold while your application is reviewed. Do not assume a representative saying you do not qualify is final unless they processed a full documented application.',
+      },
+      {
+        heading: 'Documents that usually speed approval',
+        body: 'Most programs request recent pay stubs, tax returns, benefit statements, and proof of household size. Submit clean copies with your account number on each page and include a concise cover letter explaining your current hardship and requested relief. If your income recently dropped, include current-income documentation rather than relying only on prior-year tax forms. Incomplete packets are a top reason applications stall or are denied.',
+      },
+      {
+        heading: 'How to combine charity care with payment negotiations',
+        body: 'If full charity care is denied, you can still negotiate a reduced settlement and a low-interest or zero-interest payment plan on the remaining balance. Ask billing to apply all available discounts in sequence: financial assistance first, prompt-pay or self-pay adjustments second, and payment terms third. When possible, get a written statement showing original balance, each reduction applied, and the final amount you owe.',
+      },
+      {
+        heading: 'Escalation path when you are denied unfairly',
+        body: 'If denial reasons appear inconsistent with the hospital policy, request supervisory review and a written explanation citing the exact eligibility rule used. You can also escalate to patient financial services leadership and, when applicable, state consumer protection or attorney general complaint channels. Keep your communication factual, organized, and document-rich. Hospitals are far more likely to reverse weak denials when your timeline and paperwork are complete.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Can I apply for charity care after receiving collections notices?',
+        a: 'Often yes. Many hospitals still review applications after billing escalation, especially if you respond quickly and provide complete documents.',
+      },
+      {
+        q: 'Does having insurance disqualify me automatically?',
+        a: 'No. Insured patients can still qualify for assistance on deductibles, coinsurance, and non-covered balances.',
+      },
+      {
+        q: 'How long does a financial assistance review usually take?',
+        a: 'Timelines vary by hospital, but many decisions are issued within a few weeks when documentation is complete.',
+      },
+    ],
+  },
+  {
+    slug: 'single-case-agreement-network-gap-exception',
+    title: 'Single-Case Agreement: Get In-Network Coverage When No Specialist Is Available',
+    description: 'How to request a network-gap exception so out-of-network specialty care is processed at in-network rates.',
+    updatedAt: '2026-04-20',
+    sections: [
+      {
+        heading: 'What a single-case agreement does',
+        body: 'A single-case agreement is a one-off arrangement between your insurer and an out-of-network provider when no clinically appropriate in-network option is reasonably available. If approved, your care is typically processed closer to in-network terms for a defined service window. This can significantly reduce your patient responsibility and limit surprise balances. It is especially relevant for specialized surgery, complex behavioral health, rare disease care, and pediatric subspecialties.',
+      },
+      {
+        heading: 'When to request a network-gap exception',
+        body: 'Request the exception before treatment whenever possible. The strongest cases document that in-network options are unavailable, have excessive wait times, are outside safe travel distance, or do not offer the required expertise. Ask your provider to include a brief clinical rationale explaining why this specific specialist is medically appropriate and time-sensitive. The request is stronger when patient and provider submissions tell the same story.',
+      },
+      {
+        heading: 'Information insurers expect in a complete request',
+        body: 'Most plans want the diagnosis, proposed treatment, expected dates of service, provider credentials, and evidence of failed in-network access attempts. Include names and dates for in-network offices you contacted, wait times offered, and why they were not viable. If your plan has a dedicated form, use it and attach a concise support letter. Missing network-access evidence is one of the most common reasons these requests are denied.',
+      },
+      {
+        heading: 'How to follow up without losing momentum',
+        body: 'After submission, call member services every few business days for status and record reference numbers. If timelines slip, request escalation to utilization management or case management. Ask for written decisions and the exact effective dates if approved. When partially approved, confirm which services are included and whether facility and professional fees are both covered under the same agreement.',
+      },
+      {
+        heading: 'Appeal strategy if the exception is denied',
+        body: 'If denied, file an appeal focused on access barriers and medical necessity rather than general fairness language. Re-submit documentation showing unavailable in-network options and include clinician letters with specific urgency and specialty requirements. Ask your provider office whether they can support a peer-to-peer review. In many cases, denials are reversed once the insurer sees stronger access evidence tied to clinical risk.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Is a single-case agreement the same as prior authorization?',
+        a: 'No. Prior authorization approves medical necessity; a single-case agreement addresses network status and reimbursement terms.',
+      },
+      {
+        q: 'Can I request this after I already received care?',
+        a: 'Sometimes, but approval is harder post-service. Pre-service requests generally have better outcomes.',
+      },
+      {
+        q: 'Who should submit the request, me or my provider?',
+        a: 'Both can help. Provider-led submissions with detailed clinical context often perform best, but patient documentation of network-access barriers is also critical.',
+      },
+    ],
+  },
+  {
+    slug: 'medical-bill-negotiation-scripts-phone-email',
+    title: 'Medical Bill Negotiation Scripts: What to Say on the Phone and by Email',
+    description: 'Copy-ready scripts for requesting discounts, payment holds, and lower settlement offers after claim review.',
+    updatedAt: '2026-04-20',
+    sections: [
+      {
+        heading: 'Negotiate only after you verify the balance',
+        body: 'The strongest negotiation starts after you compare the itemized bill and EOB and confirm what is truly owed. If errors remain unresolved, lead with correction requests before discussing payment. Once the balance is validated, shift to resolution language that shows willingness to pay while asking for a realistic reduction. This approach signals good faith without giving up leverage.',
+      },
+      {
+        heading: 'Phone script for first billing-office call',
+        body: 'Start with a simple structure: identify the account, state that you have reviewed the charges, and ask for all available reductions. Example: "I am calling about account [number]. I have reviewed the itemized bill and EOB and want to resolve this account. What discounts, financial assistance options, or settlement offers are available today?" Pause after each answer and ask for specifics in dollars, not percentages. Record the representative name and any reference number before ending the call.',
+      },
+      {
+        heading: 'Email template for written settlement request',
+        body: 'Use a concise format with account number, current balance, and your proposed resolution. Example: "I am requesting a reduced settlement for account [number]. Based on my review and current financial constraints, I can pay [amount] as payment in full if accepted in writing by [date]. Please confirm the adjusted balance and that the account will be marked paid in full upon receipt." Written requests create clarity and reduce misunderstandings from verbal calls.',
+      },
+      {
+        heading: 'How to request a payment hold while deciding',
+        body: 'If you are awaiting assistance review or insurer reprocessing, ask for a temporary hold to prevent collections movement. Use direct language: "This account is under active review; please place a billing hold through [date] while the dispute and financial review are pending." Follow up in writing the same day with a short recap. Payment-hold documentation is critical if account status later becomes disputed.',
+      },
+      {
+        heading: 'Close the deal with written terms only',
+        body: 'Never send payment based only on a verbal promise. Request written confirmation of final amount, due date, and account disposition. The document should explicitly state payment-in-full terms and whether any remaining balance is waived. Save that confirmation with your receipt and final statement. Strong closeout documentation prevents future rebilling errors.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Should I start by offering a number first?',
+        a: 'Usually ask the provider to disclose available offers first, then counter with a realistic amount based on your budget and account size.',
+      },
+      {
+        q: 'Is email better than phone for negotiations?',
+        a: 'Use both. Phone calls surface options faster; email secures written terms and protects your paper trail.',
+      },
+      {
+        q: 'Can I negotiate while on a payment plan already?',
+        a: 'Yes. You can request revised settlement terms, especially after new claim corrections or hardship documentation.',
+      },
+    ],
+  },
+  {
+    slug: 'claim-denied-missing-information-how-to-fix',
+    title: 'Claim Denied for Missing Information: Fast Fix Checklist',
+    description: 'A targeted process for denials caused by missing documents, coding fields, referrals, or authorization details.',
+    updatedAt: '2026-04-20',
+    sections: [
+      {
+        heading: 'Identify exactly what information was missing',
+        body: 'Denials for missing information are often vague in summary letters, so start by requesting line-level denial details from your insurer. Ask whether the missing element was a modifier, referral number, prior authorization reference, diagnosis code specificity, or provider demographic field. You cannot fix what is not clearly identified. Capture the claim ID, denial code, and representative reference number in your tracker.',
+      },
+      {
+        heading: 'Coordinate provider billing and insurer in the same cycle',
+        body: 'Most fixes require provider action because they control the claim submission. Call provider billing first with the exact missing-data description, then call the insurer to confirm the expected correction format. Misalignment between these two teams causes repeat denials. Ask provider billing to confirm when corrected claims are submitted and request any resubmission tracking number.',
+      },
+      {
+        heading: 'Resubmission vs formal appeal: choose the right path',
+        body: 'When the denial is clearly administrative, a corrected claim resubmission is usually faster than full appeal. However, if filing windows are tight or responsibility is disputed, submit an appeal in parallel to protect your rights. In your appeal, explain that missing-data correction has been initiated and request adjudication once corrected records are received. Parallel processing can prevent avoidable deadline losses.',
+      },
+      {
+        heading: 'Validate the reprocessed EOB before paying',
+        body: 'After reprocessing, verify the new EOB line by line against the corrected claim. Confirm network status, allowed amount, and patient responsibility are now consistent. Administrative denials can hide secondary issues like coordination-of-benefits mismatches or incorrect accumulators. Catching these before payment prevents a second dispute cycle.',
+      },
+      {
+        heading: 'Prevent the same denial on future claims',
+        body: 'Ask your provider office to flag your account with required recurring information such as referral IDs, authorization numbers, and coordination-of-benefits details. If your plan requires periodic updates, add a calendar reminder to verify records before your next visit. One preventive call before treatment can save weeks of post-service appeals.',
+      },
+    ],
+    faq: [
+      {
+        q: 'Who is usually responsible for a missing-information denial?',
+        a: 'It depends on the missing element, but provider claim-submission errors are common. Insurer record mismatches can also trigger these denials.',
+      },
+      {
+        q: 'Can corrected claims still be denied again?',
+        a: 'Yes. If corrected fields are incomplete or a second issue exists, a follow-up denial can occur. Verify all required fields with insurer guidance before resubmission.',
+      },
+      {
+        q: 'How fast are corrected claims reprocessed?',
+        a: 'Timelines vary by plan, but many corrected administrative claims are resolved faster than full appeals when submitted cleanly.',
+      },
+    ],
+  },
 ];
 
 export const findGuideBySlug = (slug) => guides.find((g) => g.slug === slug);

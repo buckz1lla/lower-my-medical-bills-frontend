@@ -27,6 +27,11 @@ export default function GuidesPage() {
           Practical walkthroughs for denied claims, confusing EOBs, and high
           medical bills. Each guide ends with concrete next steps.
         </p>
+        <div className="guides-hero-cta-row">
+          <Link href="/templates" className="guides-hero-secondary-cta">
+            Browse Templates
+          </Link>
+        </div>
       </section>
 
       <section className="guides-grid">
