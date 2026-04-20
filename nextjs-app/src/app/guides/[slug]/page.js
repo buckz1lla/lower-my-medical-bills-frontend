@@ -116,15 +116,22 @@ export default async function GuideArticlePage({ params }) {
     headline: guide.title,
     description: guide.description,
     dateModified: guide.updatedAt,
+    datePublished: guide.updatedAt,
     mainEntityOfPage: canonicalUrl,
     author: {
       "@type": "Organization",
       name: "Lower My Medical Bills",
+      url: SITE_URL,
     },
     publisher: {
       "@type": "Organization",
       name: "Lower My Medical Bills",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.png`,
+      },
     },
+    isAccessibleForFree: true,
   };
 
   const guidedPathway = (GUIDE_PATHWAYS[guide.slug] || [])
@@ -153,7 +160,22 @@ export default async function GuideArticlePage({ params }) {
       <header className="guide-header">
         <h1>{guide.title}</h1>
         <p>{guide.description}</p>
-        <span>Updated {guide.updatedAt}</span>
+        <div className="guide-metadata">
+          <div className="guide-authorship">
+            <span className="guide-badge">Fact-Checked Guide</span>
+            <span className="guide-attribution">
+              Written and reviewed by <strong>Lower My Medical Bills</strong>
+            </span>
+          </div>
+          <div className="guide-dates">
+            <span className="guide-date-item">
+              <strong>Reviewed:</strong> {guide.updatedAt}
+            </span>
+            <span className="guide-date-item">
+              <strong>Updated:</strong> {guide.updatedAt}
+            </span>
+          </div>
+        </div>
         <nav className="guide-header-links" aria-label="Guide transparency links">
           <Link href="/editorial-policy">Editorial policy</Link>
           <Link href="/sources">Sources</Link>
