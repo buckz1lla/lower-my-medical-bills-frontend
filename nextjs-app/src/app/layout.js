@@ -17,9 +17,13 @@ const bodyFont = Source_Sans_3({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://www.lowermymedicalbills.com"),
   title: "Lower My Medical Bills - Appeal-First Claim Review",
   description:
     "Review your EOB with an appeal-first workflow that prioritizes claim risk and next actions.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({ children }) {
