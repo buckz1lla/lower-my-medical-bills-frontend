@@ -2931,6 +2931,41 @@ a {
   padding: 22px;
 }
 
+/* ── Tracker deadline urgency banner ──────────────────────── */
+.tracker-deadline-banner {
+  margin-bottom: 18px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  line-height: 1.45;
+}
+
+.tracker-deadline-banner-urgent {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #b91c1c;
+}
+
+.tracker-deadline-banner-soon {
+  background: #fffbeb;
+  border-color: #fcd34d;
+  color: #92400e;
+}
+
+.tracker-deadline-banner-closed {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #6b7280;
+}
+
+.tracker-deadline-banner-standard {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+
 .appeal-row {
   margin-bottom: 14px;
 }
