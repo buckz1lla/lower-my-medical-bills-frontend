@@ -1846,6 +1846,63 @@ a {
   font-weight: 600;
 }
 
+/* ── Appeal deadline note ─────────────────────────────────── */
+.deadline-note-next {
+  margin: 6px 0 10px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.deadline-note-next-urgent {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #b91c1c;
+}
+
+.deadline-note-next-soon {
+  background: #fffbeb;
+  border-color: #fcd34d;
+  color: #92400e;
+}
+
+.deadline-note-next-closed {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #6b7280;
+}
+
+.deadline-note-next-standard {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+
+/* ── COB cross-claim callout ──────────────────────────────── */
+.cob-callout-next {
+  border: 2px solid #b91c1c;
+  border-radius: 12px;
+  background: #fff1f2;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+
+.cob-callout-next strong {
+  display: block;
+  color: #b91c1c;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.cob-callout-next p {
+  margin: 0;
+  color: #3f1010;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
 .empty-state-next {
   background: #f7f2e7;
   border: 1px solid #deceb2;
