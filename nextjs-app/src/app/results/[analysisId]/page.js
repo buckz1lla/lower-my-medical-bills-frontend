@@ -68,6 +68,30 @@ const getConfidenceLevel = (opportunity) => {
   return "low";
 };
 
+const getDeadlineUrgency = (note) => {
+  if (!note) return null;
+  const n = note.toUpperCase();
+  if (n.startsWith("URGENT")) return "urgent";
+  if (n.startsWith("ACT SOON")) return "soon";
+  if (n.includes("CLOSED")) return "closed";
+  return "standard";
+};
+
+const getTypePillClass = (type, claim) => {
+  if (type === "coordination_of_benefits") return " result-pill-danger-next";
+  if (type === "out_of_network" && (claim?.network_status === "out_of_network" || claim?.in_network === false)) return " result-pill-danger-next";
+  if (type === "billing_error" || type === "balance_billing" || type.includes("duplicate") || type.includes("overcharge") || type.includes("saving")) return " result-pill-savings-next";
+  return "";
+};
+
+const formatOpportunityType = (type) => {
+  if (type === "coordination_of_benefits") return "Coordination of Benefits";
+  if (type === "billing_error") return "Billing Error";
+  if (type === "balance_billing") return "Balance Billing";
+  if (type === "out_of_network") return "Out of Network";
+  return type.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
+};
+
 const pickPriceVariant = (analysisId) => {
   if (!PRICE_EXPERIMENT_ENABLED || !analysisId) {
     return { variant: "control", amountCents: PRICE_CONTROL_CENTS };
@@ -705,73 +729,93 @@ function ResultsContent() {
           {opportunities.length === 0 ? (
             <p className="empty-state-next">No high-priority claim signals were detected for this upload.</p>
           ) : (
-            opportunities.map((opportunity) => (
-              <article className={`result-card-next${getConfidenceLevel(opportunity) === "low" ? " result-card-next-caution" : ""}`} key={opportunity.opportunity_id}>
-                <div className="result-card-next-top">
-                  <p className={`result-pill-next${
-                    opportunity.type === 'out_of_network' && (claimsById.get(opportunity.claim_id)?.network_status === "out_of_network" || claimsById.get(opportunity.claim_id)?.in_network === false) ? ' result-pill-danger-next' :
-                    opportunity.type.includes('saving') || opportunity.type.includes('overcharge') || opportunity.type.includes('duplicate') ? ' result-pill-savings-next' : ''
-                  }`}>{opportunity.type.replaceAll("_", " ")}</p>
-                  <div className="result-money-wrap-next">
-                    <p className="result-money-next">{formatMoney(opportunity.estimated_savings)}</p>
-                    <p className={`result-confidence-badge-next result-confidence-badge-next-${getConfidenceLevel(opportunity)}`}>
-                      Confidence: {getConfidenceLevel(opportunity)}
-                    </p>
-                  </div>
+            <>
+              {opportunities.some((o) => o.type === "coordination_of_benefits") ? (
+                <div className="cob-callout-next" role="alert">
+                  <strong>Coordination of Benefits Pattern Detected</strong>
+                  <p>
+                    Multiple claims were denied with reason code CO-22. This is usually a systemic
+                    payer-order issue — resolving it once with your insurer typically fixes all affected claims.
+                    See the flagged opportunity below for next steps.
+                  </p>
                 </div>
-                <h3>{opportunity.description}</h3>
-                <p>{opportunity.recommended_action}</p>
-                {opportunity.type === "out_of_network" && claimsById.get(opportunity.claim_id)?.network_status === "unknown" ? (
-                  <p className="result-verify-banner-next">Needs verification: network status is unknown for this claim.</p>
-                ) : null}
-                <button
-                  type="button"
-                  className="result-expand-btn-next"
-                  onClick={() => handleToggleOpportunity(opportunity)}
-                >
-                  {expandedOpportunity === opportunity.opportunity_id ? "Hide details" : "Show details"}
-                </button>
-                {expandedOpportunity === opportunity.opportunity_id ? (
-                  <div className="result-details-next">
-                    <p>Severity: {opportunity.severity}</p>
-                    <p>Difficulty: {opportunity.difficulty_level}</p>
-                    <p>Time estimate: {opportunity.time_estimate_days} day(s)</p>
-                    <p>Confidence: {Math.round((opportunity.confidence_score || 0) * 100)}%</p>
-                    {opportunity.flag_reason ? <p>Why flagged: {opportunity.flag_reason}</p> : null}
-                    {(opportunity.verification_steps || []).length > 0 ? (
-                      <div className="result-details-list-next">
-                        <p>Verify before acting:</p>
-                        <ul>
-                          {opportunity.verification_steps.map((step, idx) => (
-                            <li key={`${opportunity.opportunity_id}-verify-${idx}`}>{step}</li>
-                          ))}
-                        </ul>
+              ) : null}
+              {opportunities.map((opportunity) => {
+                const relatedClaim = claimsById.get(opportunity.claim_id);
+                const deadlineUrgency = getDeadlineUrgency(opportunity.appeal_deadline_note);
+                return (
+                  <article className={`result-card-next${getConfidenceLevel(opportunity) === "low" ? " result-card-next-caution" : ""}`} key={opportunity.opportunity_id}>
+                    <div className="result-card-next-top">
+                      <p className={`result-pill-next${getTypePillClass(opportunity.type, relatedClaim)}`}>
+                        {formatOpportunityType(opportunity.type)}
+                      </p>
+                      <div className="result-money-wrap-next">
+                        <p className="result-money-next">{formatMoney(opportunity.estimated_savings)}</p>
+                        <p className={`result-confidence-badge-next result-confidence-badge-next-${getConfidenceLevel(opportunity)}`}>
+                          Confidence: {getConfidenceLevel(opportunity)}
+                        </p>
+                      </div>
+                    </div>
+                    {opportunity.appeal_deadline_note ? (
+                      <p className={`deadline-note-next deadline-note-next-${deadlineUrgency}`}>
+                        {deadlineUrgency === "urgent" ? "⚠️ " : deadlineUrgency === "soon" ? "⏰ " : "🗓️ "}
+                        {opportunity.appeal_deadline_note}
+                      </p>
+                    ) : null}
+                    <h3>{opportunity.description}</h3>
+                    <p>{opportunity.recommended_action}</p>
+                    {opportunity.type === "out_of_network" && relatedClaim?.network_status === "unknown" ? (
+                      <p className="result-verify-banner-next">Needs verification: network status is unknown for this claim.</p>
+                    ) : null}
+                    <button
+                      type="button"
+                      className="result-expand-btn-next"
+                      onClick={() => handleToggleOpportunity(opportunity)}
+                    >
+                      {expandedOpportunity === opportunity.opportunity_id ? "Hide details" : "Show details"}
+                    </button>
+                    {expandedOpportunity === opportunity.opportunity_id ? (
+                      <div className="result-details-next">
+                        <p>Severity: {opportunity.severity}</p>
+                        <p>Difficulty: {opportunity.difficulty_level}</p>
+                        <p>Time estimate: {opportunity.time_estimate_days} day(s)</p>
+                        <p>Confidence: {Math.round((opportunity.confidence_score || 0) * 100)}%</p>
+                        {opportunity.flag_reason ? <p>Why flagged: {opportunity.flag_reason}</p> : null}
+                        {(opportunity.verification_steps || []).length > 0 ? (
+                          <div className="result-details-list-next">
+                            <p>Verify before acting:</p>
+                            <ul>
+                              {opportunity.verification_steps.map((step, idx) => (
+                                <li key={`${opportunity.opportunity_id}-verify-${idx}`}>{step}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
+                        {(opportunity.could_be_correct_if || []).length > 0 ? (
+                          <div className="result-details-list-next">
+                            <p>This may be correct if:</p>
+                            <ul>
+                              {opportunity.could_be_correct_if.map((item, idx) => (
+                                <li key={`${opportunity.opportunity_id}-correct-${idx}`}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
+                        {(opportunity.missing_data_points || []).length > 0 ? (
+                          <div className="result-details-list-next">
+                            <p>Missing data points:</p>
+                            <ul>
+                              {opportunity.missing_data_points.map((item, idx) => (
+                                <li key={`${opportunity.opportunity_id}-missing-${idx}`}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
                       </div>
                     ) : null}
-                    {(opportunity.could_be_correct_if || []).length > 0 ? (
-                      <div className="result-details-list-next">
-                        <p>This may be correct if:</p>
-                        <ul>
-                          {opportunity.could_be_correct_if.map((item, idx) => (
-                            <li key={`${opportunity.opportunity_id}-correct-${idx}`}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : null}
-                    {(opportunity.missing_data_points || []).length > 0 ? (
-                      <div className="result-details-list-next">
-                        <p>Missing data points:</p>
-                        <ul>
-                          {opportunity.missing_data_points.map((item, idx) => (
-                            <li key={`${opportunity.opportunity_id}-missing-${idx}`}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : null}
-                  </div>
-                ) : null}
               </article>
-            ))
+            )})}
+          </>
           )}
         </section>
       ) : null}
