@@ -6,6 +6,29 @@ import { useParams } from "next/navigation";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
 
+const DEADLINE_URGENCY_RANK = { urgent: 0, soon: 1, standard: 2, closed: 3 };
+
+const getDeadlineUrgency = (note) => {
+  if (!note) return null;
+  const n = note.toUpperCase();
+  if (n.startsWith("URGENT")) return "urgent";
+  if (n.startsWith("ACT SOON")) return "soon";
+  if (n.includes("CLOSED")) return "closed";
+  return "standard";
+};
+
+const getMostUrgentDeadline = (opportunities) => {
+  let best = null;
+  for (const opp of opportunities || []) {
+    if (!opp.appeal_deadline_note) continue;
+    const urgency = getDeadlineUrgency(opp.appeal_deadline_note);
+    if (best === null || DEADLINE_URGENCY_RANK[urgency] < DEADLINE_URGENCY_RANK[best.urgency]) {
+      best = { note: opp.appeal_deadline_note, urgency };
+    }
+  }
+  return best;
+};
+
 const STATUS_OPTIONS = [
   { value: "not_started", label: "Not started" },
   { value: "drafting", label: "Drafting appeal" },
@@ -42,14 +65,16 @@ export default function AppealTrackerPage() {
   const [nextFollowUpDate, setNextFollowUpDate] = useState("");
   const [updatedAt, setUpdatedAt] = useState("");
   const [message, setMessage] = useState("");
+  const [urgentDeadline, setUrgentDeadline] = useState(null);
 
   const loadTracker = useCallback(async () => {
     setLoading(true);
     try {
-      const [trackerRes] = await Promise.all([
+      const [trackerRes, analysisRes] = await Promise.all([
         fetch(`${API_BASE}/api/appeals/tracker/${analysisId}`, {
           credentials: "include",
         }),
+        fetch(`${API_BASE}/api/eob/analysis/${analysisId}`),
         Promise.all([
           trackEvent("appeal_tracker_viewed", { analysisId }),
           trackEvent("appeal_tracker_opened", { analysisId }),
@@ -62,6 +87,11 @@ export default function AppealTrackerPage() {
         setNote(tracker.note || "");
         setNextFollowUpDate(tracker.next_follow_up_date || "");
         setUpdatedAt(tracker.updated_at || "");
+      }
+
+      if (analysisRes.ok) {
+        const analysis = await analysisRes.json();
+        setUrgentDeadline(getMostUrgentDeadline(analysis.savings_opportunities));
       }
     } catch {
       setMessage(
@@ -126,6 +156,13 @@ export default function AppealTrackerPage() {
       </div>
 
       <div className="appeal-tracker-card">
+        {urgentDeadline ? (
+          <div className={`tracker-deadline-banner tracker-deadline-banner-${urgentDeadline.urgency}`}>
+            {urgentDeadline.urgency === "urgent" ? "⚠️ " : urgentDeadline.urgency === "soon" ? "⏰ " : "🗓️ "}
+            {urgentDeadline.note}
+          </div>
+        ) : null}
+
         <div className="appeal-row">
           <label htmlFor="appeal-status">Appeal status</label>
           <select
