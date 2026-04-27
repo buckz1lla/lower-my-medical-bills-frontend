@@ -4,7 +4,7 @@ export const metadata = {
   title: "Editorial Policy | Lower My Medical Bills",
   description:
     "How Lower My Medical Bills researches, updates, and quality-checks medical billing and appeal guidance.",
-  alternates: { canonical: "https://www.lowermymedicalbills.com/editorial-policy" },
+  alternates: { canonical: "https://lowermymedicalbills.com/editorial-policy" },
   robots: { index: true, follow: true },
 };
 

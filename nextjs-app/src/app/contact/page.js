@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Contact | Lower My Medical Bills",
   description: "How to contact Lower My Medical Bills for support, corrections, and policy questions.",
-  alternates: { canonical: "https://www.lowermymedicalbills.com/contact" },
+  alternates: { canonical: "https://lowermymedicalbills.com/contact" },
   robots: { index: true, follow: true },
 };
 

@@ -4,7 +4,7 @@ import { guides, findGuideBySlug } from "@/lib/guides";
 import { getAffiliateLink } from "@/lib/affiliateLinks";
 import { notFound } from "next/navigation";
 
-const SITE_URL = "https://www.lowermymedicalbills.com";
+const SITE_URL = "https://lowermymedicalbills.com";
 
 const GUIDE_PATHWAYS = {
   "medical-bill-too-high-what-to-do": [

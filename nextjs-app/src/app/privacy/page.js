@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Privacy Policy | Lower My Medical Bills",
   description: "How Lower My Medical Bills handles uploaded documents and usage data.",
-  alternates: { canonical: "https://www.lowermymedicalbills.com/privacy" },
+  alternates: { canonical: "https://lowermymedicalbills.com/privacy" },
   robots: { index: true, follow: true },
 };
 

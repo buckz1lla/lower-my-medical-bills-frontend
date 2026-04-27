@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Disclaimer | Lower My Medical Bills",
   description: "Important limitations and intended use of analysis output.",
-  alternates: { canonical: "https://www.lowermymedicalbills.com/disclaimer" },
+  alternates: { canonical: "https://lowermymedicalbills.com/disclaimer" },
   robots: { index: true, follow: true },
 };
 
