@@ -1,4 +1,4 @@
-const SITE_URL = "https://www.lowermymedicalbills.com";
+const SITE_URL = "https://lowermymedicalbills.com";
 
 export default function robots() {
   return {

@@ -2,7 +2,7 @@ export const metadata = {
   title: "Sources and Methodology | Lower My Medical Bills",
   description:
     "Primary source categories and methodology used to build medical billing and appeal guidance.",
-  alternates: { canonical: "https://www.lowermymedicalbills.com/sources" },
+  alternates: { canonical: "https://lowermymedicalbills.com/sources" },
   robots: { index: true, follow: true },
 };
 

@@ -4,7 +4,7 @@ export const metadata = {
   title: "About & Methodology | Lower My Medical Bills",
   description:
     "How Lower My Medical Bills works, who built it, and what the tool can and cannot determine. Written by a health insurance data engineer.",
-  alternates: { canonical: "https://www.lowermymedicalbills.com/about" },
+  alternates: { canonical: "https://lowermymedicalbills.com/about" },
   robots: { index: true, follow: true },
 };
 

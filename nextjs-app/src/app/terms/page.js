@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Terms of Use | Lower My Medical Bills",
   description: "Terms for using the Lower My Medical Bills analysis experience.",
-  alternates: { canonical: "https://www.lowermymedicalbills.com/terms" },
+  alternates: { canonical: "https://lowermymedicalbills.com/terms" },
   robots: { index: true, follow: true },
 };
 

@@ -4,13 +4,13 @@ export const metadata = {
   title: "Medical Billing Templates & Scripts | Lower My Medical Bills",
   description:
     "Copy-ready templates for appeal letters, billing calls, and dispute follow-ups when medical bills or claims are wrong.",
-  alternates: { canonical: "https://www.lowermymedicalbills.com/templates" },
+  alternates: { canonical: "https://lowermymedicalbills.com/templates" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Medical Billing Templates & Scripts",
     description:
       "Use these practical templates and scripts to dispute errors, appeal denials, and negotiate balances.",
-    url: "https://www.lowermymedicalbills.com/templates",
+    url: "https://lowermymedicalbills.com/templates",
     siteName: "Lower My Medical Bills",
     type: "website",
   },

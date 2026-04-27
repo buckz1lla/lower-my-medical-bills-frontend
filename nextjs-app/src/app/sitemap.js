@@ -1,6 +1,6 @@
 import { guides } from "@/lib/guides";
 
-const SITE_URL = "https://www.lowermymedicalbills.com";
+const SITE_URL = "https://lowermymedicalbills.com";
 
 export default function sitemap() {
   const now = new Date().toISOString();

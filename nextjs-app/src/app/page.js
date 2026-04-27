@@ -5,11 +5,11 @@ export const metadata = {
   title: "Lower My Medical Bills - Appeal-First EOB Review Tool",
   description:
     "Upload your Explanation of Benefits to triage risk, prioritize next actions, and prepare a stronger insurance appeal.",
-  alternates: { canonical: "https://www.lowermymedicalbills.com" },
+  alternates: { canonical: "https://lowermymedicalbills.com" },
   openGraph: {
     title: "Lower My Medical Bills - Appeal-First EOB Review",
     description: "Triage claim risk and prepare a stronger appeal plan from your EOB in minutes.",
-    url: "https://www.lowermymedicalbills.com",
+    url: "https://lowermymedicalbills.com",
     siteName: "Lower My Medical Bills",
     type: "website",
   },
