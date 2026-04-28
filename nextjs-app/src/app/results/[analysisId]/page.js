@@ -92,6 +92,13 @@ const formatOpportunityType = (type) => {
   return type.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
 };
 
+const extractReasonCode = (opportunity) => {
+  const flagMatch = (opportunity?.flag_reason || "").match(/Reason code ([A-Z]{2}-\d+)/i);
+  if (flagMatch) return flagMatch[1].toUpperCase();
+  const descMatch = (opportunity?.description || "").match(/Denial code ([A-Z]{2}-\d+)/i);
+  return descMatch ? descMatch[1].toUpperCase() : null;
+};
+
 const pickPriceVariant = (analysisId) => {
   if (!PRICE_EXPERIMENT_ENABLED || !analysisId) {
     return { variant: "control", amountCents: PRICE_CONTROL_CENTS };
@@ -311,6 +318,8 @@ function ResultsContent() {
   const [emailCaptureLoading, setEmailCaptureLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [carcCache, setCarcCache] = useState({});
+  const [carcExpanded, setCarcExpanded] = useState(new Set());
   const toolkitUnlockTrackedRef = useRef(false);
 
   const pricing = useMemo(() => pickPriceVariant(analysisId), [analysisId]);
@@ -482,6 +491,27 @@ function ResultsContent() {
     await trackEvent("affiliate_link_clicked", { affiliate, analysisId });
     window.open(link, "_blank");
   }, [analysisId]);
+
+  const handleToggleCarcLookup = async (opportunityId, code) => {
+    setCarcExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(opportunityId)) {
+        next.delete(opportunityId);
+      } else {
+        next.add(opportunityId);
+      }
+      return next;
+    });
+    if (!(code in carcCache)) {
+      try {
+        const response = await fetch(`${API_BASE}/api/eob/carc-lookup/${encodeURIComponent(code)}`);
+        const data = response.ok ? await response.json() : null;
+        setCarcCache((prev) => ({ ...prev, [code]: data }));
+      } catch {
+        setCarcCache((prev) => ({ ...prev, [code]: null }));
+      }
+    }
+  };
 
   const recommendations = useMemo(() => {
     if (!analysis) {
@@ -811,6 +841,37 @@ function ResultsContent() {
                             </ul>
                           </div>
                         ) : null}
+                        {(() => {
+                          const code = extractReasonCode(opportunity);
+                          if (!code) return null;
+                          const isOpen = carcExpanded.has(opportunity.opportunity_id);
+                          const entry = carcCache[code];
+                          return (
+                            <div className="carc-lookup-section-next">
+                              <button
+                                type="button"
+                                className="carc-lookup-btn-next"
+                                onClick={() => handleToggleCarcLookup(opportunity.opportunity_id, code)}
+                              >
+                                {isOpen ? `▲ Hide code ${code} details` : `▼ What does code ${code} mean?`}
+                              </button>
+                              {isOpen ? (
+                                entry === undefined ? (
+                                  <p className="carc-lookup-status-next">Loading&hellip;</p>
+                                ) : entry === null ? (
+                                  <p className="carc-lookup-status-next">Code details unavailable.</p>
+                                ) : (
+                                  <div className="carc-lookup-panel-next">
+                                    <p className="carc-lookup-explanation-next">{entry.explanation}</p>
+                                    <p className="carc-lookup-meta-next">
+                                      Success probability: {Math.round((entry.success_probability || 0) * 100)}% &middot; Estimated resolution: {entry.time_estimate_days} days &middot; Difficulty: {entry.difficulty_level}
+                                    </p>
+                                  </div>
+                                )
+                              ) : null}
+                            </div>
+                          );
+                        })()}
                       </div>
                     ) : null}
               </article>
