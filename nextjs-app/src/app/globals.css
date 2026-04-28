@@ -1903,6 +1903,61 @@ a {
   line-height: 1.5;
 }
 
+/* ===== CARC INLINE LOOKUP ===== */
+
+.carc-lookup-section-next {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed #c8daca;
+}
+
+.carc-lookup-btn-next {
+  background: none;
+  border: 1px solid #b8ccbe;
+  border-radius: 6px;
+  color: #18413d;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.carc-lookup-btn-next:hover {
+  background: #eaf2eb;
+  border-color: #18413d;
+}
+
+.carc-lookup-panel-next {
+  margin-top: 8px;
+  background: #eaf2eb;
+  border: 1px solid #b8ccbe;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.carc-lookup-explanation-next {
+  margin: 0;
+  font-size: 0.87rem;
+  color: #18413d;
+  line-height: 1.5;
+}
+
+.carc-lookup-meta-next {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #4a6b5c;
+  font-weight: 500;
+}
+
+.carc-lookup-status-next {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: #8a9e96;
+}
+
 .empty-state-next {
   background: #f7f2e7;
   border: 1px solid #deceb2;
