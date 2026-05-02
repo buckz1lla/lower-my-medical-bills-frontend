@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
@@ -36,7 +36,30 @@ export default function AnalyzerPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [isDragOver, setIsDragOver] = useState(false);
+  const [stepIndex, setStepIndex] = useState(0);
+  const stepTimerRef = useRef(null);
   const router = useRouter();
+
+  const PROCESSING_STEPS = [
+    { label: "Uploading your file", detail: "Securely transmitting your EOB" },
+    { label: "Reading claim data", detail: "Parsing line items and service codes" },
+    { label: "Checking for billing errors", detail: "Running CCI edit and modifier checks" },
+    { label: "Analyzing denial codes", detail: "Cross-referencing CARC reason codes" },
+    { label: "Evaluating appeal options", detail: "Scoring each opportunity by confidence" },
+    { label: "Building your action brief", detail: "Finalizing savings opportunities" },
+  ];
+
+  useEffect(() => {
+    if (loading) {
+      setStepIndex(0);
+      stepTimerRef.current = setInterval(() => {
+        setStepIndex((prev) => Math.min(prev + 1, PROCESSING_STEPS.length - 1));
+      }, 1800);
+    } else {
+      clearInterval(stepTimerRef.current);
+    }
+    return () => clearInterval(stepTimerRef.current);
+  }, [loading]);
 
   const validateAndSetFile = (selectedFile) => {
     if (!selectedFile) {
@@ -200,8 +223,26 @@ export default function AnalyzerPage() {
             className={`btn-primary analyzer-submit ${file && !loading ? "analyzer-submit-ready" : ""}`}
             disabled={!file || loading}
           >
-            {loading ? "Review in progress..." : "Generate My Action Brief"}
+            {loading ? (
+              <span className="analyzer-loading-inner">
+                <span className="analyzer-spinner" aria-hidden="true" />
+                <span className="analyzer-loading-text">
+                  <span className="analyzer-loading-label">{PROCESSING_STEPS[stepIndex].label}</span>
+                  <span className="analyzer-loading-detail">{PROCESSING_STEPS[stepIndex].detail}</span>
+                </span>
+              </span>
+            ) : "Generate My Action Brief"}
           </button>
+          {loading ? (
+            <div className="analyzer-step-track" role="status" aria-live="polite">
+              {PROCESSING_STEPS.map((step, idx) => (
+                <div
+                  key={step.label}
+                  className={`analyzer-step-dot${idx < stepIndex ? " analyzer-step-dot-done" : idx === stepIndex ? " analyzer-step-dot-active" : ""}`}
+                />
+              ))}
+            </div>
+          ) : null}
         </form>
       </section>
     </main>
