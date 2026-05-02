@@ -320,6 +320,8 @@ function ResultsContent() {
   const [error, setError] = useState("");
   const [carcCache, setCarcCache] = useState({});
   const [carcExpanded, setCarcExpanded] = useState(new Set());
+  const [outcomeMap, setOutcomeMap] = useState({}); // opportunity_id -> outcome string
+  const [outcomeSaving, setOutcomeSaving] = useState({}); // opportunity_id -> bool
   const toolkitUnlockTrackedRef = useRef(false);
 
   const pricing = useMemo(() => pickPriceVariant(analysisId), [analysisId]);
@@ -397,6 +399,21 @@ function ResultsContent() {
           return;
         }
         setAnalysis(payload);
+
+        // Load any previously recorded outcomes for this analysis
+        try {
+          const outcomesRes = await fetch(`${API_BASE}/api/eob/outcomes/${analysisId}`);
+          if (outcomesRes.ok && mounted) {
+            const outcomesPayload = await outcomesRes.json();
+            const map = {};
+            for (const o of outcomesPayload.outcomes || []) {
+              map[o.opportunity_id] = o.outcome;
+            }
+            setOutcomeMap(map);
+          }
+        } catch {
+          // Outcomes are non-critical; ignore fetch errors.
+        }
 
         await trackEvent("results_page_viewed", {
           analysisId,
@@ -510,6 +527,29 @@ function ResultsContent() {
       } catch {
         setCarcCache((prev) => ({ ...prev, [code]: null }));
       }
+    }
+  };
+
+  const handleRecordOutcome = async (opportunityId, outcome) => {
+    // Toggle off if clicking the same outcome again
+    if (outcomeMap[opportunityId] === outcome) {
+      setOutcomeMap((prev) => ({ ...prev, [opportunityId]: undefined }));
+      return;
+    }
+    setOutcomeSaving((prev) => ({ ...prev, [opportunityId]: true }));
+    try {
+      const response = await fetch(`${API_BASE}/api/eob/outcomes`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ analysis_id: analysisId, opportunity_id: opportunityId, outcome }),
+      });
+      if (response.ok) {
+        setOutcomeMap((prev) => ({ ...prev, [opportunityId]: outcome }));
+      }
+    } catch {
+      // Non-critical; outcome state stays unchanged on error.
+    } finally {
+      setOutcomeSaving((prev) => ({ ...prev, [opportunityId]: false }));
     }
   };
 
@@ -874,6 +914,25 @@ function ResultsContent() {
                         })()}
                       </div>
                     ) : null}
+                    <div className="outcome-row-next">
+                      <p className="outcome-label-next">Did you try this?</p>
+                      {[
+                        { value: "won", label: "Won" },
+                        { value: "in_progress", label: "In Progress" },
+                        { value: "lost", label: "Lost" },
+                        { value: "not_tried", label: "Not Tried" },
+                      ].map(({ value, label }) => (
+                        <button
+                          key={value}
+                          type="button"
+                          disabled={outcomeSaving[opportunity.opportunity_id]}
+                          className={`outcome-btn-next outcome-btn-next-${value}${outcomeMap[opportunity.opportunity_id] === value ? " outcome-btn-next-active" : ""}`}
+                          onClick={() => handleRecordOutcome(opportunity.opportunity_id, value)}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
               </article>
             )})}
           </>
