@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="home-page home">
       <section className="hero">
-        <span className="hero-kicker">Appeal-first claim triage</span>
+        <span className="hero-kicker">EOB Review &middot; Appeal Guidance</span>
         <h1>Turn a confusing EOB into a concrete action plan</h1>
         <p>
           We flag high-risk claim lines, explain why they matter, and help you
@@ -77,7 +77,7 @@ export default function Home() {
         <h3>What Makes Our Workflow Different</h3>
         <div className="features-grid">
           <div className="feature-card">
-            <div className="feature-icon">&#128270;</div>
+            <div className="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
             <h4>Risk-First Review</h4>
             <p>
               We prioritize the claim lines most likely to affect what you owe
@@ -85,7 +85,7 @@ export default function Home() {
             </p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">&#128161;</div>
+            <div className="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
             <h4>Plain-English Explanations</h4>
             <p>
               Decode deductibles, coinsurance, and network status without
@@ -93,7 +93,7 @@ export default function Home() {
             </p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">&#128221;</div>
+            <div className="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
             <h4>Appeal-Ready Prep</h4>
             <p>
                 Build a stronger case with a practical checklist, key claim
@@ -101,7 +101,7 @@ export default function Home() {
             </p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">&#128176;</div>
+            <div className="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
             <h4>Next-Step Prioritization</h4>
             <p>
               Know exactly what to do now, what can wait, and where you may be
@@ -312,7 +312,7 @@ export default function Home() {
         <h2>Privacy-Respecting by Default</h2>
         <div className="trust-grid">
           <div className="trust-card">
-            <div className="trust-icon">&#128274;</div>
+            <div className="trust-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
             <h3>Secure Uploads</h3>
             <p>
               Files move through encrypted HTTPS and are removed after
@@ -320,7 +320,7 @@ export default function Home() {
             </p>
           </div>
           <div className="trust-card">
-            <div className="trust-icon">&#128100;</div>
+            <div className="trust-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
             <h3>No Account Required</h3>
             <p>
               Start a review without creating an account or committing to a
@@ -328,7 +328,7 @@ export default function Home() {
             </p>
           </div>
           <div className="trust-card">
-            <div className="trust-icon">&#128172;</div>
+            <div className="trust-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
             <h3>Plain-English Results</h3>
             <p>
               We translate insurance jargon into clear action steps you can use
