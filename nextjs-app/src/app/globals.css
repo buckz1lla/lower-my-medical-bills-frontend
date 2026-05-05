@@ -1555,7 +1555,8 @@ a {
 .trust-strip-item {
   display: flex;
   align-items: flex-start;
-  ga
+  gap: 12px;
+}
 
 .trust-strip-icon {
   font-size: 1.2rem;
