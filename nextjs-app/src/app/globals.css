@@ -1079,7 +1079,10 @@ a {
 }
 
 .resource-link:hover {
-  text-decoration: 960px) {
+  text-decoration: underline;
+}
+
+@media (max-width: 960px) {
   .hero {
     grid-template-columns: 1fr;
     padding: 52px 38px;
@@ -1107,7 +1110,11 @@ a {
   }
 
   .hero {
-    padding: 40
+    padding: 40px 22px;
+    margin-bottom: 52px;
+  }
+}
+
 .resource-card h4 {
   margin: 0 0 8px;
   color: var(--ink);
