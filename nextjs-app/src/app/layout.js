@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
         <header className="header">
           <div className="header-container">
             <Link href="/" className="logo">
-              <h1>&#128176; Lower My Medical Bills</h1>
+              <h1>Lower My Medical Bills</h1>
             </Link>
             <nav className="nav" aria-label="Main navigation">
               <Link href="/">Home</Link>
