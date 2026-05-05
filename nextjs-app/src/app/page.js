@@ -19,15 +19,59 @@ export default function Home() {
   return (
     <div className="home-page home">
       <section className="hero">
-        <span className="hero-kicker">EOB Review &middot; Appeal Guidance</span>
-        <h1>Turn a confusing EOB into a concrete action plan</h1>
-        <p>
-          We flag high-risk claim lines, explain why they matter, and help you
-          prepare for insurer and provider conversations with more confidence.
-        </p>
-        <Link href="/analyzer" className="cta-button">
-          Start My Claim Review
-        </Link>
+        <div className="hero-text">
+          <span className="hero-kicker">EOB Review &middot; Appeal Guidance</span>
+          <h1>Turn a confusing EOB into a concrete action plan</h1>
+          <p>
+            We flag high-risk claim lines, explain why they matter, and help you
+            prepare for insurer and provider conversations with more confidence.
+          </p>
+          <Link href="/analyzer" className="cta-button">
+            Start My Claim Review
+          </Link>
+          <div className="hero-trust-row">
+            <span>🔒 Secure upload</span>
+            <span>No account required</span>
+            <span>Results in seconds</span>
+          </div>
+        </div>
+
+        <div className="hero-mock-wrap" aria-hidden="true">
+          <div className="hero-mock-card">
+            <div className="hero-mock-bar">
+              <span>EOB Analysis</span>
+              <span className="hero-mock-badge">Sample Result</span>
+            </div>
+            <div className="hero-mock-body">
+              <div className="hero-mock-claim-line">WakeMed Outpatient &middot; Lab Services</div>
+              <div className="hero-mock-savings-block">
+                <div className="hero-mock-savings-label">Potential Savings Identified</div>
+                <div className="hero-mock-savings-amount">$261.95</div>
+                <div className="hero-mock-savings-note">Out-of-network lab &middot; Appeal eligible</div>
+              </div>
+              <div className="hero-mock-signals">
+                <div className="hero-mock-signal hero-mock-signal-high">
+                  <span className="hero-mock-signal-dot" />
+                  <div className="hero-mock-signal-text">
+                    <strong>OON Referred Ancillary</strong>
+                    <span>High leverage &middot; Confidence: Medium</span>
+                  </div>
+                </div>
+                <div className="hero-mock-signal hero-mock-signal-mid">
+                  <span className="hero-mock-signal-dot" />
+                  <div className="hero-mock-signal-text">
+                    <strong>Network Auth Not Documented</strong>
+                    <span>Verify before appealing</span>
+                  </div>
+                </div>
+              </div>
+              <div className="hero-mock-checklist">
+                <div className="hero-mock-check">✓ Appeal prep steps generated</div>
+                <div className="hero-mock-check">✓ Verification checklist ready</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="home-trust-band" aria-label="Policy and transparency links">
