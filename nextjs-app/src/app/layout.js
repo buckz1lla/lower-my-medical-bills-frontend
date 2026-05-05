@@ -34,6 +34,14 @@ export default function RootLayout({ children }) {
         <header className="header">
           <div className="header-container">
             <Link href="/" className="logo">
+              <span className="logo-mark" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="32" height="32" rx="8" fill="#1f5493"/>
+                  <path d="M10 11h12M10 16h12M10 21h6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                  <circle cx="23" cy="23" r="5" fill="#b03552"/>
+                  <path d="M21.2 23l1.4 1.4 2.2-2.2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
               <h1>Lower My Medical Bills</h1>
             </Link>
             <nav className="nav" aria-label="Main navigation">
