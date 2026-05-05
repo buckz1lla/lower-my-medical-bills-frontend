@@ -91,7 +91,6 @@ a {
   box-shadow: 0 1px 6px rgba(15, 33, 51, 0.07);
   border-bottom: 1px solid var(--line);
   border-top: 3px solid var(--accent);
-  border-top: 3px solid var(--accent);
 }
 
 .header-container {
@@ -113,16 +112,44 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
+  margin-right: 11px;
   flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(15, 33, 51, 0.18));
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1;
 }
 
 .logo h1 {
-  font-size: 22px;
+  font-size: 21px;
   margin: 0;
   font-weight: 700;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.4px;
+  line-height: 1.15;
   font-family: var(--font-heading), serif;
+}
+
+.logo-word-lower {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.logo-word-brand {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.logo-tagline {
+  font-size: 0.67rem;
+  color: rgba(15, 33, 51, 0.42);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  font-family: var(--font-body), sans-serif;
+  margin-top: 2px;
 }
 
 .nav {

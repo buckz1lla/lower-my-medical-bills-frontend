@@ -35,14 +35,26 @@ export default function RootLayout({ children }) {
           <div className="header-container">
             <Link href="/" className="logo">
               <span className="logo-mark" aria-hidden="true">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="32" height="32" rx="8" fill="#1f5493"/>
-                  <path d="M10 11h12M10 16h12M10 21h6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  <circle cx="23" cy="23" r="5" fill="#b03552"/>
-                  <path d="M21.2 23l1.4 1.4 2.2-2.2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="lmmb-grad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#2c6abf"/>
+                      <stop offset="100%" stopColor="#163d6e"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="36" height="36" rx="9" fill="url(#lmmb-grad)"/>
+                  <path d="M10 12h16M10 18h16M10 24h9" stroke="white" strokeWidth="2.1" strokeLinecap="round"/>
+                  <circle cx="27" cy="27" r="6" fill="#b03552"/>
+                  <path d="M24.6 27l1.8 1.8 3-3" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </span>
-              <h1>Lower My Medical Bills</h1>
+              <div className="logo-text">
+                <h1>
+                  <span className="logo-word-lower">Lower My</span>{" "}
+                  <span className="logo-word-brand">Medical Bills</span>
+                </h1>
+                <span className="logo-tagline">EOB Review · Appeal Guidance</span>
+              </div>
             </Link>
             <nav className="nav" aria-label="Main navigation">
               <Link href="/">Home</Link>
