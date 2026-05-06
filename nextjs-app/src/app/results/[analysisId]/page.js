@@ -685,9 +685,14 @@ function ResultsContent() {
         <p>File: {analysis.file_name}</p>
       </section>
 
-      <p className={`unlock-banner-next ${isPaid ? "unlock-banner-next-paid" : "unlock-banner-next-unpaid"}`}>
-        {isPaid ? "Unlock confirmed: your appeal templates are ready below." : "Templates are locked until checkout is completed."}
-      </p>
+      <div className={`unlock-banner-next ${isPaid ? "unlock-banner-next-paid" : "unlock-banner-next-unpaid"}`}>
+        <span>{isPaid ? "Unlock confirmed: your appeal templates are ready below." : "Templates are locked until checkout is completed."}</span>
+        {isPaid && hasDownloadedPackage && (
+          <button className="btn-primary unlock-banner-download-btn" type="button" onClick={handleDownloadPdf}>
+            ↓ Download Appeal Package (PDF)
+          </button>
+        )}
+      </div>
 
       <section className="value-breakdown-next">
         <article className="value-tier-next value-tier-next-free">
@@ -980,42 +985,56 @@ function ResultsContent() {
 
       {hasDownloadedPackage && templates?.templates ? (
         <section className="templates-section-next">
-          <h3>Your Appeal Templates and Scripts</h3>
-          <p>Use these templates as your preparation starting point, then verify plan-specific facts before submitting.</p>
-          <button className="btn-primary" type="button" onClick={handleDownloadPdf}>
-            Download Appeal Package (PDF)
-          </button>
-
-          <div className="results-list-next" style={{ marginTop: 12 }}>
-            {Object.entries(templates.templates).map(([key, content]) => (
-              <article className="result-card-next" key={key}>
-                <div className="result-card-next-top">
-                  <h4>{key.replaceAll("_", " ")}</h4>
+          <div className="templates-header-next">
+            <div>
+              <h3>Your Appeal Templates and Scripts</h3>
+              <p>Use these as your starting point. Verify plan-specific facts before submitting.</p>
+            </div>
+            <button className="btn-primary templates-pdf-btn-next" type="button" onClick={handleDownloadPdf}>
+              ↓ Download PDF
+            </button>
+          </div>
+          <div className="toolkit-grid-next">
+            {Object.entries(templates.templates).map(([key, content]) => {
+              const iconMap = {
+                appeal_letter: "📄",
+                phone_script_insurer: "📞",
+                phone_script_provider: "📞",
+                appeal_checklist: "✅",
+                negotiation_talking_points: "💬",
+              };
+              const icon = iconMap[key] || "📋";
+              const label = key.replaceAll("_", " ");
+              const isOpen = expandedTemplate === key;
+              return (
+                <div key={key} className={`toolkit-chip-next ${isOpen ? "toolkit-chip-next-open" : ""}`}>
                   <button
                     type="button"
-                    className="result-expand-btn-next"
-                    onClick={() => setExpandedTemplate(expandedTemplate === key ? null : key)}
+                    className="toolkit-chip-btn-next"
+                    onClick={() => setExpandedTemplate(isOpen ? null : key)}
                   >
-                    {expandedTemplate === key ? "Hide" : "Open"}
+                    <span className="toolkit-chip-icon">{icon}</span>
+                    <span className="toolkit-chip-label">{label}</span>
+                    <span className="toolkit-chip-arrow">{isOpen ? "▲" : "▼"}</span>
                   </button>
+                  {isOpen && (
+                    <div className="toolkit-chip-content">
+                      <pre className="template-content-next">{content}</pre>
+                      <button
+                        type="button"
+                        className="result-expand-btn-next"
+                        onClick={() => {
+                          navigator.clipboard.writeText(content);
+                          alert("Copied to clipboard");
+                        }}
+                      >
+                        Copy to Clipboard
+                      </button>
+                    </div>
+                  )}
                 </div>
-                {expandedTemplate === key ? (
-                  <>
-                    <pre className="template-content-next">{content}</pre>
-                    <button
-                      type="button"
-                      className="result-expand-btn-next"
-                      onClick={() => {
-                        navigator.clipboard.writeText(content);
-                        alert("Copied to clipboard");
-                      }}
-                    >
-                      Copy to Clipboard
-                    </button>
-                  </>
-                ) : null}
-              </article>
-            ))}
+              );
+            })}
           </div>
         </section>
       ) : null}
