@@ -344,9 +344,18 @@ function ResultsContent() {
       let paid = false;
       let latestStatus = "unpaid";
 
+      // If no session_id in URL, try to restore one saved from a previous paid visit
+      const storageKey = `lmmb_session_${analysisId}`;
+      const effectiveSessionId = sessionId || (typeof localStorage !== "undefined" ? localStorage.getItem(storageKey) : null);
+
+      // Persist session_id to localStorage so future page loads can recover paid status
+      if (sessionId && typeof localStorage !== "undefined") {
+        localStorage.setItem(storageKey, sessionId);
+      }
+
       for (let attempt = 0; attempt < attempts; attempt += 1) {
         try {
-          const query = sessionId ? `?session_id=${encodeURIComponent(sessionId)}` : "";
+          const query = effectiveSessionId ? `?session_id=${encodeURIComponent(effectiveSessionId)}` : "";
           const response = await fetch(`${API_BASE}/api/payments/status/${analysisId}${query}`);
           if (response.ok) {
             const payload = await response.json();
