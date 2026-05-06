@@ -1912,9 +1912,9 @@ a {
 }
 
 .toolkit-grid-next {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .toolkit-chip-next {
@@ -2213,9 +2213,13 @@ a {
 }
 
 .result-pill-savings-next {
-  background: #dcfce7;
-  border-color: #86efac;
-  color: #15803d;
+  background: #dc2626;
+  border-color: #b91c1c;
+  color: #ffffff;
+}
+
+.result-card-next p.result-pill-next.result-pill-savings-next {
+  color: #ffffff;
 }
 
 .result-money-next {
@@ -2238,6 +2242,14 @@ a {
   padding: 4px 8px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+}
+
+.result-badge-row-next {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
 }
 
 .result-confidence-badge-next-high {
@@ -2270,12 +2282,15 @@ a {
 
 /* ── Appeal deadline note ─────────────────────────────────── */
 .deadline-note-next {
-  margin: 6px 0 10px;
-  padding: 7px 12px;
-  border-radius: 8px;
-  font-size: 0.82rem;
+  margin: 6px 0 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
   font-weight: 600;
   border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .deadline-note-next-urgent {
