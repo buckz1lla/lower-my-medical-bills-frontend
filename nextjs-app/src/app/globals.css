@@ -1855,9 +1855,9 @@ a {
 }
 
 .results-access-chip-paid {
-  background: #dcfce7;
-  border: 1px solid #86efac;
-  color: #166534;
+  background: #16a34a;
+  border: 1px solid #15803d;
+  color: #ffffff;
 }
 
 .results-access-chip-unpaid {
@@ -1968,8 +1968,8 @@ a {
 }
 
 .unlock-banner-next-paid {
-  background: #f0fdf4;
-  border: 1px solid #86efac;
+  background: #dcfce7;
+  border: 2px solid #16a34a;
   color: #14532d;
 }
 
@@ -2021,8 +2021,8 @@ a {
 }
 
 .value-tier-next-active {
-  border-color: #16a34a;
-  background: #f0fdf4;
+  border: 2px solid #16a34a;
+  background: #dcfce7;
 }
 
 .value-tier-next-active h3 {
