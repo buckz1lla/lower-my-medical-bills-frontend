@@ -826,17 +826,19 @@ function ResultsContent() {
                       </p>
                       <div className="result-money-wrap-next">
                         <p className="result-money-next">{formatMoney(opportunity.estimated_savings)}</p>
-                        <p className={`result-confidence-badge-next result-confidence-badge-next-${getConfidenceLevel(opportunity)}`}>
-                          Confidence: {getConfidenceLevel(opportunity)}
-                        </p>
+                        <div className="result-badge-row-next">
+                          <p className={`result-confidence-badge-next result-confidence-badge-next-${getConfidenceLevel(opportunity)}`}>
+                            Confidence: {getConfidenceLevel(opportunity)}
+                          </p>
+                          {opportunity.appeal_deadline_note ? (
+                            <p className={`deadline-note-next deadline-note-next-${deadlineUrgency}`}>
+                              {deadlineUrgency === "urgent" ? "⚠️" : deadlineUrgency === "soon" ? "⏰" : "🗓️"}{" "}
+                              {opportunity.appeal_deadline_note}
+                            </p>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
-                    {opportunity.appeal_deadline_note ? (
-                      <p className={`deadline-note-next deadline-note-next-${deadlineUrgency}`}>
-                        {deadlineUrgency === "urgent" ? "⚠️ " : deadlineUrgency === "soon" ? "⏰ " : "🗓️ "}
-                        {opportunity.appeal_deadline_note}
-                      </p>
-                    ) : null}
                     <h3>{opportunity.description}</h3>
                     <p>{opportunity.recommended_action}</p>
                     {opportunity.type === "out_of_network" && relatedClaim?.network_status === "unknown" ? (
