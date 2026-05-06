@@ -1855,9 +1855,9 @@ a {
 }
 
 .results-access-chip-paid {
-  background: #eaf7f5;
-  border: 1px solid #b5ddd9;
-  color: #236660;
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #166534;
 }
 
 .results-access-chip-unpaid {
@@ -1869,15 +1869,108 @@ a {
 .unlock-banner-next {
   margin-bottom: 16px;
   border-radius: 10px;
-  padding: 10px 12px;
+  padding: 12px 16px;
   text-align: center;
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.unlock-banner-download-btn {
+  font-size: 0.9rem;
+  padding: 8px 20px;
+}
+
+.templates-header-next {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.templates-header-next h3 {
+  margin: 0 0 3px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-family: var(--font-heading), serif;
+}
+
+.templates-header-next p {
+  margin: 0;
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+}
+
+.templates-pdf-btn-next {
+  flex-shrink: 0;
+  font-size: 0.88rem;
+  padding: 8px 16px;
+}
+
+.toolkit-grid-next {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 8px;
+}
+
+.toolkit-chip-next {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.toolkit-chip-next-open {
+  border-color: var(--accent);
+}
+
+.toolkit-chip-btn-next {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-transform: capitalize;
+}
+
+.toolkit-chip-btn-next:hover {
+  background: var(--paper);
+}
+
+.toolkit-chip-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.toolkit-chip-label {
+  flex: 1;
+}
+
+.toolkit-chip-arrow {
+  font-size: 0.65rem;
+  color: var(--ink-soft);
+}
+
+.toolkit-chip-content {
+  border-top: 1px solid var(--line);
+  padding: 10px 12px;
 }
 
 .unlock-banner-next-paid {
-  background: #edf9f8;
-  border: 1px solid #b9e2dd;
-  color: #1f6660;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  color: #14532d;
 }
 
 .unlock-banner-next-unpaid {
@@ -1928,8 +2021,12 @@ a {
 }
 
 .value-tier-next-active {
-  border-color: var(--accent);
-  background: #eef3fb;
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.value-tier-next-active h3 {
+  color: #15803d;
 }
 
 .parser-debug-panel-next {
