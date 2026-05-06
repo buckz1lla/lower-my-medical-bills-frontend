@@ -355,15 +355,6 @@ function ResultsContent() {
 
       for (let attempt = 0; attempt < attempts; attempt += 1) {
         try {
-          const query = effectiveSessionId ? `?session_id=${encodeURIComponent(effectiveS"undefined" ? localStorage.getItem(storageKey) : null);
-
-      // Persist session_id to localStorage so future page loads can recover paid status
-      if (sessionId && typeof localStorage !== "undefined") {
-        localStorage.setItem(storageKey, sessionId);
-      }
-
-      for (let attempt = 0; attempt < attempts; attempt += 1) {
-        try {
           const query = effectiveSessionId ? `?session_id=${encodeURIComponent(effectiveSessionId)}` : "";
           const response = await fetch(`${API_BASE}/api/payments/status/${analysisId}${query}`);
           if (response.ok) {
