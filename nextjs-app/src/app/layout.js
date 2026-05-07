@@ -42,10 +42,10 @@ export default function RootLayout({ children }) {
             <Link href="/" className="logo">
               <span className="logo-mark" aria-hidden="true">
                 <svg width="82" height="40" viewBox="0 0 82 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="1"  y="22" fontSize="24" fontWeight="900" fill="#c0392b" fontFamily="'Arial Black', Arial, sans-serif">L</text>
-                  <text x="17" y="29" fontSize="24" fontWeight="900" fill="#d95f1a" fontFamily="'Arial Black', Arial, sans-serif">M</text>
-                  <text x="41" y="36" fontSize="24" fontWeight="900" fill="#27a060" fontFamily="'Arial Black', Arial, sans-serif">M</text>
-                  <text x="63" y="40" fontSize="24" fontWeight="900" fill="#1a7a45" fontFamily="'Arial Black', Arial, sans-serif">B</text>
+                  <text x="1"  y="22" fontSize="24" fontWeight="900" fill="#1a7a45" fontFamily="'Arial Black', Arial, sans-serif">L</text>
+                  <text x="17" y="29" fontSize="24" fontWeight="900" fill="#27a060" fontFamily="'Arial Black', Arial, sans-serif">M</text>
+                  <text x="41" y="36" fontSize="24" fontWeight="900" fill="#d95f1a" fontFamily="'Arial Black', Arial, sans-serif">M</text>
+                  <text x="63" y="40" fontSize="24" fontWeight="900" fill="#c0392b" fontFamily="'Arial Black', Arial, sans-serif">B</text>
                 </svg>
               </span>
               <div className="logo-text">
