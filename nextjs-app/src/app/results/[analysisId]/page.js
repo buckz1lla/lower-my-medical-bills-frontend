@@ -224,8 +224,13 @@ const generatePdf = (analysis, templates) => {
   return pdf;
 };
 
-function PaymentButton({ analysisId, pricing, disabled }) {
+function PaymentButton({ analysisId, pricing, disabled, onRecovered }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [showRecovery, setShowRecovery] = useState(false);
+  const [recoveryEmail, setRecoveryEmail] = useState("");
+  const [recoveryLoading, setRecoveryLoading] = useState(false);
+  const [recoveryError, setRecoveryError] = useState("");
+  const [recoverySuccess, setRecoverySuccess] = useState(false);
 
   const handlePayment = async () => {
     setIsLoading(true);
@@ -256,6 +261,30 @@ function PaymentButton({ analysisId, pricing, disabled }) {
       alert(error.message || "Unable to start checkout.");
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleRecover = async (e) => {
+    e.preventDefault();
+    if (!recoveryEmail.trim()) return;
+    setRecoveryLoading(true);
+    setRecoveryError("");
+    try {
+      const response = await fetch(`${API_BASE}/api/payments/recover-by-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ analysis_id: analysisId, email: recoveryEmail.trim() }),
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload?.detail || "Could not recover access. Check the email and try again.");
+      }
+      setRecoverySuccess(true);
+      if (onRecovered) onRecovered();
+    } catch (err) {
+      setRecoveryError(err.message || "Recovery failed. Please try again.");
+    } finally {
+      setRecoveryLoading(false);
     }
   };
 
@@ -292,6 +321,45 @@ function PaymentButton({ analysisId, pricing, disabled }) {
       <p className="safety-disclaimer-next">
         Educational support only. Verify benefits, network status, and billing details with your insurer before filing appeals.
       </p>
+
+      <div className="recovery-zone">
+        {!showRecovery && !recoverySuccess && (
+          <button
+            className="recovery-toggle"
+            type="button"
+            onClick={() => setShowRecovery(true)}
+          >
+            Already paid? Recover access →
+          </button>
+        )}
+        {showRecovery && !recoverySuccess && (
+          <form className="recovery-form" onSubmit={handleRecover}>
+            <p className="recovery-hint">Enter the email you used at Stripe checkout to restore access.</p>
+            <div className="recovery-input-row">
+              <input
+                className="recovery-email-input"
+                type="email"
+                placeholder="your@email.com"
+                value={recoveryEmail}
+                onChange={(e) => setRecoveryEmail(e.target.value)}
+                disabled={recoveryLoading}
+                required
+              />
+              <button
+                className="btn-primary recovery-submit"
+                type="submit"
+                disabled={recoveryLoading || !recoveryEmail.trim()}
+              >
+                {recoveryLoading ? "Checking…" : "Restore"}
+              </button>
+            </div>
+            {recoveryError && <p className="recovery-error">{recoveryError}</p>}
+          </form>
+        )}
+        {recoverySuccess && (
+          <p className="recovery-success">Access restored — your toolkit is unlocking now.</p>
+        )}
+      </div>
     </section>
   );
 }
@@ -780,7 +848,7 @@ function ResultsContent() {
 
       {!hasDownloadedPackage ? (
         <>
-          <PaymentButton analysisId={analysisId} pricing={pricing} disabled={isCheckingPayment} />
+          <PaymentButton analysisId={analysisId} pricing={pricing} disabled={isCheckingPayment} onRecovered={() => refreshPaymentStatus()} />
           {paymentMessage ? <p className="payment-message-next">{paymentMessage}</p> : null}
         </>
       ) : null}
