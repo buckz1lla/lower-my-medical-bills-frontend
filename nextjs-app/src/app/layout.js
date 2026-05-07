@@ -41,16 +41,12 @@ export default function RootLayout({ children }) {
           <div className="header-container">
             <Link href="/" className="logo">
               <span className="logo-mark" aria-hidden="true">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="18" cy="18" r="18" fill="#3069a8"/>
-                  {/* Dollar sign stem */}
-                  <rect x="16.5" y="5" width="3" height="17" rx="1.5" fill="white"/>
-                  {/* Upper crossbar */}
-                  <rect x="11" y="10" width="14" height="2.5" rx="1.25" fill="white"/>
-                  {/* Lower crossbar */}
-                  <rect x="11" y="17.5" width="14" height="2.5" rx="1.25" fill="white"/>
-                  {/* Downward arrow chevron */}
-                  <path d="M13 25 L18 31 L23 25" stroke="white" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="34" height="34" rx="8" fill="#3069a8"/>
+                  {/* Dollar sign — rendered as text glyph for clean output */}
+                  <text x="17" y="20" textAnchor="middle" fontSize="19" fontWeight="900" fill="white" fontFamily="Arial, Helvetica, sans-serif">$</text>
+                  {/* Downward chevron arrow */}
+                  <path d="M10 24 L17 30 L24 24" stroke="white" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </span>
               <div className="logo-text">
