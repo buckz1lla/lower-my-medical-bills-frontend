@@ -112,9 +112,8 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 11px;
+  margin-right: 13px;
   flex-shrink: 0;
-  filter: drop-shadow(0 2px 6px rgba(15, 33, 51, 0.22));
 }
 
 .logo-text {
@@ -125,29 +124,27 @@ a {
 }
 
 .logo h1 {
-  font-size: 20px;
+  font-size: 18px;
   margin: 0;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  letter-spacing: 0;
   line-height: 1.15;
   font-family: var(--font-body), sans-serif;
-  text-transform: lowercase;
 }
 
-.logo-word-lower {
-  color: var(--accent);
-  font-weight: 400;
-  font-style: italic;
+.logo-word-light {
+  color: #6b8faf;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  font-size: 13px;
+  vertical-align: middle;
 }
 
-.logo-word-brand {
+.logo-word-heavy {
   color: var(--ink);
-  font-weight: 800;
-}
-
-.logo-word-accent {
-  color: var(--signal);
-  font-weight: 800;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  font-size: 18px;
+  vertical-align: middle;
 }
 
 .logo-tagline {

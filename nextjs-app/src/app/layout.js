@@ -35,23 +35,15 @@ export default function RootLayout({ children }) {
           <div className="header-container">
             <Link href="/" className="logo">
               <span className="logo-mark" aria-hidden="true">
-                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Shield base */}
-                  <path d="M19 3L6 8.5V19c0 7.18 5.52 13.88 13 15.5C26.48 32.88 32 26.18 32 19V8.5L19 3Z" fill="#0f2133"/>
-                  <path d="M19 3L6 8.5V19c0 7.18 5.52 13.88 13 15.5C26.48 32.88 32 26.18 32 19V8.5L19 3Z" fill="url(#shield-grad)" opacity="0.92"/>
-                  {/* $ with downward-arrow tail — represents lowering cost */}
-                  <text x="19" y="24.5" textAnchor="middle" fontFamily="Georgia, serif" fontWeight="700" fontSize="16" fill="white" letterSpacing="-0.5">$↓</text>
-                  <defs>
-                    <linearGradient id="shield-grad" x1="6" y1="3" x2="32" y2="35" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#2a6abf"/>
-                      <stop offset="100%" stopColor="#0c1e33"/>
-                    </linearGradient>
-                  </defs>
+                <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="0" width="26" height="4.5" rx="2.25" fill="#0f2133"/>
+                  <rect x="0" y="7.75" width="18" height="4.5" rx="2.25" fill="#0f2133"/>
+                  <rect x="0" y="15.5" width="10" height="4.5" rx="2.25" fill="#3069a8"/>
                 </svg>
               </span>
               <div className="logo-text">
                 <h1>
-                  <span className="logo-word-lower">lower</span><span className="logo-word-brand">mymedical</span><span className="logo-word-accent">bills</span>
+                  <span className="logo-word-light">lower my </span><span className="logo-word-heavy">medical bills</span>
                 </h1>
                 <span className="logo-tagline">EOB Review · Appeal Guidance</span>
               </div>
