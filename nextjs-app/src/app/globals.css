@@ -112,7 +112,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 13px;
+  margin-right: 12px;
   flex-shrink: 0;
 }
 
@@ -124,37 +124,23 @@ a {
 }
 
 .logo h1 {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
-  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  font-family: var(--font-logo), sans-serif;
+  color: var(--ink);
   white-space: nowrap;
 }
 
-.logo-word-light {
-  color: var(--accent);
-  font-weight: 400;
-  font-family: var(--font-body), sans-serif;
-  font-size: 16px;
-  letter-spacing: 0.02em;
-}
-
-.logo-word-heavy {
-  color: var(--ink);
-  font-weight: 700;
-  font-family: var(--font-heading), serif;
-  font-size: 22px;
-  letter-spacing: -0.3px;
-}
-
 .logo-tagline {
-  font-size: 0.63rem;
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.65rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+  letter-spacing: 0.04em;
   font-family: var(--font-body), sans-serif;
-  margin-top: 4px;
-  opacity: 0.75;
+  margin-top: 3px;
 }
 
 .nav {
