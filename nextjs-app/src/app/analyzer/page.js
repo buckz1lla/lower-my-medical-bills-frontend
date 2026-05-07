@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
@@ -31,14 +31,49 @@ const trackEvent = async (event, data = {}) => {
   }
 };
 
+const RECENT_KEY = "lmmb_recent_analyses";
+const MAX_RECENT = 5;
+
+function saveRecentAnalysis(analysisId, fileName) {
+  try {
+    const existing = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+    const filtered = existing.filter((e) => e.analysisId !== analysisId);
+    const updated = [{ analysisId, fileName, timestamp: Date.now() }, ...filtered].slice(0, MAX_RECENT);
+    localStorage.setItem(RECENT_KEY, JSON.stringify(updated));
+  } catch { /* localStorage unavailable */ }
+}
+
+function loadRecentAnalyses() {
+  try {
+    return JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+  } catch { return []; }
+}
+
+function removeRecentAnalysis(analysisId) {
+  try {
+    const existing = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+    localStorage.setItem(RECENT_KEY, JSON.stringify(existing.filter((e) => e.analysisId !== analysisId)));
+  } catch { /* ignore */ }
+}
+
 export default function AnalyzerPage() {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [isDragOver, setIsDragOver] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
+  const [recentAnalyses, setRecentAnalyses] = useState([]);
   const stepTimerRef = useRef(null);
   const router = useRouter();
+
+  useEffect(() => {
+    setRecentAnalyses(loadRecentAnalyses());
+  }, []);
+
+  const handleRemoveRecent = useCallback((analysisId) => {
+    removeRecentAnalysis(analysisId);
+    setRecentAnalyses(loadRecentAnalyses());
+  }, []);
 
   const PROCESSING_STEPS = [
     { label: "Uploading your file", detail: "Securely transmitting your EOB" },
@@ -121,6 +156,7 @@ export default function AnalyzerPage() {
         file_type: file.type,
       });
 
+      saveRecentAnalysis(payload.analysis_id, file.name);
       setFile(null);
       router.push(`/results/${payload.analysis_id}`);
     } catch (submitError) {
@@ -141,6 +177,30 @@ export default function AnalyzerPage() {
         <p className="analyzer-subtitle">
           Upload your EOB to get a focused risk review and a practical action brief for your next steps.
         </p>
+
+        {recentAnalyses.length > 0 && (
+          <section className="recent-analyses" aria-label="Recent analyses">
+            <h2 className="recent-analyses-heading">Pick up where you left off</h2>
+            <ul className="recent-analyses-list">
+              {recentAnalyses.map((entry) => (
+                <li key={entry.analysisId} className="recent-analyses-item">
+                  <a href={`/results/${entry.analysisId}`} className="recent-analyses-link">
+                    <span className="recent-analyses-icon" aria-hidden="true">📄</span>
+                    <span className="recent-analyses-name">{entry.fileName}</span>
+                    <span className="recent-analyses-date">
+                      {new Date(entry.timestamp).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}
+                    </span>
+                  </a>
+                  <button
+                    className="recent-analyses-remove"
+                    aria-label={`Remove ${entry.fileName} from recent`}
+                    onClick={() => handleRemoveRecent(entry.analysisId)}
+                  >✕</button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <section className="brief-preview" aria-label="Action brief preview">
           <h2>What Your Action Brief Includes</h2>
