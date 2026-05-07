@@ -34,16 +34,9 @@ export default function RootLayout({ children }) {
         <header className="header">
           <div className="header-container">
             <Link href="/" className="logo">
-              <span className="logo-mark" aria-hidden="true">
-                <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0" y="0" width="26" height="4.5" rx="2.25" fill="#0f2133"/>
-                  <rect x="0" y="7.75" width="18" height="4.5" rx="2.25" fill="#0f2133"/>
-                  <rect x="0" y="15.5" width="10" height="4.5" rx="2.25" fill="#3069a8"/>
-                </svg>
-              </span>
               <div className="logo-text">
                 <h1>
-                  <span className="logo-word-light">lower my </span><span className="logo-word-heavy">medical bills</span>
+                  <span className="logo-word-light">Lower My </span><span className="logo-word-heavy">Medical Bills</span>
                 </h1>
                 <span className="logo-tagline">EOB Review · Appeal Guidance</span>
               </div>

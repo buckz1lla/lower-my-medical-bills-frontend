@@ -124,27 +124,22 @@ a {
 }
 
 .logo h1 {
-  font-size: 18px;
+  font-size: 20px;
   margin: 0;
-  letter-spacing: 0;
+  letter-spacing: -0.3px;
   line-height: 1.15;
   font-family: var(--font-body), sans-serif;
+  white-space: nowrap;
 }
 
 .logo-word-light {
-  color: #6b8faf;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  font-size: 13px;
-  vertical-align: middle;
+  color: var(--accent);
+  font-weight: 500;
 }
 
 .logo-word-heavy {
   color: var(--ink);
-  font-weight: 900;
-  letter-spacing: -0.4px;
-  font-size: 18px;
-  vertical-align: middle;
+  font-weight: 800;
 }
 
 .logo-tagline {
