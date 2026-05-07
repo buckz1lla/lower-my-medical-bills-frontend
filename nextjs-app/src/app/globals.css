@@ -124,31 +124,37 @@ a {
 }
 
 .logo h1 {
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
-  letter-spacing: -0.3px;
-  line-height: 1.15;
-  font-family: var(--font-body), sans-serif;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
 .logo-word-light {
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 400;
+  font-family: var(--font-body), sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.02em;
 }
 
 .logo-word-heavy {
   color: var(--ink);
-  font-weight: 800;
+  font-weight: 700;
+  font-family: var(--font-heading), serif;
+  font-size: 22px;
+  letter-spacing: -0.3px;
 }
 
 .logo-tagline {
-  font-size: 0.67rem;
-  color: rgba(15, 33, 51, 0.42);
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-size: 0.63rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   font-family: var(--font-body), sans-serif;
-  margin-top: 2px;
+  margin-top: 4px;
+  opacity: 0.75;
 }
 
 .nav {
