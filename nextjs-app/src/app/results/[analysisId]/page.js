@@ -401,6 +401,17 @@ function ResultsContent() {
       try {
         const response = await fetch(`${API_BASE}/api/eob/analysis/${analysisId}`);
         if (!response.ok) {
+          if (response.status === 404) {
+            // Analysis no longer exists (server restart wiped it). Remove from recent history.
+            try {
+              const existing = JSON.parse(localStorage.getItem("lmmb_recent_analyses") || "[]");
+              localStorage.setItem(
+                "lmmb_recent_analyses",
+                JSON.stringify(existing.filter((e) => e.analysisId !== analysisId))
+              );
+            } catch { /* ignore */ }
+            throw new Error("__expired__");
+          }
           throw new Error("Failed to load analysis results. Please try again.");
         }
         const payload = await response.json();
@@ -665,14 +676,27 @@ function ResultsContent() {
   }
 
   if (error) {
+    const isExpired = error === "__expired__";
     return (
       <main className="content-page">
         <section className="content-card analyzer-alert analyzer-alert-error">
-          <h1>Unable to load results</h1>
-          <p>{error}</p>
+          {isExpired ? (
+            <>
+              <h1>Results no longer available</h1>
+              <p>
+                Your previous analysis has expired — our server clears stored results periodically.
+                Re-upload your EOB to run a fresh analysis. <strong>You will not be charged again</strong> for a file you have already paid for.
+              </p>
+            </>
+          ) : (
+            <>
+              <h1>Unable to load results</h1>
+              <p>{error}</p>
+            </>
+          )}
           <p>
             <Link href="/analyzer" className="btn-primary">
-              Try another upload
+              {isExpired ? "Re-upload my EOB" : "Try another upload"}
             </Link>
           </p>
         </section>
