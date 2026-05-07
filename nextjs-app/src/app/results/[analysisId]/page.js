@@ -679,7 +679,7 @@ function ResultsContent() {
     const isExpired = error === "__expired__";
     return (
       <main className="content-page">
-        <section className="content-card analyzer-alert analyzer-alert-error">
+        <section className="results-error-card">
           {isExpired ? (
             <>
               <h1>Results no longer available</h1>
