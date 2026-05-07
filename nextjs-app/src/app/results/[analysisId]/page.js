@@ -756,29 +756,6 @@ function ResultsContent() {
 
       {!hasDownloadedPackage ? (
         <>
-          {!emailCaptureSubmitted ? (
-            <section className="email-capture-card-next">
-              <p>Not ready to pay yet? Get a reminder before your savings window expires.</p>
-              <form onSubmit={handleEmailCapture} className="email-capture-form-next">
-                <input
-                  type="email"
-                  placeholder="you@example.com"
-                  value={emailCaptureValue}
-                  onChange={(event) => setEmailCaptureValue(event.target.value)}
-                  disabled={emailCaptureLoading}
-                  required
-                />
-                <button type="submit" disabled={emailCaptureLoading || !emailCaptureValue.trim()}>
-                  {emailCaptureLoading ? "Saving..." : "Remind me"}
-                </button>
-              </form>
-            </section>
-          ) : (
-            <section className="email-capture-card-next email-capture-card-next-success">
-              <p>Got it. We will send a reminder so this does not slip.</p>
-            </section>
-          )}
-
           <PaymentButton analysisId={analysisId} pricing={pricing} disabled={isCheckingPayment} />
           {paymentMessage ? <p className="payment-message-next">{paymentMessage}</p> : null}
         </>
@@ -992,6 +969,31 @@ function ResultsContent() {
             ))
           )}
         </section>
+      ) : null}
+
+      {!hasDownloadedPackage ? (
+        !emailCaptureSubmitted ? (
+          <section className="email-capture-card-next">
+            <p>Not ready to pay yet? Get a reminder before your savings window expires.</p>
+            <form onSubmit={handleEmailCapture} className="email-capture-form-next">
+              <input
+                type="email"
+                placeholder="you@example.com"
+                value={emailCaptureValue}
+                onChange={(event) => setEmailCaptureValue(event.target.value)}
+                disabled={emailCaptureLoading}
+                required
+              />
+              <button type="submit" disabled={emailCaptureLoading || !emailCaptureValue.trim()}>
+                {emailCaptureLoading ? "Saving..." : "Remind me"}
+              </button>
+            </form>
+          </section>
+        ) : (
+          <section className="email-capture-card-next email-capture-card-next-success">
+            <p>Got it. We will send a reminder so this does not slip.</p>
+          </section>
+        )
       ) : null}
 
       {hasDownloadedPackage && templates?.templates ? (
