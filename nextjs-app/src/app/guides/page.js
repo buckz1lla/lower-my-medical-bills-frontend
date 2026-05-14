@@ -1,23 +1,26 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { guides } from "@/lib/guides";
 import TrackedLink from "@/components/TrackedLink";
 
-export const metadata = {
-  title: "Medical Billing & Appeal Guides | Lower My Medical Bills",
-  description:
-    "Practical guides for denied claims, confusing EOBs, and high medical bills. Each guide ends with concrete next steps.",
-  alternates: { canonical: "https://lowermymedicalbills.com/guides" },
-  robots: { index: true, follow: true },
-  openGraph: {
-    title: "Free Medical Billing & Appeal Guides",
-    description: "Practical walkthroughs for denied claims, confusing EOBs, and high bills. Each guide ends with concrete next steps.",
-    url: "https://lowermymedicalbills.com/guides",
-    siteName: "Lower My Medical Bills",
-    type: "website",
-  },
-};
+const CATEGORIES = [
+  "All",
+  "Understanding Bills",
+  "Denials & Appeals",
+  "ER & Surprise Bills",
+  "Negotiation",
+  "Insurance Basics",
+  "Collections",
+];
 
 export default function GuidesPage() {
+  const [active, setActive] = useState("All");
+
+  const filtered =
+    active === "All" ? guides : guides.filter((g) => g.category === active);
+
   return (
     <main className="guides-page">
       <section className="guides-hero">
@@ -64,23 +67,46 @@ export default function GuidesPage() {
         </div>
       </section>
 
-      <section className="guides-grid">
-        {guides.map((guide) => (
-          <article key={guide.slug} className="guide-card">
-            <h2>
-              <TrackedLink href={`/guides/${guide.slug}`} eventData={{ source: "guides_index_title", slug: guide.slug }}>
-                {guide.title}
-              </TrackedLink>
-            </h2>
-            <p>{guide.description}</p>
-            <div className="guide-meta">
-              <span>Updated {guide.updatedAt}</span>
-              <TrackedLink href={`/guides/${guide.slug}`} eventData={{ source: "guides_index_cta", slug: guide.slug }}>
-                Read guide
-              </TrackedLink>
-            </div>
-          </article>
+      <div className="guides-filter-bar" role="group" aria-label="Filter guides by category">
+        {CATEGORIES.map((cat) => (
+          <button
+            key={cat}
+            className={`guides-filter-pill${active === cat ? " guides-filter-pill--active" : ""}`}
+            onClick={() => setActive(cat)}
+            aria-pressed={active === cat}
+          >
+            {cat}
+            {cat !== "All" && (
+              <span className="guides-filter-count">
+                {guides.filter((g) => g.category === cat).length}
+              </span>
+            )}
+          </button>
         ))}
+      </div>
+
+      <section className="guides-grid" aria-label={`Guides: ${active}`}>
+        {filtered.length === 0 ? (
+          <p className="guides-empty">No guides in this category yet.</p>
+        ) : (
+          filtered.map((guide) => (
+            <article key={guide.slug} className="guide-card">
+              <span className="guide-card-category">{guide.category}</span>
+              <h2>
+                <TrackedLink href={`/guides/${guide.slug}`} eventData={{ source: "guides_index_title", slug: guide.slug }}>
+                  {guide.title}
+                </TrackedLink>
+              </h2>
+              <p>{guide.description}</p>
+              <div className="guide-meta">
+                <span>Updated {guide.updatedAt}</span>
+                <TrackedLink href={`/guides/${guide.slug}`} eventData={{ source: "guides_index_cta", slug: guide.slug }}>
+                  Read guide
+                </TrackedLink>
+              </div>
+            </article>
+          ))
+        )}
       </section>
     </main>
   );
