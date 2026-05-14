@@ -225,7 +225,7 @@ export default function AnalyzerPage() {
             <span className="trust-strip-icon">📎</span>
             <div>
               <strong>What files work?</strong>
-              <span>PDF, JPG, PNG, CSV, or XLSX — up to ~10 MB</span>
+              <span>PDF, photo of your EOB (JPG/PNG), CSV, or XLSX — up to ~10 MB</span>
             </div>
           </div>
           <div className="trust-strip-item">
@@ -275,7 +275,7 @@ export default function AnalyzerPage() {
             <span className="file-drop-title">
               {file ? `Selected: ${file.name}` : "Drop your file here or click to upload"}
             </span>
-            <span className="file-drop-hint">PDF, Images (JPG/PNG), or Spreadsheets (CSV/XLSX)</span>
+            <span className="file-drop-hint">PDF, photo of your EOB (JPG/PNG), or Spreadsheet (CSV/XLSX)</span>
           </label>
 
           <button
