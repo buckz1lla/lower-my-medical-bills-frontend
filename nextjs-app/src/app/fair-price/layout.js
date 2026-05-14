@@ -14,6 +14,8 @@ export const metadata = {
   },
 };
 
+import { Suspense } from "react";
+
 export default function FairPriceLayout({ children }) {
-  return children;
+  return <Suspense>{children}</Suspense>;
 }
