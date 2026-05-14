@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
@@ -37,9 +38,12 @@ const VERDICT_CONFIG = {
 };
 
 export default function FairPricePage() {
-  const [query, setQuery] = useState("");
+  const searchParams = useSearchParams();
+  const [query, setQuery] = useState(() => searchParams.get("q") || "");
   const [suggestions, setSuggestions] = useState([]);
-  const [selectedProcedure, setSelectedProcedure] = useState(null); // {cpt, description, category}
+  const [selectedProcedure, setSelectedProcedure] = useState(
+    () => searchParams.get("cpt") ? { cpt: searchParams.get("cpt"), description: searchParams.get("q") || "" } : null
+  );
   const [billedAmount, setBilledAmount] = useState("");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
