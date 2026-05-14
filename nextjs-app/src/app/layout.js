@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
             <nav className="nav" aria-label="Main navigation">
               <Link href="/">Home</Link>
               <Link href="/guides">Playbooks</Link>
-              <Link href="/fair-price">Fair Price</Link>
+              <Link href="/fair-price">Bill Checker</Link>
               <Link href="/templates">Templates</Link>
               <Link href="/about">About</Link>
               <Link href="/analyzer" className="nav-link-primary">
@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
                 <span className="separator">|</span>
                 <Link href="/templates">Templates</Link>
                 <span className="separator">|</span>
-                <Link href="/fair-price">Fair Price Check</Link>
+                <Link href="/fair-price">Bill Checker</Link>
                 <span className="separator">|</span>
                 <Link href="/editorial-policy">Editorial Policy</Link>
                 <span className="separator">|</span>
