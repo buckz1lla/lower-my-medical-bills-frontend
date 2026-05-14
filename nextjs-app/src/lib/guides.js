@@ -1,6 +1,7 @@
 export const guides = [
   {
     slug: 'why-am-i-paying-after-deductible-met',
+    category: 'Understanding Bills',
     title: 'Why Am I Still Paying After I Hit My Deductible?',
     description: 'If your deductible is met but bills keep coming, use this checklist to spot processing issues fast.',
     updatedAt: '2026-04-15',
@@ -39,6 +40,7 @@ export const guides = [
   },
   {
     slug: 'out-of-pocket-maximum-not-applied-correctly',
+    category: 'Understanding Bills',
     title: 'Out-of-Pocket Maximum Not Applied Correctly: What to Do',
     description: 'Use this step-by-step process when your insurer should have covered more after you hit your OOP max.',
     updatedAt: '2026-04-15',
@@ -77,6 +79,7 @@ export const guides = [
   },
   {
     slug: 'appeal-prior-authorization-denial',
+    category: 'Denials & Appeals',
     title: 'How to Appeal a Prior Authorization Denial',
     description: 'A practical template-driven process for overturning prior authorization denials faster.',
     updatedAt: '2026-04-15',
@@ -115,6 +118,7 @@ export const guides = [
   },
   {
     slug: 'er-bill-too-high-how-emergency-claims-should-be-processed',
+    category: 'ER & Surprise Bills',
     title: 'ER Bill Too High? How Emergency Claims Should Be Processed',
     description: 'Learn the emergency-claim rules that most often cause overcharges and how to dispute them.',
     updatedAt: '2026-04-15',
@@ -153,6 +157,7 @@ export const guides = [
   },
   {
     slug: 'balance-billing-explained-when-it-may-be-illegal',
+    category: 'ER & Surprise Bills',
     title: 'Balance Billing Explained (And When It May Be Illegal)',
     description: 'Understand balance billing risk, when protections apply, and how to challenge improper charges.',
     updatedAt: '2026-04-15',
@@ -191,6 +196,7 @@ export const guides = [
   },
   {
     slug: 'medical-bill-sent-to-collections-while-disputing',
+    category: 'Collections',
     title: 'Medical Bill Sent to Collections While You Are Disputing?'
     ,
     description: 'Use this action plan when collections begin before your insurance dispute is resolved.',
@@ -230,6 +236,7 @@ export const guides = [
   },
   {
     slug: 'coordination-of-benefits-denial-how-to-fix-primary-secondary-insurance',
+    category: 'Insurance Basics',
     title: 'Coordination of Benefits Denial: Fix Primary vs Secondary Insurance',
     description: 'COB denials are fixable with the right data. Use this process to correct payer order and reprocess claims.',
     updatedAt: '2026-04-15',
@@ -268,6 +275,7 @@ export const guides = [
   },
   {
     slug: 'how-to-read-cpt-and-hcpcs-codes-on-medical-bill',
+    category: 'Understanding Bills',
     title: 'How to Read CPT and HCPCS Codes on a Medical Bill',
     description: 'Use billing codes to spot mismatches, duplicate charges, and stronger appeal opportunities.',
     updatedAt: '2026-04-15',
@@ -306,6 +314,7 @@ export const guides = [
   },
   {
     slug: 'negotiate-hospital-bill-payment-plan-vs-lump-sum',
+    category: 'Negotiation',
     title: 'Payment Plan vs Lump Sum: How to Negotiate a Hospital Bill',
     description: 'Choose the best payment strategy after claim review and negotiate from a stronger position.',
     updatedAt: '2026-04-15',
@@ -344,6 +353,7 @@ export const guides = [
   },
   {
     slug: 'deductible-copay-coinsurance-out-of-pocket-max-difference',
+    category: 'Understanding Bills',
     title: 'Deductible vs Copay vs Coinsurance vs Out-of-Pocket Max',
     description: 'A plain-English cost-share guide so you can predict what you owe before the next medical bill arrives.',
     updatedAt: '2026-04-15',
@@ -382,6 +392,7 @@ export const guides = [
   },
   {
     slug: 'out-of-network-er-bill-after-in-network-hospital',
+    category: 'ER & Surprise Bills',
     title: 'Out-of-Network ER Bill After In-Network Hospital Visit: What to Do',
     description: 'If you used an in-network hospital but got an out-of-network ER bill, use this fast dispute checklist.',
     updatedAt: '2026-04-13',
@@ -420,6 +431,7 @@ export const guides = [
   },
   {
     slug: 'surprise-anesthesia-bill-after-delivery',
+    category: 'ER & Surprise Bills',
     title: 'Surprise Anesthesia Bill After Delivery: Fight It in 5 Steps',
     description: 'A practical playbook for unexpected anesthesia charges after labor and delivery at an in-network hospital.',
     updatedAt: '2026-04-13',
@@ -458,6 +470,7 @@ export const guides = [
   },
   {
     slug: 'claim-denied-medical-necessity-appeal-guide',
+    category: 'Denials & Appeals',
     title: 'Claim Denied for Medical Necessity: Appeal Guide',
     description: 'Use this structured appeal method when your insurer says treatment was not medically necessary.',
     updatedAt: '2026-04-13',
@@ -496,6 +509,7 @@ export const guides = [
   },
   {
     slug: 'denied-claim-after-prior-authorization',
+    category: 'Denials & Appeals',
     title: 'Denied Claim After Prior Authorization: What to Do Next',
     description: 'If your claim was denied even though you had prior auth, use this playbook to challenge it quickly.',
     updatedAt: '2026-04-13',
@@ -534,6 +548,7 @@ export const guides = [
   },
   {
     slug: 'how-to-read-denial-codes-on-eob',
+    category: 'Understanding Bills',
     title: 'How to Read Denial Codes on an EOB',
     description: 'Use denial reason codes to identify why a claim failed and which appeal path gives you the best odds.',
     updatedAt: '2026-04-13',
@@ -572,6 +587,7 @@ export const guides = [
   },
   {
     slug: 'request-itemized-medical-bill-template',
+    category: 'Understanding Bills',
     title: 'How to Request an Itemized Medical Bill (Template + Checklist)',
     description: 'Use this template to request itemized billing and catch duplicate or incorrect charges before you pay.',
     updatedAt: '2026-04-13',
@@ -610,6 +626,7 @@ export const guides = [
   },
   {
     slug: 'how-to-appeal-a-denied-insurance-claim',
+    category: 'Denials & Appeals',
     title: 'How to Appeal a Denied Insurance Claim',
     description: 'A practical 7-step process to challenge denied claims and improve approval odds.',
     updatedAt: '2026-03-26',
@@ -648,6 +665,7 @@ export const guides = [
   },
   {
     slug: 'what-is-an-eob-and-how-to-read-it',
+    category: 'Understanding Bills',
     title: 'What Is an EOB and How to Read It',
     description: 'Decode billed amount, allowed amount, insurance paid, and patient responsibility without guesswork.',
     updatedAt: '2026-04-20',
@@ -698,6 +716,7 @@ export const guides = [
   },
   {
     slug: 'medical-bill-too-high-what-to-do',
+    category: 'Negotiation',
     title: 'Medical Bill Too High? How to Review, Dispute, and Lower What You Owe',
     description: 'A step-by-step guide for anyone facing a medical bill that seems wrong or unaffordable — covering billing error checks, negotiation scripts, appeal triggers, and financial assistance options.',
     updatedAt: '2026-04-20',
@@ -784,6 +803,7 @@ export const guides = [
   },
   {
     slug: 'surprise-out-of-network-bills',
+    category: 'ER & Surprise Bills',
     title: 'How to Fight a Surprise Out-of-Network Bill',
     description: 'Federal law may protect you from unexpected out-of-network charges. Here is how to use it.',
     updatedAt: '2026-03-27',
@@ -822,6 +842,7 @@ export const guides = [
   },
   {
     slug: 'deductible-copay-out-of-pocket-explained',
+    category: 'Understanding Bills',
     title: 'Deductible, Copay, and Out-of-Pocket Max: What You Actually Owe',
     description: 'Break down the three cost-sharing terms that determine every medical bill you receive.',
     updatedAt: '2026-03-27',
@@ -860,6 +881,7 @@ export const guides = [
   },
   {
     slug: 'baby-medical-bills-guide',
+    category: 'ER & Surprise Bills',
     title: 'Having a Baby and Drowning in Bills? Start Here',
     description: 'A practical guide to sorting through hospital bills, newborn charges, and insurance surprises after delivery.',
     updatedAt: '2026-03-27',
@@ -898,6 +920,7 @@ export const guides = [
   },
   {
     slug: 'in-network-vs-out-of-network-costs',
+    category: 'Insurance Basics',
     title: 'In-Network vs. Out-of-Network: What It Actually Costs You',
     description: 'Understand why two visits to "different" doctors can leave you with wildly different bills.',
     updatedAt: '2026-03-27',
@@ -936,6 +959,7 @@ export const guides = [
   },
   {
     slug: 'appeal-deadlines-internal-vs-external-review',
+    category: 'Denials & Appeals',
     title: 'Medical Claim Appeal Deadlines: Internal vs External Review Timeline',
     description: 'Use this timeline guide to avoid missed appeal windows and keep denied claims eligible for review.',
     updatedAt: '2026-04-20',
@@ -978,6 +1002,7 @@ export const guides = [
   },
   {
     slug: 'hospital-charity-care-financial-assistance-guide',
+    category: 'Negotiation',
     title: 'Hospital Charity Care and Financial Assistance: How to Qualify and Apply',
     description: 'A practical playbook for reducing large hospital balances through charity care and hardship policies.',
     updatedAt: '2026-04-20',
@@ -1020,6 +1045,7 @@ export const guides = [
   },
   {
     slug: 'single-case-agreement-network-gap-exception',
+    category: 'Insurance Basics',
     title: 'Single-Case Agreement: Get In-Network Coverage When No Specialist Is Available',
     description: 'How to request a network-gap exception so out-of-network specialty care is processed at in-network rates.',
     updatedAt: '2026-04-20',
@@ -1062,6 +1088,7 @@ export const guides = [
   },
   {
     slug: 'medical-bill-negotiation-scripts-phone-email',
+    category: 'Negotiation',
     title: 'Medical Bill Negotiation Scripts: What to Say on the Phone and by Email',
     description: 'Copy-ready scripts for requesting discounts, payment holds, and lower settlement offers after claim review.',
     updatedAt: '2026-04-20',
@@ -1104,6 +1131,7 @@ export const guides = [
   },
   {
     slug: 'claim-denied-missing-information-how-to-fix',
+    category: 'Denials & Appeals',
     title: 'Claim Denied for Missing Information: Fast Fix Checklist',
     description: 'A targeted process for denials caused by missing documents, coding fields, referrals, or authorization details.',
     updatedAt: '2026-04-20',
