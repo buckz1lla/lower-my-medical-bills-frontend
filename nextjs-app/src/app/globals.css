@@ -3848,3 +3848,356 @@ a {
   font-size: 17px;
   font-family: var(--font-heading), serif;
 }
+
+/* =========================== Fair Price Checker =========================== */
+
+/* =========================== Fair Price Checker =========================== */
+
+.fair-price-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 16px 60px;
+}
+
+.fair-price-hero {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+
+.fair-price-hero-inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.fair-price-kicker {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent, #1a7a45);
+  margin-bottom: 12px;
+}
+
+.fair-price-hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a2332;
+  margin: 0 0 14px;
+  line-height: 1.2;
+}
+
+.fair-price-hero p {
+  font-size: 1.05rem;
+  color: #374151;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.fair-price-form-section {
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+.fair-price-form {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 24px;
+}
+
+.fair-price-field {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.fair-price-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.fair-price-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1a2332;
+  background: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.fair-price-input:focus {
+  outline: none;
+  border-color: var(--accent, #1a7a45);
+  box-shadow: 0 0 0 3px rgba(26,122,69,0.12);
+}
+
+.fair-price-suggestions {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  z-index: 50;
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.fair-price-suggestion-btn {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fair-price-suggestion-btn:hover {
+  background: #f0fdf4;
+}
+
+.fp-suggestion-desc {
+  font-size: 0.9rem;
+  color: #1a2332;
+  font-weight: 500;
+}
+
+.fp-suggestion-meta {
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.fair-price-error {
+  color: #b91c1c;
+  font-size: 0.875rem;
+  margin: -8px 0 12px;
+}
+
+.fair-price-submit {
+  width: 100%;
+  padding: 13px;
+  font-size: 1rem;
+}
+
+/* Result card */
+.fair-price-result {
+  border: 1.5px solid;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.fp-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.fp-result-procedure {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin: 0 0 4px;
+}
+
+.fp-result-cpt {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.fp-verdict-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.fp-result-amounts {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.fp-amount-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fp-amount-label {
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fp-amount-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a2332;
+}
+
+.fp-amount-medicare {
+  color: #166534;
+}
+
+.fp-amount-divider {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.fp-ratio-bar-wrap {
+  margin-bottom: 16px;
+}
+
+.fp-ratio-bar-track {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.fp-ratio-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.fp-ratio-bar-marker {
+  position: absolute;
+  top: -2px;
+  width: 2px;
+  height: 12px;
+  background: #374151;
+  border-radius: 1px;
+}
+
+.fp-ratio-label {
+  font-size: 0.875rem;
+  color: #374151;
+  margin: 0;
+}
+
+.fp-verdict-note {
+  font-size: 0.9rem;
+  color: #374151;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.fp-commercial-range {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 0 0 20px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.fp-cta-block {
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fp-cta-text {
+  font-size: 0.9rem;
+  color: #14532d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.fp-cta-btn {
+  align-self: flex-start;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.fp-disclaimer {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* FAQ section */
+.fair-price-faq {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 48px;
+}
+
+.fair-price-faq-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.fair-price-faq h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin: 0 0 28px;
+}
+
+.fp-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.fp-faq-item h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin: 0 0 8px;
+}
+
+.fp-faq-item p {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .fair-price-hero h1 { font-size: 1.5rem; }
+  .fp-faq-grid { grid-template-columns: 1fr; }
+  .fp-result-header { flex-direction: column; }
+  .fp-amount-value { font-size: 1.2rem; }
+}
+
