@@ -1,0 +1,1038 @@
+[
+  {
+    "code": "1",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Deductible Amount",
+    "plain": "This portion of your bill is being applied to your annual deductible. You owe this amount until your deductible is met for the year.",
+    "what_it_means": "Your insurance processed the claim but the amount shown was applied to your deductible — meaning you haven't reached the dollar threshold your plan requires you to pay out-of-pocket before full coverage kicks in.",
+    "action_steps": [
+      "Verify your year-to-date deductible accumulator on your insurer's member portal matches what the EOB shows.",
+      "Confirm the claim was processed at the in-network rate. If the provider is in-network, the allowed amount should reflect the contracted rate.",
+      "If the deductible amount looks higher than expected, request an accumulator explanation from member services and compare it to previous EOBs."
+    ],
+    "related_guides": ["why-am-i-paying-after-deductible-met", "deductible-copay-coinsurance-out-of-pocket-max-difference"],
+    "related_codes": ["2", "3", "4"]
+  },
+  {
+    "code": "2",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Coinsurance Amount",
+    "plain": "After your deductible is met, you still owe a percentage of each claim — this is your coinsurance share.",
+    "what_it_means": "Your plan uses coinsurance (a percentage split, like 80/20) instead of or in addition to fixed copays. The amount shown is your share of an already-discounted allowed amount.",
+    "action_steps": [
+      "Check your Summary of Benefits to confirm the coinsurance rate for this service type (e.g., specialist, ER, inpatient).",
+      "Verify the allowed amount the coinsurance is calculated against matches your plan's contracted rate.",
+      "If you've already met your out-of-pocket maximum this year, your coinsurance should be $0 — request reprocessing if it's not."
+    ],
+    "related_guides": ["why-am-i-paying-after-deductible-met", "out-of-pocket-maximum-not-applied-correctly"],
+    "related_codes": ["1", "3", "4"]
+  },
+  {
+    "code": "3",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Copay Amount",
+    "plain": "A fixed dollar amount you owe for this visit or service as defined by your plan.",
+    "what_it_means": "Your plan requires a flat copay for this type of service (e.g., $30 for a primary care visit). This is separate from your deductible.",
+    "action_steps": [
+      "Cross-reference the copay amount with your plan's schedule of benefits for the specific service type.",
+      "If you were charged more than your plan's copay, contact the provider's billing office with your EOB.",
+      "Confirm the service was coded correctly — a preventive visit billed as a sick visit can trigger a copay that should be $0."
+    ],
+    "related_guides": ["deductible-copay-coinsurance-out-of-pocket-max-difference"],
+    "related_codes": ["1", "2"]
+  },
+  {
+    "code": "4",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The service/equipment is not covered",
+    "plain": "Your insurance plan does not cover this specific service, item, or procedure at all.",
+    "what_it_means": "The plan's list of covered benefits (the formulary or coverage schedule) excludes what was billed. You are responsible for the full cost.",
+    "action_steps": [
+      "Pull your Summary of Benefits and Coverage (SBC) or Evidence of Coverage (EOC) to confirm the exclusion is in writing.",
+      "Ask your provider whether an alternative covered service could achieve the same clinical outcome.",
+      "If you believe the service should be covered based on your plan documents, file a coverage determination request in writing."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["96", "97"]
+  },
+  {
+    "code": "5",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The service/treatment is not authorized",
+    "plain": "Your insurer says no prior authorization was obtained for this service before it was performed.",
+    "what_it_means": "Many plans require pre-approval before certain procedures, specialist visits, or hospitalizations. If authorization wasn't obtained, the claim may be denied or reduced.",
+    "action_steps": [
+      "Ask your provider if they obtained (or attempted to obtain) prior authorization. Get the authorization number if one exists.",
+      "If your provider failed to get authorization, they may be responsible — ask the billing office directly.",
+      "If the service was urgent or emergent, file an appeal citing the emergency exception rules in your plan documents."
+    ],
+    "related_guides": ["appeal-prior-authorization-denial", "denied-claim-after-prior-authorization"],
+    "related_codes": ["15", "197"]
+  },
+  {
+    "code": "6",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The procedure/revenue code is inconsistent with the modifier",
+    "plain": "A billing code modifier doesn't match the procedure code, causing the claim to be adjusted or denied.",
+    "what_it_means": "Modifiers are two-digit add-ons to procedure codes that provide additional context. A mismatch between the procedure code and the modifier can result in a lower payment or denial.",
+    "action_steps": [
+      "Ask your provider to review the modifier combination and resubmit with the correct modifier if there was a billing error.",
+      "Request an itemized bill and compare the procedure code and modifier to what your EOB shows.",
+      "If the modifier reflects something clinically accurate (e.g., bilateral procedure), ask the provider to appeal with supporting documentation."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template", "how-to-read-cpt-and-hcpcs-codes-on-medical-bill"],
+    "related_codes": ["7", "8"]
+  },
+  {
+    "code": "7",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The procedure code is inconsistent with the place of service",
+    "plain": "The billed procedure doesn't match the type of facility or location where the service was performed.",
+    "what_it_means": "Certain procedures are expected to be performed only in specific settings (e.g., inpatient hospital vs. outpatient clinic). A mismatch triggers an adjustment.",
+    "action_steps": [
+      "Ask the provider to verify the place of service code matches where the procedure was actually performed.",
+      "If the service was performed at an outpatient facility but billed as inpatient, a resubmission with the corrected code may resolve the issue.",
+      "Request the provider's appeal on your behalf if the place of service coding was an administrative error."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template"],
+    "related_codes": ["6", "8"]
+  },
+  {
+    "code": "8",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The procedure code is inconsistent with the provider type",
+    "plain": "The billed service doesn't match the type of provider who performed it according to their license or specialty.",
+    "what_it_means": "Insurers cross-check whether the billed procedure is within the billing provider's scope of practice. A mismatch triggers an adjustment.",
+    "action_steps": [
+      "Ask your provider if the billing taxonomy code on the claim matches their specialty.",
+      "If a specialist performed work outside their typical billing code set, they may need to refile with documentation of their credentials.",
+      "Contact member services for clarification on which provider type is eligible to bill for this service."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template"],
+    "related_codes": ["6", "7"]
+  },
+  {
+    "code": "9",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The diagnosis is inconsistent with the procedure",
+    "plain": "The diagnosis code on the claim doesn't medically support the procedure that was billed.",
+    "what_it_means": "Insurers use clinical edits to verify that the diagnosis justifies the treatment. A mismatch can cause the claim to be denied or reduced even if the service was genuinely medically necessary.",
+    "action_steps": [
+      "Ask your provider if the diagnosis code accurately reflects your clinical condition at the time of service.",
+      "If the diagnosis was incomplete or coded at a lower specificity than appropriate, ask for an amended claim with a more specific ICD-10 code.",
+      "If medical necessity was clear, file an appeal with clinical notes supporting the connection between diagnosis and procedure."
+    ],
+    "related_guides": ["claim-denied-medical-necessity-appeal-guide", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["10", "11", "50"]
+  },
+  {
+    "code": "10",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The diagnosis is inconsistent with the patient's age",
+    "plain": "The billed diagnosis doesn't match the patient's age — for example, a pediatric condition billed for an adult.",
+    "what_it_means": "Automated claim edits flag diagnoses that are age-specific. This is often a coding error that can be corrected with a resubmission.",
+    "action_steps": [
+      "Ask your provider to verify the patient's date of birth on the claim and the ICD-10 code used.",
+      "If the diagnosis is genuinely appropriate for your age despite an age-based edit, ask your provider to appeal with clinical documentation.",
+      "Check for data entry errors in the claim — a wrong birth year is a common root cause."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template"],
+    "related_codes": ["9", "11"]
+  },
+  {
+    "code": "11",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The diagnosis is inconsistent with the patient's gender",
+    "plain": "The billed diagnosis doesn't match the gender on file for the patient.",
+    "what_it_means": "Similar to age edits, some diagnoses are gender-specific. A mismatch with the insurer's records (which may be outdated or incorrect) will trigger an adjustment.",
+    "action_steps": [
+      "Verify that your gender on file with the insurer matches your current identity documentation.",
+      "If the insurer's records are outdated, request a member record update and ask the provider to resubmit.",
+      "If the service is clinically appropriate regardless of the recorded gender, the provider can appeal with supporting clinical notes."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template"],
+    "related_codes": ["9", "10"]
+  },
+  {
+    "code": "12",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The diagnosis is inconsistent with the admission type",
+    "plain": "The diagnosis doesn't match how the admission was categorized (e.g., elective vs. emergency).",
+    "what_it_means": "Inpatient admissions are categorized by type (emergency, urgent, elective, newborn). If the diagnosis suggests emergency but the claim was filed as elective, costs may be adjusted.",
+    "action_steps": [
+      "Ask the hospital billing department to confirm the admission type code on the claim.",
+      "If you were admitted through the ER or for an urgent condition, the admission type should reflect that.",
+      "Request a corrected claim if the admission type was miscoded."
+    ],
+    "related_guides": ["er-bill-too-high-how-emergency-claims-should-be-processed"],
+    "related_codes": ["9", "11"]
+  },
+  {
+    "code": "15",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Payment adjusted because the submitted authorization number is missing, invalid, or does not apply",
+    "plain": "The prior authorization number on the claim is missing, wrong, or doesn't match what the insurer has on file.",
+    "what_it_means": "Even when authorization was obtained, a typo or incorrect number on the claim form will trigger this code. The service may still be covered — the admin error just needs to be fixed.",
+    "action_steps": [
+      "Ask your provider to confirm the authorization number they received and verify it matches what was submitted.",
+      "If the number was submitted incorrectly, ask the provider to resubmit with the correct authorization number.",
+      "If no authorization was ever obtained, see CARC 5 guidance for next steps."
+    ],
+    "related_guides": ["denied-claim-after-prior-authorization", "appeal-prior-authorization-denial"],
+    "related_codes": ["5", "197"]
+  },
+  {
+    "code": "16",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Claim/service lacks information or has submission/billing error(s)",
+    "plain": "The claim is missing required information or contains errors that prevent processing.",
+    "what_it_means": "This is a catch-all for incomplete or incorrect claim submissions. It's usually fixable — the provider needs to correct and resubmit.",
+    "action_steps": [
+      "Ask your provider's billing department for the specific information that was missing or incorrect.",
+      "Request a corrected claim be submitted with the missing fields populated.",
+      "Track the resubmission and confirm a new EOB is issued within 30 days."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix", "request-itemized-medical-bill-template"],
+    "related_codes": ["96", "252"]
+  },
+  {
+    "code": "18",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Duplicate claim/service",
+    "plain": "Your insurer flagged this claim as a duplicate of one already processed.",
+    "what_it_means": "The same service appears to have been billed twice. This may be a billing error, or it may be a legitimate separate encounter that needs distinguishing information.",
+    "action_steps": [
+      "Ask your provider for the original claim number and the date of the first submission.",
+      "If this is a genuinely separate service, ask the provider to resubmit with a different date of service, modifier, or claim note clarifying the distinction.",
+      "If it truly was a duplicate submission error, no action is needed beyond confirming the original was paid correctly."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template"],
+    "related_codes": ["16", "97"]
+  },
+  {
+    "code": "19",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Claim denied because this is a work-related injury/illness and thus the liability of the Worker's Compensation Carrier",
+    "plain": "The insurer says this injury or illness should be covered by workers' compensation, not your health plan.",
+    "what_it_means": "If your injury or illness occurred at work, your employer's workers' comp carrier is the primary payer. Your health insurer can deny the claim on this basis.",
+    "action_steps": [
+      "If the injury was genuinely work-related, file a workers' compensation claim with your employer's carrier.",
+      "If the injury was not work-related, contact your health insurer to dispute the classification with a written explanation.",
+      "Your provider can submit a corrected claim with documentation confirming this was not a work-related incident."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["22", "47"]
+  },
+  {
+    "code": "22",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "This care may be covered by another payer per coordination of benefits",
+    "plain": "Your insurer thinks another insurance plan — like a spouse's plan — should pay first.",
+    "what_it_means": "When you're covered by more than one health plan, coordination of benefits (COB) rules determine which plan pays first (primary) and which pays second (secondary). If this information wasn't submitted correctly, processing is delayed.",
+    "action_steps": [
+      "Confirm which plan is primary and which is secondary with both insurers.",
+      "Ask your provider to resubmit the claim with the correct COB information, including the other payer's EOB.",
+      "If only one plan covers you, notify your insurer in writing that no other coverage exists."
+    ],
+    "related_guides": ["coordination-of-benefits-denial-how-to-fix-primary-secondary-insurance"],
+    "related_codes": ["23", "27", "29"]
+  },
+  {
+    "code": "23",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The impact of prior payer(s) adjudication including payments and/or adjustments",
+    "plain": "The payment reflects what's left after another insurer already paid part of this claim.",
+    "what_it_means": "When you have two insurers, the secondary payer processes the claim based on what the primary already paid. This code shows the secondary payer's calculation of the remaining balance.",
+    "action_steps": [
+      "Compare the primary and secondary EOBs side by side to verify the secondary payer calculated the balance correctly.",
+      "If the secondary payer's payment seems too low, confirm they received the primary EOB with all payment details.",
+      "Contact your secondary insurer if any portion of the remaining patient balance should have been covered."
+    ],
+    "related_guides": ["coordination-of-benefits-denial-how-to-fix-primary-secondary-insurance"],
+    "related_codes": ["22", "27"]
+  },
+  {
+    "code": "24",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Charges are covered under a capitation agreement/contract",
+    "plain": "Your provider is paid a fixed monthly rate for your care, so no additional fee-for-service payment is made.",
+    "what_it_means": "Under capitation arrangements (common in HMOs), a provider receives a flat payment per enrolled patient per month regardless of services. Individual claim charges are bundled into that payment.",
+    "action_steps": [
+      "Verify with your insurer whether this provider is indeed capitated under your plan.",
+      "If you're in an HMO, check whether you need a referral to see this provider or if the service falls outside the capitation scope.",
+      "Contact member services if you're receiving a balance bill from a capitated provider — they typically cannot bill you separately."
+    ],
+    "related_guides": ["in-network-vs-out-of-network-costs"],
+    "related_codes": ["45", "97"]
+  },
+  {
+    "code": "26",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Expenses incurred prior to coverage",
+    "plain": "The service was performed before your insurance coverage was active.",
+    "what_it_means": "Your insurance will only pay for services rendered while you were an active member. Anything before your effective date is your full responsibility.",
+    "action_steps": [
+      "Verify your coverage effective date in your plan documents or member portal.",
+      "If your coverage was retroactively activated (e.g., Medicaid retroactive enrollment), ask your insurer to reprocess with the updated effective date.",
+      "If the date of service is clearly during an active coverage period, ask the insurer to verify the member records — a data entry error may have caused this."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["27", "28"]
+  },
+  {
+    "code": "27",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Expenses incurred after coverage terminated",
+    "plain": "Your insurance had already ended when this service was performed.",
+    "what_it_means": "Your plan will not pay for services after your termination date. This can happen after a job change, loss of eligibility, or lapse in premium payment.",
+    "action_steps": [
+      "Confirm your termination date and compare it to the date of service.",
+      "If you had COBRA, verify the election and premium payment dates to confirm continuous coverage.",
+      "If your coverage should still have been active (e.g., grace period, employer error), file an appeal with documentation."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["26", "28"]
+  },
+  {
+    "code": "29",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The time limit for filing has expired",
+    "plain": "The claim was not submitted to the insurer within the required filing deadline.",
+    "what_it_means": "Health plans have timely filing requirements (often 90 to 365 days from date of service). A late claim is typically denied in full.",
+    "action_steps": [
+      "Ask your provider for proof of the original submission date — many denials on timely filing grounds are incorrect.",
+      "If the provider can show a timely submission (e.g., clearinghouse records), they can appeal with proof.",
+      "If filing was genuinely late due to circumstances beyond your control (e.g., insurer error, coordination of benefits delay), an appeal with a written explanation may succeed."
+    ],
+    "related_guides": ["appeal-deadlines-internal-vs-external-review", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["16", "31"]
+  },
+  {
+    "code": "31",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Patient cannot be identified as our insured",
+    "plain": "The insurer can't match the patient to an active member record.",
+    "what_it_means": "A name mismatch, wrong ID number, wrong date of birth, or administrative error prevented the insurer from verifying your eligibility.",
+    "action_steps": [
+      "Ask your provider to confirm the member ID, date of birth, and name spelling on the claim.",
+      "Contact member services to verify your record is active and all personal information is correct.",
+      "Request the claim be resubmitted after the member record is corrected."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix"],
+    "related_codes": ["16", "32"]
+  },
+  {
+    "code": "32",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Our records indicate that this dependent is not an eligible dependent as defined",
+    "plain": "The person receiving care doesn't qualify as a dependent under the plan's rules.",
+    "what_it_means": "Dependents must meet age, relationship, and financial dependency criteria. If a dependent aged off the plan or doesn't meet the definition, claims for that person may be denied.",
+    "action_steps": [
+      "Review your plan's dependent eligibility rules in the Summary of Benefits.",
+      "If the dependent qualifies but wasn't properly enrolled, ask HR (if employer-sponsored) or the insurer to correct the enrollment.",
+      "For children up to age 26 on ACA-compliant plans, the insurer is required to cover them regardless of student or dependency status."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["31", "33"]
+  },
+  {
+    "code": "35",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Lifetime benefit maximum has been reached",
+    "plain": "Your plan's lifetime coverage cap for this type of service has been exhausted.",
+    "what_it_means": "For most services on ACA-compliant plans, lifetime limits are banned. However, short-term plans or grandfathered plans may still have them. This code may also apply to specific benefit categories like mental health visits.",
+    "action_steps": [
+      "Check your plan documents to confirm whether a lifetime limit applies and whether your plan is ACA-compliant.",
+      "If your plan is subject to the Mental Health Parity Act or ACA, a lifetime dollar limit on mental health or medical benefits may be illegal — file a complaint with your state insurance commissioner.",
+      "Contact your insurer in writing to request the full lifetime benefit tracking to verify the calculation."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["36", "119"]
+  },
+  {
+    "code": "45",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Charge exceeds fee schedule/maximum allowable",
+    "plain": "The provider billed more than the contracted or allowed rate. You're only responsible for your share of the allowed amount — not the billed amount.",
+    "what_it_means": "This is one of the most common codes on an EOB. The 'write-off' is the difference between the billed charge and what the insurer and plan agreed is the maximum allowable. In-network providers cannot bill you for this difference (balance billing protection).",
+    "action_steps": [
+      "Verify your patient responsibility is calculated against the allowed amount, not the billed charge.",
+      "If an in-network provider bills you for the difference between what they charged and what was allowed, that is a contract violation — contact your insurer.",
+      "Review your EOB to confirm the allowed amount, insurer payment, and your share all add up correctly."
+    ],
+    "related_guides": ["balance-billing-explained-when-it-may-be-illegal", "medical-bill-too-high-what-to-do"],
+    "related_codes": ["CO-45", "23", "100"]
+  },
+  {
+    "code": "47",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "This (these) diagnosis(es) is (are) not covered, missing, or are invalid",
+    "plain": "The diagnosis code on the claim is missing, invalid, or not covered by your plan.",
+    "what_it_means": "Every claim needs at least one valid ICD-10 diagnosis code. A missing, outdated, or clearly incorrect code will cause a denial.",
+    "action_steps": [
+      "Ask your provider to verify the ICD-10 code used and whether it was submitted correctly.",
+      "If the diagnosis code was outdated (ICD-9 codes are no longer accepted), ask for a resubmission with the correct ICD-10.",
+      "If the diagnosis itself isn't covered under your plan, ask your provider to appeal with clinical notes showing medical necessity."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template", "claim-denied-medical-necessity-appeal-guide"],
+    "related_codes": ["9", "10", "11"]
+  },
+  {
+    "code": "49",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "These are non-covered services because this is a routine exam or screening procedure done in conjunction with a routine exam",
+    "plain": "Your insurer is treating this service as part of a routine exam rather than a medically necessary visit.",
+    "what_it_means": "Preventive/routine services and medically necessary services are billed differently. If a routine check-up includes a problem-focused exam, the additional service may be denied as 'routine' unless billed with the correct modifiers.",
+    "action_steps": [
+      "Ask your provider if a modifier (such as Modifier 25) was included to indicate a separately identifiable service was performed.",
+      "If you had a genuine medical problem addressed during a wellness visit, the evaluation and management code should be separately billable.",
+      "Request the provider appeal or refile with correct coding to distinguish the preventive from the problem-focused service."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template"],
+    "related_codes": ["50", "96"]
+  },
+  {
+    "code": "50",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "These are non-covered services because this is not deemed a 'medical necessity' by the payer",
+    "plain": "Your insurer decided this service wasn't medically necessary, so they won't pay for it.",
+    "what_it_means": "Medical necessity denials are among the most common and most winnable appeals. Insurers must have a clinical basis for the denial, and you have the right to request their criteria and challenge the decision.",
+    "action_steps": [
+      "Request the insurer's medical necessity criteria (InterQual or Milliman guidelines) used to make this determination.",
+      "Ask your treating physician to write a letter of medical necessity citing diagnosis, failed alternatives, and clinical urgency.",
+      "File a formal appeal with the physician's letter and any supporting clinical records. Consider requesting an expedited review if the service is time-sensitive."
+    ],
+    "related_guides": ["claim-denied-medical-necessity-appeal-guide", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["4", "96", "197"]
+  },
+  {
+    "code": "51",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "These are non-covered services because this is a pre-existing condition",
+    "plain": "The insurer is denying this claim because your condition existed before your coverage started.",
+    "what_it_means": "Under the ACA, pre-existing condition exclusions are banned for most health plans. If you receive this denial, it may be illegal depending on your plan type.",
+    "action_steps": [
+      "Verify whether your plan is ACA-compliant. If it is, a pre-existing condition exclusion is not allowed — file an appeal and a complaint with your state insurance commissioner.",
+      "Short-term health plans and some grandfathered plans may still apply pre-existing condition limitations.",
+      "Request the specific plan language that allows this exclusion and have it reviewed."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["4", "96"]
+  },
+  {
+    "code": "55",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Procedures or services are not compatible with this type of service",
+    "plain": "The billed procedure can't be performed or billed alongside another procedure that was already paid.",
+    "what_it_means": "Certain procedure code combinations are considered clinically redundant or mutually exclusive. This is enforced through Correct Coding Initiative (CCI) edits.",
+    "action_steps": [
+      "Ask your provider to check whether the procedures billed are subject to CCI bundling edits.",
+      "If the procedures were genuinely separate and distinct, a modifier may allow separate billing — ask the provider to review and resubmit if appropriate.",
+      "Request a clinical review if you believe the services were clearly separate procedures performed independently."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template"],
+    "related_codes": ["6", "97"]
+  },
+  {
+    "code": "58",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Treatment was deemed by the payer to have been rendered in an inappropriate or invalid place of service",
+    "plain": "The location where this service was performed isn't appropriate for this type of care per your insurer.",
+    "what_it_means": "Some services are only covered in certain settings. For example, a procedure your plan covers in an outpatient clinic may not be covered if performed in a physician office.",
+    "action_steps": [
+      "Ask your insurer which place of service would have been covered for this service.",
+      "If the setting was appropriate clinically but not administratively aligned, ask the provider to appeal with supporting documentation.",
+      "For future services, verify the approved setting with your insurer before scheduling."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["7", "50"]
+  },
+  {
+    "code": "59",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Processed based on multiple or concurrent procedure rules",
+    "plain": "When multiple procedures are performed at the same time, the payment for secondary procedures is reduced.",
+    "what_it_means": "Many insurers apply a 'multiple procedure reduction' — the highest-valued procedure is paid at 100%, and additional procedures are paid at a lower rate (e.g., 50%). This is normal but worth verifying.",
+    "action_steps": [
+      "Confirm the reduction percentage aligns with your plan's multiple procedure rules in the Summary of Benefits.",
+      "Ask your provider if the correct procedures were ranked in order of value — the highest should be paid at full rate.",
+      "If a distinct procedure was reduced when it shouldn't have been (different site, separate session), ask the provider to appeal with documentation."
+    ],
+    "related_guides": ["medical-bill-too-high-what-to-do"],
+    "related_codes": ["97", "6"]
+  },
+  {
+    "code": "96",
+    "type": "CARC",
+    "group": "Non-Covered",
+    "short": "Non-covered charge(s). At least one Remark Code must accompany this code.",
+    "plain": "This charge is not covered, and the accompanying remark code explains why.",
+    "what_it_means": "Code 96 is a broad non-covered indicator that must always appear with a RARC (Remark Code) explaining the specific reason. Look at the remark code on the same line of your EOB for the actual explanation.",
+    "action_steps": [
+      "Find the accompanying RARC (remark code) on your EOB — it is the actual reason for denial.",
+      "Reference that RARC to understand what specific rule or exclusion applies.",
+      "If the remark code cites an exclusion you believe doesn't apply, contact member services or file an appeal."
+    ],
+    "related_guides": ["how-to-read-denial-codes-on-eob", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["4", "97", "50"]
+  },
+  {
+    "code": "97",
+    "type": "CARC",
+    "group": "Non-Covered",
+    "short": "The benefit for this service is included in the payment/allowance for another service/procedure",
+    "plain": "This charge was bundled into a payment that already covered another related service.",
+    "what_it_means": "Bundling rules prevent double payment for related services. For example, a follow-up note may be considered part of a surgical global period and not separately billable.",
+    "action_steps": [
+      "Ask your provider whether this service falls within a global surgical period or another bundling rule.",
+      "If the service was genuinely separate and distinct (different clinical problem, different anatomical site), a modifier and appeal may allow separate payment.",
+      "Confirm you aren't being billed by the provider for a charge that was correctly bundled."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template", "medical-bill-too-high-what-to-do"],
+    "related_codes": ["96", "55", "45"]
+  },
+  {
+    "code": "100",
+    "type": "CARC",
+    "group": "Non-Covered",
+    "short": "Payment made to patient/insured/responsible party",
+    "plain": "The insurance payment was sent directly to you instead of to the provider.",
+    "what_it_means": "When a provider doesn't have an assignment of benefits agreement with your insurer, payment can go directly to the patient. You're then responsible for paying the provider.",
+    "action_steps": [
+      "Check if you received a check from your insurer and forward it to the provider.",
+      "Inform the provider so they don't send the account to collections while waiting for payment.",
+      "For future services, provide the provider's current billing address to the insurer to enable direct payment."
+    ],
+    "related_guides": ["medical-bill-sent-to-collections-while-disputing"],
+    "related_codes": ["96", "45"]
+  },
+  {
+    "code": "101",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Predetermination: anticipated payment upon completion of services or claim adjudication",
+    "plain": "This EOB is a pre-determination of what your insurance would pay — not a final claim decision.",
+    "what_it_means": "A predetermination is a prospective review of coverage before a service is rendered. It's not a guarantee of payment but gives you a cost estimate.",
+    "action_steps": [
+      "Use this information to estimate your out-of-pocket costs before the service.",
+      "Note that the actual EOB after the service is performed may differ based on how the claim is coded.",
+      "If the actual payment is significantly less than the predetermination, ask the insurer to explain the discrepancy."
+    ],
+    "related_guides": ["deductible-copay-coinsurance-out-of-pocket-max-difference"],
+    "related_codes": ["4", "50"]
+  },
+  {
+    "code": "107",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The related or qualifying claim/service was not identified on this claim",
+    "plain": "A required reference to a related claim (like a referring provider or parent claim) is missing.",
+    "what_it_means": "Some claims require a cross-reference to a previous service, authorization, or qualifying claim. Without it, the system can't link the claims together.",
+    "action_steps": [
+      "Ask your provider to identify and include the qualifying claim number or authorization reference.",
+      "Resubmission with the correct cross-reference typically resolves this automatically.",
+      "Follow up to confirm a new EOB is issued after the corrected claim is processed."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix"],
+    "related_codes": ["16", "18"]
+  },
+  {
+    "code": "109",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Claim/service not covered by this payer/contractor. You must send the claim/service to the correct payer/contractor.",
+    "plain": "You submitted the claim to the wrong insurance company.",
+    "what_it_means": "The claim was sent to an insurer that doesn't cover you or doesn't cover this type of service. Resubmitting to the correct payer is usually all that's needed.",
+    "action_steps": [
+      "Verify which insurer is your active primary payer for this date of service.",
+      "Ask your provider to resubmit to the correct payer.",
+      "If you're unsure which plan is primary, contact your employer's HR or benefits department."
+    ],
+    "related_guides": ["coordination-of-benefits-denial-how-to-fix-primary-secondary-insurance"],
+    "related_codes": ["22", "31"]
+  },
+  {
+    "code": "119",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Benefit maximum for this time period or occurrence has been reached",
+    "plain": "You've used all the allowed visits, days, or dollar amount for this type of benefit this year.",
+    "what_it_means": "Some benefits have annual limits on quantity (e.g., 20 physical therapy visits per year). Once those are used, additional claims are denied.",
+    "action_steps": [
+      "Ask your insurer for your current benefit utilization count to verify the limit has truly been reached.",
+      "If some visits were applied incorrectly (e.g., a visit you didn't receive), file a correction request.",
+      "For ongoing medically necessary care beyond the limit, ask your physician to file a medical necessity exception request."
+    ],
+    "related_guides": ["claim-denied-medical-necessity-appeal-guide", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["35", "96"]
+  },
+  {
+    "code": "125",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Submission/billing error(s). At least one Remark Code must accompany this code.",
+    "plain": "There's a billing or submission error — the remark code on the same line explains the specific issue.",
+    "what_it_means": "Like CARC 96, this is a wrapper code that requires a RARC. The actual problem is described in the remark code.",
+    "action_steps": [
+      "Locate the accompanying remark code on your EOB for the specific error.",
+      "Bring this to your provider's billing department — most submission errors are fixable with a corrected claim.",
+      "Track the resubmission and confirm a corrected EOB is received."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix"],
+    "related_codes": ["16", "96", "252"]
+  },
+  {
+    "code": "133",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "The disposition of this claim/service is pending further review",
+    "plain": "Your insurer hasn't made a final decision yet — the claim is still under review.",
+    "what_it_means": "This is a holding code while the insurer completes review (e.g., medical necessity review, coordination of benefits, or fraud investigation). A final EOB should follow.",
+    "action_steps": [
+      "Note the date you received this EOB and follow up with your insurer if no final determination arrives within 30 days.",
+      "Ask the insurer for the expected resolution timeline and the reason for the pending status.",
+      "Do not pay the provider's bill until the final EOB is issued."
+    ],
+    "related_guides": ["how-to-read-denial-codes-on-eob"],
+    "related_codes": ["96", "16"]
+  },
+  {
+    "code": "139",
+    "type": "CARC",
+    "group": "Non-Covered",
+    "short": "Contracted/negotiated rate expired or not on file",
+    "plain": "The provider's contract with the insurer is outdated or missing, so the normal in-network rate doesn't apply.",
+    "what_it_means": "Even if a provider has historically been in-network, if their contract lapsed or wasn't renewed, claims may process at out-of-network rates or be denied.",
+    "action_steps": [
+      "Call your insurer to verify the provider's current network status as of your date of service.",
+      "If the provider was in-network when you scheduled (and the lapse happened after), file an appeal citing reasonable reliance.",
+      "Ask the provider to renegotiate or resolve the contract gap with the insurer directly."
+    ],
+    "related_guides": ["in-network-vs-out-of-network-costs", "balance-billing-explained-when-it-may-be-illegal"],
+    "related_codes": ["45", "22"]
+  },
+  {
+    "code": "140",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Patient/insured health identification number and name do not match",
+    "plain": "The name and insurance ID number on the claim don't match what's in the insurer's system.",
+    "what_it_means": "A typo in the member ID, a name change not updated in the system, or a wrong suffix (Jr./Sr.) can cause this mismatch.",
+    "action_steps": [
+      "Ask your provider to verify the exact spelling, ID number, and date of birth submitted.",
+      "Confirm your information with the insurer's member services to identify any discrepancies.",
+      "Request a corrected claim after the member record is updated."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix"],
+    "related_codes": ["31", "16"]
+  },
+  {
+    "code": "151",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Payment adjusted because the payer deems the information submitted does not support this many/frequency of services",
+    "plain": "Your insurer says the number or frequency of services billed doesn't seem clinically reasonable based on the information submitted.",
+    "what_it_means": "Frequency edits flag when a service appears too often in too short a time (e.g., multiple office visits in one day, or too many lab tests). This can be a legitimate clinical pattern that just needs documentation.",
+    "action_steps": [
+      "Ask your provider to submit medical notes that document the clinical need for the frequency of services.",
+      "File an appeal with the supporting records if the services were genuinely necessary.",
+      "If any services were billed in error, ask the provider to submit a corrected claim removing the duplicate."
+    ],
+    "related_guides": ["claim-denied-medical-necessity-appeal-guide"],
+    "related_codes": ["119", "50"]
+  },
+  {
+    "code": "170",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Payment is denied when performed/billed by this type of provider",
+    "plain": "This service isn't covered when performed by the type of provider who billed it.",
+    "what_it_means": "Some services are only covered if performed by specific provider types (e.g., a test covered only when ordered by an MD, not a chiropractor). Scope-of-practice issues can trigger this.",
+    "action_steps": [
+      "Ask your insurer which provider type is required for this service to be covered.",
+      "If the service was clinically appropriate and performed by a qualified provider, appeal with credentials documentation.",
+      "For future care, verify coverage requirements by provider type before receiving the service."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["8", "50"]
+  },
+  {
+    "code": "171",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Payment denied for absence of, or exceeded, precertification/authorization",
+    "plain": "Prior authorization wasn't obtained, or the service went beyond what was authorized.",
+    "what_it_means": "Similar to CARC 5, but specifically for situations where authorization existed but was exceeded (e.g., authorized 3 days, patient stayed 5 days).",
+    "action_steps": [
+      "If the extended service was medically necessary, ask your provider to appeal for retroactive authorization.",
+      "Include physician documentation explaining why additional days or services were clinically required.",
+      "Ask your insurer to review under their clinical criteria — exceeding authorized amounts is often appealable."
+    ],
+    "related_guides": ["denied-claim-after-prior-authorization", "appeal-prior-authorization-denial"],
+    "related_codes": ["5", "15"]
+  },
+  {
+    "code": "176",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Services not related to the specific accident/illness",
+    "plain": "The service doesn't appear to be connected to the injury or illness for which you're being treated under a specific claim or benefit.",
+    "what_it_means": "For claims linked to a specific event (e.g., auto accident, specific injury), the insurer may exclude services it deems unrelated to that event.",
+    "action_steps": [
+      "Ask your provider to document the clinical link between the service and the relevant condition.",
+      "File an appeal with chart notes that clearly connect the service to the covered diagnosis.",
+      "If auto insurance or workers' comp is involved, verify which carrier should be primary."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["9", "19"]
+  },
+  {
+    "code": "185",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Do not resubmit; we will reprocess this claim after the contract is finalized",
+    "plain": "Your insurer is asking you to wait — the provider's contract is being resolved and the claim will be reprocessed automatically.",
+    "what_it_means": "This code appears during contract disputes between the insurer and provider. No action is needed from you immediately, but you should monitor the claim.",
+    "action_steps": [
+      "Note the date and follow up with your insurer in 30–45 days if no reprocessed EOB arrives.",
+      "Do not pay the provider for this service while the contract dispute is active.",
+      "If the provider sends you to collections during this period, notify your insurer and request a hold."
+    ],
+    "related_guides": ["medical-bill-sent-to-collections-while-disputing"],
+    "related_codes": ["133", "139"]
+  },
+  {
+    "code": "192",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Non-standard adjustment code from paper remittance",
+    "plain": "This adjustment was made based on information from a paper (non-electronic) process and doesn't have a standard code.",
+    "what_it_means": "This code is a placeholder for manual adjustments that don't fit standard CARC codes. It's often used in paper remittance situations.",
+    "action_steps": [
+      "Request a detailed explanation of the adjustment from your insurer in writing.",
+      "Ask for the specific policy basis for the adjustment.",
+      "If you cannot get a clear explanation, request a formal appeal review."
+    ],
+    "related_guides": ["how-to-read-denial-codes-on-eob"],
+    "related_codes": ["96", "125"]
+  },
+  {
+    "code": "197",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Precertification/authorization/notification/pre-treatment absent",
+    "plain": "Required advance approval wasn't obtained before this service was performed.",
+    "what_it_means": "This is a more specific version of CARC 5. The insurer required advance authorization and no record of it exists in their system.",
+    "action_steps": [
+      "Ask your provider for the authorization number, if one was obtained. Confirm it was submitted on the claim.",
+      "If the service was emergent or urgently required (preventing delay), file an appeal citing medical necessity and urgency.",
+      "If your provider told you authorization wasn't required, ask them to appeal on your behalf."
+    ],
+    "related_guides": ["appeal-prior-authorization-denial", "denied-claim-after-prior-authorization"],
+    "related_codes": ["5", "15", "171"]
+  },
+  {
+    "code": "200",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Expenses incurred during lapse in coverage",
+    "plain": "Coverage had lapsed at the time the service was performed — usually due to a missed premium.",
+    "what_it_means": "Coverage requires timely premium payment. If you missed a payment and the grace period elapsed, claims during the gap will be denied.",
+    "action_steps": [
+      "Verify the exact lapse and reinstatement dates with your insurer.",
+      "If you paid the premium but coverage wasn't reinstated correctly, provide proof of payment and request correction.",
+      "If you had a qualifying life event (e.g., job loss), check whether you're eligible for a special enrollment period or backdated COBRA."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["26", "27"]
+  },
+  {
+    "code": "204",
+    "type": "CARC",
+    "group": "Non-Covered",
+    "short": "This service/equipment/drug is not covered under the patient's current benefit plan",
+    "plain": "The specific service, device, or drug isn't included in your current plan's covered benefits.",
+    "what_it_means": "Benefit plans vary widely. A service covered under one plan tier or employer may not be covered under another. This is different from a medical necessity denial — the issue is the benefit design itself.",
+    "action_steps": [
+      "Review your plan's Schedule of Benefits or formulary to confirm the exclusion.",
+      "If you believe the service should be covered, request the specific exclusion language in writing.",
+      "Ask your provider if an alternative covered service could achieve the same outcome.",
+      "If no alternative exists and coverage is essential, contact your HR benefits administrator about plan options."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["4", "96", "50"]
+  },
+  {
+    "code": "226",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Information requested from the Billing/Rendering Provider was not provided or not provided timely or was insufficient/incomplete",
+    "plain": "The insurer asked the provider for more information but didn't get it in time.",
+    "what_it_means": "During claim review, insurers may request medical records or additional documentation from the provider. If the provider doesn't respond within the deadline, the claim is denied.",
+    "action_steps": [
+      "Ask your provider's billing department whether they received a request for records and whether it was submitted.",
+      "If the deadline was missed due to an administrative error, ask the provider to appeal with the records and an explanation.",
+      "You may also submit the records yourself with a written appeal if you have access to them."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["16", "252"]
+  },
+  {
+    "code": "234",
+    "type": "CARC",
+    "group": "Non-Covered",
+    "short": "This procedure is not paid separately",
+    "plain": "This procedure's payment is included in a bundled payment for the overall service.",
+    "what_it_means": "Similar to CARC 97, this code is used when a procedure is considered part of a comprehensive service. It's often used in facility billing.",
+    "action_steps": [
+      "Verify with your provider that you're not being billed separately for a bundled item.",
+      "If the procedure is clinically distinct and separately performable, ask the provider to appeal with documentation.",
+      "Review the full EOB to confirm there's no double billing."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template"],
+    "related_codes": ["97", "55"]
+  },
+  {
+    "code": "252",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "An attachment/other documentation is required to adjudicate this claim/service",
+    "plain": "Your insurer needs additional documents from the provider to process this claim.",
+    "what_it_means": "Some claims require supporting documentation (medical records, operative reports, discharge summaries) before the insurer will pay. This code means the claim is on hold pending receipt of those documents.",
+    "action_steps": [
+      "Ask your provider what documentation the insurer has requested.",
+      "Follow up to confirm the records were submitted within the insurer's deadline.",
+      "If documents were sent but not received, get proof of transmission (fax confirmation, portal receipt) and resubmit."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix"],
+    "related_codes": ["16", "226", "133"]
+  },
+  {
+    "code": "253",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Sequencing of therapy and/or diagnostic treatment is incorrect",
+    "plain": "Your insurer says the order in which treatments were tried doesn't follow their required clinical pathway.",
+    "what_it_means": "Step therapy protocols require that less expensive or less intensive treatments be tried first before advancing to higher-cost options. If the sequence wasn't followed, the advanced treatment may be denied.",
+    "action_steps": [
+      "Ask your insurer what their step therapy requirements were for this diagnosis.",
+      "If step therapy was followed, submit documentation of prior treatments with dates and outcomes.",
+      "If step therapy was skipped for a valid clinical reason (e.g., prior treatment failure, contraindication), ask your physician to document the exception and file an appeal."
+    ],
+    "related_guides": ["appeal-prior-authorization-denial", "claim-denied-medical-necessity-appeal-guide"],
+    "related_codes": ["50", "197"]
+  },
+  {
+    "code": "B7",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "This provider was not certified/eligible to be paid for this procedure/service on this date of service",
+    "plain": "The provider who performed this service wasn't credentialed or eligible to bill for it on the date of your visit.",
+    "what_it_means": "Provider credentialing can lapse or take time to be processed. If a provider's participation wasn't active on your service date, claims may be denied.",
+    "action_steps": [
+      "Ask the provider to verify their credentialing status with your insurer as of your service date.",
+      "If credentialing was pending (e.g., a new provider joining a practice), ask both the insurer and provider to retroactively resolve the gap.",
+      "If the provider was credentialed but the claim shows otherwise, ask for a review of the enrollment records."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["170", "8"]
+  },
+  {
+    "code": "B9",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Services not covered because the patient is enrolled in a Hospice program",
+    "plain": "If a patient is in hospice, most curative treatments are no longer covered by Medicare or the plan.",
+    "what_it_means": "Hospice enrollment shifts the focus to comfort care. Most curative or life-prolonging treatments are excluded from the hospice benefit and must be billed outside of it.",
+    "action_steps": [
+      "Confirm whether the patient is enrolled in hospice, and if so, whether this service falls under palliative or curative care.",
+      "If the treatment is unrelated to the terminal diagnosis, it may be separately covered — ask the insurer to review.",
+      "Consult with the hospice care team and the primary insurer to coordinate billing."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["4", "96"]
+  },
+  {
+    "code": "N1",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Alert: You may appeal this decision",
+    "plain": "You have the right to file a formal appeal of this payment decision.",
+    "what_it_means": "This remark code appears on EOBs to inform you that the adjustment or denial can be formally challenged. It's a notification of your appeal rights.",
+    "action_steps": [
+      "Locate the appeal instructions in your plan documents or on the EOB itself.",
+      "Note the appeal deadline — typically 180 days from the date of the EOB.",
+      "Gather supporting documentation (medical records, authorization numbers, clinical notes) before filing."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim", "appeal-deadlines-internal-vs-external-review"],
+    "related_codes": ["N517", "MA01"]
+  },
+  {
+    "code": "N30",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Patient ineligible for this service",
+    "plain": "The patient doesn't meet the eligibility requirements for this specific service.",
+    "what_it_means": "Eligibility can relate to age, gender, diagnosis, or plan-specific criteria. The exact reason should be in the associated CARC.",
+    "action_steps": [
+      "Review the corresponding CARC to understand the eligibility issue.",
+      "Ask your insurer what specific eligibility criterion wasn't met.",
+      "If you believe you do meet the criteria, file an appeal with supporting documentation."
+    ],
+    "related_guides": ["how-to-read-denial-codes-on-eob"],
+    "related_codes": ["N1", "96"]
+  },
+  {
+    "code": "N115",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "This decision was based on a Local Coverage Determination (LCD)",
+    "plain": "A Medicare local policy in your geographic area was used to decide whether to cover this service.",
+    "what_it_means": "Medicare contractors can create Local Coverage Determinations (LCDs) that specify when and for whom certain services are covered. These are public documents.",
+    "action_steps": [
+      "Look up the specific LCD on the CMS Coverage Database at cms.gov using the procedure code.",
+      "Verify whether your clinical situation meets the LCD's coverage criteria.",
+      "If your diagnosis and clinical circumstance qualify under the LCD, appeal with chart notes citing the relevant LCD language."
+    ],
+    "related_guides": ["claim-denied-medical-necessity-appeal-guide"],
+    "related_codes": ["50", "96"]
+  },
+  {
+    "code": "N130",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Consult plan benefit documents/summary plan description for further information",
+    "plain": "Check your plan documents for the specific rule that caused this adjustment.",
+    "what_it_means": "The insurer is directing you to your Summary of Benefits and Coverage (SBC) or Evidence of Coverage (EOC) for the relevant policy language.",
+    "action_steps": [
+      "Pull your SBC or EOC (available through your employer or insurer portal).",
+      "Look up the service type in the benefits schedule to understand what's covered and under what conditions.",
+      "If the plan document contradicts the denial, use that language in your appeal."
+    ],
+    "related_guides": ["how-to-read-denial-codes-on-eob"],
+    "related_codes": ["96", "4"]
+  },
+  {
+    "code": "N517",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Resubmit a separate claim for this service",
+    "plain": "This service needs to be billed on its own separate claim — it can't be included with the current one.",
+    "what_it_means": "Certain service types or payer rules require claims to be submitted individually rather than bundled with other services.",
+    "action_steps": [
+      "Ask your provider to resubmit this charge on a standalone claim.",
+      "Confirm the resubmission deadline to avoid timely filing issues.",
+      "Track the new claim number to ensure it's processed."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix"],
+    "related_codes": ["N1", "16"]
+  },
+  {
+    "code": "MA01",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "If you do not agree with what we approved for these services, you may appeal our decision",
+    "plain": "You can formally challenge the payment amount or denial decision.",
+    "what_it_means": "Medicare-specific appeal rights notification. You have the right to request a redetermination from the MAC (Medicare Administrative Contractor).",
+    "action_steps": [
+      "For Medicare, file a Redetermination request within 120 days of the date of the Medicare Summary Notice (MSN).",
+      "Submit your appeal in writing with a copy of the MSN and supporting documentation.",
+      "If unsuccessful, you can escalate to a Qualified Independent Contractor (QIC) review."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim", "appeal-deadlines-internal-vs-external-review"],
+    "related_codes": ["N1"]
+  },
+  {
+    "code": "MA04",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Secondary payment cannot be considered without the identity of or payment information from the primary payer",
+    "plain": "The secondary insurer can't process this until they get the primary insurer's payment information.",
+    "what_it_means": "When you have two plans, the secondary payer needs to see the primary payer's EOB before calculating their share. This is a standard coordination of benefits workflow.",
+    "action_steps": [
+      "Ask your provider to resubmit to the secondary payer with a copy of the primary EOB attached.",
+      "If you have the primary EOB, you can provide it directly to the secondary insurer with a written request to process.",
+      "Confirm the primary claim was paid (not just processed) before resubmitting."
+    ],
+    "related_guides": ["coordination-of-benefits-denial-how-to-fix-primary-secondary-insurance"],
+    "related_codes": ["22", "23"]
+  },
+  {
+    "code": "MA07",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Alert: This claim has been forwarded to the patient's additional plan",
+    "plain": "Your insurer has automatically sent this claim to your secondary insurance for additional processing.",
+    "what_it_means": "When coordination of benefits is set up correctly, the primary insurer will automatically cross-over the claim to the secondary payer. This remark confirms that happened.",
+    "action_steps": [
+      "Wait for a second EOB from your secondary insurer.",
+      "If you don't receive a secondary EOB within 30 days, contact your secondary insurer to confirm they received the claim.",
+      "Do not pay the provider until both EOBs are received and you know your total patient responsibility."
+    ],
+    "related_guides": ["coordination-of-benefits-denial-how-to-fix-primary-secondary-insurance"],
+    "related_codes": ["MA04", "22"]
+  },
+  {
+    "code": "MA61",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Missing/incomplete/invalid social security number or health insurance claim number",
+    "plain": "The patient's Social Security Number or Medicare claim number on the form is missing or incorrect.",
+    "what_it_means": "Medicare and many other payers use specific identifier formats. A formatting error, transposed digit, or missing number will cause this remark.",
+    "action_steps": [
+      "Ask your provider to verify the subscriber ID or Medicare Beneficiary Identifier (MBI) on file.",
+      "Confirm your Medicare card or insurance card reflects the correct ID number.",
+      "Request a corrected claim submission after the identifier is verified."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix"],
+    "related_codes": ["31", "140"]
+  },
+  {
+    "code": "MA62",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Alert: This claim has been split for processing",
+    "plain": "Your insurer divided this claim into multiple parts for processing.",
+    "what_it_means": "Complex claims with multiple service lines may be split into separate processing events. Each split will generate its own EOB line.",
+    "action_steps": [
+      "Collect all related EOBs to get the complete picture of what was paid.",
+      "Verify that the total patient responsibility across all split claims matches what you expect.",
+      "Contact member services if any portion of the split claim hasn't been processed within 30 days."
+    ],
+    "related_guides": ["how-to-read-denial-codes-on-eob"],
+    "related_codes": ["133"]
+  }
+]

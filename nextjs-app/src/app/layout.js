@@ -88,6 +88,8 @@ export default function RootLayout({ children }) {
                 <span className="separator">|</span>
                 <Link href="/procedures">Procedure Costs</Link>
                 <span className="separator">|</span>
+                <Link href="/denial-codes">Denial Codes</Link>
+                <span className="separator">|</span>
                 <Link href="/editorial-policy">Editorial Policy</Link>
                 <span className="separator">|</span>
                 <Link href="/sources">Sources</Link>

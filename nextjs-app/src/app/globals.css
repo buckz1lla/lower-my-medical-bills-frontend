@@ -4718,3 +4718,571 @@ a {
   }
 }
 
+/* ============================================================
+   DENIAL CODE LIBRARY — Index + Detail Pages
+   ============================================================ */
+
+/* ── Index page ── */
+.dc-index-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+.dc-hero {
+  padding: 3rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dc-hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin: 0;
+}
+
+.dc-hero-inner h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0.25rem 0 0.75rem;
+  line-height: 1.25;
+}
+
+.dc-hero-sub {
+  font-size: 1.05rem;
+  color: #374151;
+  max-width: 640px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.dc-hero-cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.dc-hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.dc-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.dc-stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  line-height: 1;
+}
+
+.dc-stat-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* ── Explainer band ── */
+.dc-explainer-band {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dc-explainer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+}
+
+.dc-explainer-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.dc-explainer-item strong {
+  font-size: 0.9rem;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.dc-explainer-divider {
+  color: #d1d5db;
+  font-size: 1.25rem;
+}
+
+/* ── Jump bar ── */
+.dc-jump-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dc-jump-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dc-jump-link {
+  font-size: 0.85rem;
+  color: #1d4ed8;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dc-jump-link:hover {
+  text-decoration: underline;
+}
+
+.dc-jump-count {
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+/* ── Group sections ── */
+.dc-group-section {
+  margin-bottom: 3rem;
+}
+
+.dc-group-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.dc-group-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.dc-group-count {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* ── Code cards ── */
+.dc-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.dc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.125rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.dc-card:hover {
+  border-color: #1d4ed8;
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.08);
+}
+
+.dc-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dc-code-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.dc-code-badge--type[data-type="CARC"] {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.dc-code-badge--type[data-type="RARC"] {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.dc-code-num {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.dc-card-short {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.dc-card-plain {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.dc-card-cta {
+  font-size: 0.78rem;
+  color: #1d4ed8;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* ── Bottom CTA ── */
+.dc-index-bottom-cta {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.dc-bottom-cta-inner h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+
+.dc-bottom-cta-inner p {
+  color: #bfdbfe;
+  font-size: 1rem;
+  max-width: 560px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   DENIAL CODE — Detail Page
+   ============================================================ */
+
+.dc-detail-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+.dc-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.dc-breadcrumb a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+
+.dc-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.dc-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ── Detail header ── */
+.dc-detail-header {
+  margin-bottom: 2rem;
+}
+
+.dc-detail-header-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.dc-detail-group-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.dc-detail-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.75rem;
+  line-height: 1.3;
+}
+
+.dc-detail-plain {
+  font-size: 1.1rem;
+  color: #374151;
+  margin: 0;
+  line-height: 1.6;
+  font-style: italic;
+  border-left: 3px solid #1d4ed8;
+  padding-left: 1rem;
+}
+
+/* ── Detail sections ── */
+.dc-detail-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.dc-detail-section:last-child {
+  border-bottom: none;
+}
+
+.dc-detail-section h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.75rem;
+}
+
+.dc-detail-section p {
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Action steps ── */
+.dc-action-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.dc-action-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+}
+
+.dc-step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  background: #1d4ed8;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.dc-action-step p {
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Related guides ── */
+.dc-related-guides-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dc-guide-link {
+  font-size: 0.9rem;
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dc-guide-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Analyzer CTA in main ── */
+.dc-analyzer-cta {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-bottom: none !important;
+}
+
+.dc-analyzer-cta h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.dc-analyzer-cta p {
+  margin-bottom: 1rem !important;
+}
+
+/* ── Sidebar ── */
+.dc-detail-sidebar {
+  position: sticky;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dc-sidebar-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.dc-sidebar-card h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Code meta list ── */
+.dc-meta-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.375rem 0.875rem;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.dc-meta-list dt {
+  color: #6b7280;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dc-meta-list dd {
+  color: #111827;
+  margin: 0;
+}
+
+/* ── Related codes list ── */
+.dc-related-codes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.dc-related-code-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  text-decoration: none;
+}
+
+.dc-rc-code {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.dc-rc-short {
+  font-size: 0.78rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.dc-related-code-link:hover .dc-rc-code {
+  text-decoration: underline;
+}
+
+/* ── Sidebar analyzer CTA ── */
+.dc-sidebar-analyzer-cta p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+.dc-sidebar-btn {
+  display: block;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .dc-detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .dc-detail-sidebar {
+    position: static;
+  }
+  .dc-hero-inner h1 {
+    font-size: 1.5rem;
+  }
+  .dc-hero-stats {
+    gap: 1.25rem;
+  }
+  .dc-explainer-divider {
+    display: none;
+  }
+  .dc-explainer-inner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .dc-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

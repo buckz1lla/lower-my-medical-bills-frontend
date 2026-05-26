@@ -1,4 +1,5 @@
 import { guides } from "@/lib/guides";
+import { allCodes, toSlug } from "@/lib/denialCodes";
 
 const SITE_URL = "https://lowermymedicalbills.com";
 
@@ -18,6 +19,9 @@ export default function sitemap() {
     "/terms",
     "/disclaimer",
     "/affiliate-disclosure",
+    "/denial-codes",
+    "/procedures",
+    "/fair-price",
   ].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: now,
@@ -32,5 +36,12 @@ export default function sitemap() {
     priority: 0.9,
   }));
 
-  return [...staticRoutes, ...guideRoutes];
+  const denialCodeRoutes = allCodes.map((c) => ({
+    url: `${SITE_URL}/denial-codes/${toSlug(c.code)}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  return [...staticRoutes, ...guideRoutes, ...denialCodeRoutes];
 }
