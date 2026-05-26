@@ -117,86 +117,43 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="features">
-        <h3>What Makes Our Workflow Different</h3>
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
-            <h4>Risk-First Review</h4>
-            <p>
-              We prioritize the claim lines most likely to affect what you owe
-              so you can focus on the highest-leverage issues first.
-            </p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-            <h4>Plain-English Explanations</h4>
-            <p>
-              Decode deductibles, coinsurance, and network status without
-              insurance jargon slowing you down.
-            </p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
-            <h4>Appeal-Ready Prep</h4>
-            <p>
-                Build a stronger case with a practical checklist, key claim
-                details, and what to gather before you escalate.
-            </p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-            <h4>Next-Step Prioritization</h4>
-            <p>
-              Know exactly what to do now, what can wait, and where you may be
-              able to reduce your out-of-pocket burden.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="how-it-works">
-        <h3>Your 4-Step Review Path</h3>
-        <ol className="steps">
-          <li>
-            <span className="step-number">1</span>
-            <div className="step-content">
-              <h4>Upload Your EOB</h4>
-              <p>
-                Drop in your Explanation of Benefits file (PDF, image, CSV, or
-                XLSX).
-              </p>
+        <div className="hiw-header">
+          <h3>How It Works</h3>
+          <p className="hiw-sub">From confusing EOB to clear action plan in four steps.</p>
+        </div>
+        <ol className="hiw-steps" role="list">
+          <li className="hiw-step">
+            <div className="hiw-step-num" aria-hidden="true">1</div>
+            <div className="hiw-step-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
             </div>
+            <h4>Upload Your EOB</h4>
+            <p>Drop in your PDF, image, CSV, or XLSX. No account needed.</p>
           </li>
-          <li>
-            <span className="step-number">2</span>
-            <div className="step-content">
-              <h4>We Triage the Claims</h4>
-              <p>
-                We identify likely billing problems and categorize them by
-                urgency and potential impact.
-              </p>
+          <li className="hiw-step">
+            <div className="hiw-step-num" aria-hidden="true">2</div>
+            <div className="hiw-step-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             </div>
+            <h4>We Triage the Claims</h4>
+            <p>High-risk lines surface first — sorted by urgency and potential dollar impact.</p>
           </li>
-          <li>
-            <span className="step-number">3</span>
-            <div className="step-content">
-              <h4>Review Your Action Brief</h4>
-              <p>
-                See your top findings, what they mean, and how to approach each
-                one.
-              </p>
+          <li className="hiw-step">
+            <div className="hiw-step-num" aria-hidden="true">3</div>
+            <div className="hiw-step-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </div>
+            <h4>Read Your Action Brief</h4>
+            <p>Plain-English breakdowns of every flag — no jargon, no guesswork.</p>
           </li>
-          <li>
-            <span className="step-number">4</span>
-            <div className="step-content">
-              <h4>Escalate with Confidence</h4>
-              <p>
-                 Use your brief to call billing, contact your insurer, or draft
-                 a cleaner appeal packet.
-              </p>
+          <li className="hiw-step">
+            <div className="hiw-step-num" aria-hidden="true">4</div>
+            <div className="hiw-step-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
             </div>
+            <h4>Escalate with Confidence</h4>
+            <p>Use your brief to call billing, contact your insurer, or draft an appeal.</p>
           </li>
         </ol>
       </section>

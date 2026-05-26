@@ -647,6 +647,104 @@ a {
   margin-bottom: 36px;
 }
 
+/* ── How It Works (consolidated) ───────────────────────── */
+.how-it-works {
+  margin-bottom: 36px;
+}
+
+.hiw-header {
+  margin-bottom: 1.25rem;
+}
+
+.hiw-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--font-heading), serif;
+  margin: 0 0 0.2rem;
+}
+
+.hiw-sub {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.hiw-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+/* connector line between steps */
+.hiw-steps::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: calc(12.5% + 16px);
+  right: calc(12.5% + 16px);
+  height: 2px;
+  background: linear-gradient(90deg, #dce6f5 0%, #3069a8 50%, #dce6f5 100%);
+  z-index: 0;
+}
+
+.hiw-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.75rem;
+}
+
+.hiw-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #3069a8 0%, #1f5493 100%);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 0 0 4px #fff, 0 0 0 5px #dce6f5;
+}
+
+.hiw-step-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef3fb;
+  border-radius: 10px;
+  color: var(--accent);
+  margin-bottom: 0.625rem;
+}
+
+.hiw-step h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  font-family: var(--font-heading), serif;
+  margin: 0 0 0.3rem;
+}
+
+.hiw-step p {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+
 .signal-section {
   margin: 0 0 24px;
   padding: 20px 20px;
@@ -793,68 +891,6 @@ a {
 .feature-card p {
   color: var(--ink-soft);
   line-height: 1.55;
-  font-size: 13.5px;
-}
-
-.how-it-works {
-  margin-bottom: 40px;
-  background: #ffffff;
-  padding: 28px 32px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-}
-
-.how-it-works h3 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  text-align: left;
-  color: var(--ink);
-  font-weight: 700;
-  font-family: var(--font-heading), serif;
-}
-
-.steps {
-  list-style: none;
-  max-width: 800px;
-  margin: 0;
-}
-
-.steps li {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
-  align-items: flex-start;
-}
-
-.steps li:last-child {
-  margin-bottom: 0;
-}
-
-.step-number {
-  background: linear-gradient(145deg, #3069a8 0%, #1f5493 100%);
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  flex-shrink: 0;
-  font-size: 14px;
-}
-
-.step-content h4 {
-  font-size: 14.5px;
-  margin-bottom: 3px;
-  color: var(--ink);
-  font-weight: 600;
-  font-family: var(--font-heading), serif;
-}
-
-.step-content p {
-  color: var(--ink-soft);
-  line-height: 1.5;
   font-size: 13.5px;
 }
 
@@ -1361,7 +1397,41 @@ a {
   }
 
   .how-it-works {
-    padding: 40px 22px;
+    padding: 0;
+  }
+
+  .hiw-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .hiw-steps::before {
+    display: none;
+  }
+
+  .hiw-step {
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: row;
+    gap: 0.875rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .hiw-step-num {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .hiw-step-icon {
+    display: none;
+  }
+
+  .hiw-step-content-wrap {
+    display: flex;
+    flex-direction: column;
   }
 
   .steps li {
