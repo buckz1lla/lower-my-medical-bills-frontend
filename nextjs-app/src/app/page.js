@@ -84,39 +84,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="signal-section">
-        <div className="signal-head">
-          <h3>The Claim Signal Snapshot</h3>
-          <p>
-            Our reviews prioritize line items using a simple signal model so you
-            can spend time where it matters most.
-          </p>
-        </div>
-        <div className="signal-grid" role="list" aria-label="Claim signal priorities">
-          <article className="signal-card" role="listitem">
-            <h4>High-Leverage Lines</h4>
-            <div className="signal-meter">
-              <span className="signal-fill signal-fill-high" aria-hidden="true" />
-            </div>
-            <p>Likely to change what you owe if corrected.</p>
-          </article>
-          <article className="signal-card" role="listitem">
-            <h4>Clarification Needed</h4>
-            <div className="signal-meter">
-              <span className="signal-fill signal-fill-mid" aria-hidden="true" />
-            </div>
-            <p>Needs insurer or provider explanation before you escalate.</p>
-          </article>
-          <article className="signal-card" role="listitem">
-            <h4>Watchlist</h4>
-            <div className="signal-meter">
-              <span className="signal-fill signal-fill-low" aria-hidden="true" />
-            </div>
-            <p>Lower urgency items to monitor while you handle top issues.</p>
-          </article>
-        </div>
-      </section>
-
       <section className="how-it-works">
         <div className="hiw-header">
           <h3>How It Works</h3>

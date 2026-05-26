@@ -853,6 +853,24 @@ function ResultsContent() {
         </>
       ) : null}
 
+      <section className="signal-legend" aria-label="Priority level key">
+        <p className="signal-legend-label">Priority key:</p>
+        <div className="signal-legend-items">
+          <div className="signal-legend-item">
+            <span className="signal-fill signal-fill-high" aria-hidden="true" />
+            <span><strong>High-Leverage</strong> — likely to change what you owe if corrected</span>
+          </div>
+          <div className="signal-legend-item">
+            <span className="signal-fill signal-fill-mid" aria-hidden="true" />
+            <span><strong>Clarification Needed</strong> — get insurer or provider explanation first</span>
+          </div>
+          <div className="signal-legend-item">
+            <span className="signal-fill signal-fill-low" aria-hidden="true" />
+            <span><strong>Watchlist</strong> — lower urgency, monitor while handling top issues</span>
+          </div>
+        </div>
+      </section>
+
       <section className="results-tabs-next" aria-label="Results tabs">
         <button
           className={`results-tab-next ${activeTab === "opportunities" ? "results-tab-next-active" : ""}`}
