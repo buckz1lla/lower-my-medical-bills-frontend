@@ -3465,6 +3465,54 @@ a {
   }
 }
 
+.guides-search-wrap {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.guides-search-input {
+  width: 100%;
+  padding: 11px 16px;
+  border: 1px solid #c8daf0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+}
+
+.guides-search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(48, 105, 168, 0.12);
+}
+
+.guides-search-input::placeholder {
+  color: #9ab0c8;
+}
+
+.guides-search-count {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: #6f879f;
+  pointer-events: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 .guides-filter-bar {
   display: flex;
   flex-wrap: wrap;

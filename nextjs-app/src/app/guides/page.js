@@ -17,9 +17,18 @@ const CATEGORIES = [
 
 export default function GuidesPage() {
   const [active, setActive] = useState("All");
+  const [query, setQuery] = useState("");
 
-  const filtered =
-    active === "All" ? guides : guides.filter((g) => g.category === active);
+  const trimmed = query.trim().toLowerCase();
+  const filtered = guides.filter((g) => {
+    const matchesCategory = active === "All" || g.category === active;
+    const matchesQuery =
+      !trimmed ||
+      g.title.toLowerCase().includes(trimmed) ||
+      g.description.toLowerCase().includes(trimmed) ||
+      g.category.toLowerCase().includes(trimmed);
+    return matchesCategory && matchesQuery;
+  });
 
   return (
     <main className="guides-page">
@@ -66,6 +75,25 @@ export default function GuidesPage() {
           </article>
         </div>
       </section>
+
+      <div className="guides-search-wrap">
+        <label htmlFor="guides-search" className="sr-only">Search guides</label>
+        <input
+          id="guides-search"
+          type="search"
+          className="guides-search-input"
+          placeholder="Search guides — e.g. prior auth, collections, EOB…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          autoComplete="off"
+          spellCheck={false}
+        />
+        {trimmed && (
+          <span className="guides-search-count">
+            {filtered.length} result{filtered.length !== 1 ? "s" : ""}
+          </span>
+        )}
+      </div>
 
       <div className="guides-filter-bar" role="group" aria-label="Filter guides by category">
         {CATEGORIES.map((cat) => (
