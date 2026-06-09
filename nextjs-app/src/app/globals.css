@@ -3507,6 +3507,18 @@ a {
   margin: 0 auto;
 }
 
+/* ---- Reading Progress Bar ---- */
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 1000;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
 /* ---- Table of Contents ---- */
 .guide-toc {
   background: #f0f5fb;

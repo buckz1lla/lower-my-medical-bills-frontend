@@ -1,6 +1,7 @@
 import Link from "next/link";
 import TrackedLink from "@/components/TrackedLink";
 import GuideToc from "@/components/GuideToc";
+import ReadingProgress from "@/components/ReadingProgress";
 import { guides, findGuideBySlug } from "@/lib/guides";
 import { getAffiliateLink } from "@/lib/affiliateLinks";
 import { notFound } from "next/navigation";
@@ -170,6 +171,7 @@ export default async function GuideArticlePage({ params }) {
 
   return (
     <article className="guide-article-page">
+      <ReadingProgress />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
