@@ -1,5 +1,6 @@
 import { Lora, Source_Sans_3, Plus_Jakarta_Sans } from "next/font/google";
 import Link from "next/link";
+import MobileNav from "@/components/MobileNav";
 import "./globals.css";
 import RouteScripts from "./route-scripts";
 
@@ -66,6 +67,7 @@ export default function RootLayout({ children }) {
                 Start Review
               </Link>
             </nav>
+            <MobileNav />
           </div>
         </header>
         <main className="main-content">{children}</main>
