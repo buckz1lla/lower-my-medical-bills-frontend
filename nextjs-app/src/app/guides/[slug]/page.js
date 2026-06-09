@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TrackedLink from "@/components/TrackedLink";
+import GuideToc from "@/components/GuideToc";
 import { guides, findGuideBySlug } from "@/lib/guides";
 import { getAffiliateLink } from "@/lib/affiliateLinks";
 import { notFound } from "next/navigation";
@@ -212,10 +213,12 @@ export default async function GuideArticlePage({ params }) {
         </nav>
       </header>
 
+      <GuideToc sections={guide.sections} />
+
       {guide.sections.map((section, idx) => (
         <div className="guide-section-wrap" key={`${guide.slug}-${idx}`}>
           <section className="guide-section">
-            <h2>{section.heading}</h2>
+            <h2 id={`section-${idx}`}>{section.heading}</h2>
             <p>{section.body}</p>
           </section>
 

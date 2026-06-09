@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
             </Link>
             <nav className="nav" aria-label="Main navigation">
               <Link href="/">Home</Link>
-              <Link href="/guides">Playbooks</Link>
+              <Link href="/guides">Guides</Link>
               <Link href="/fair-price">Bill Checker</Link>
               <Link href="/templates">Templates</Link>
               <Link href="/about">About</Link>
