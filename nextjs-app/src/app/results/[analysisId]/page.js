@@ -412,6 +412,7 @@ function ResultsContent() {
   const [carcExpanded, setCarcExpanded] = useState(new Set());
   const [outcomeMap, setOutcomeMap] = useState({}); // opportunity_id -> outcome string
   const [outcomeSaving, setOutcomeSaving] = useState({}); // opportunity_id -> bool
+  const [dataDeleted, setDataDeleted] = useState(false);
   const toolkitUnlockTrackedRef = useRef(false);
 
   const pricing = useMemo(() => pickPriceVariant(analysisId), [analysisId]);
@@ -618,6 +619,31 @@ function ResultsContent() {
     await trackEvent("affiliate_link_clicked", { affiliate, analysisId });
     window.open(link, "_blank");
   }, [analysisId]);
+
+  const handleDeleteData = async () => {
+    const confirmed = window.confirm(
+      "Permanently delete this analysis and all of its data from our servers? This cannot be undone."
+    );
+    if (!confirmed) {
+      return;
+    }
+    try {
+      await fetch(`${API_BASE}/api/eob/analysis/${analysisId}`, { method: "DELETE", keepalive: true });
+    } catch {
+      // Non-fatal: the record auto-purges after the retention window regardless.
+    }
+    try {
+      const existing = JSON.parse(localStorage.getItem("lmmb_recent_analyses") || "[]");
+      localStorage.setItem(
+        "lmmb_recent_analyses",
+        JSON.stringify(existing.filter((e) => e.analysisId !== analysisId))
+      );
+    } catch {
+      // localStorage unavailable; ignore.
+    }
+    await trackEvent("analysis_data_deleted", { analysisId });
+    setDataDeleted(true);
+  };
 
   const handleToggleCarcLookup = async (opportunityId, code) => {
     setCarcExpanded((prev) => {
@@ -1239,6 +1265,19 @@ function ResultsContent() {
             Analyze Another
           </button>
         </div>
+        {dataDeleted ? (
+          <p className="data-delete-note data-delete-note-done" role="status">
+            ✓ Your analysis and its data have been permanently deleted.{" "}
+            <a href="/analyzer">Start a new review</a>.
+          </p>
+        ) : (
+          <p className="data-delete-note">
+            Your data auto-deletes 24 hours after upload.{" "}
+            <button type="button" className="data-delete-link" onClick={handleDeleteData}>
+              Delete my data now
+            </button>
+          </p>
+        )}
       </section>
 
       <section className="contextual-recommendations-next">
