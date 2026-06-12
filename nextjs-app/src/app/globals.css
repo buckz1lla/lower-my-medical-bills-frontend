@@ -2835,6 +2835,58 @@ a {
   color: var(--ink-soft);
 }
 
+.payzone-roi-next {
+  margin: 12px 0;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid #bcd9c9;
+  background: linear-gradient(135deg, #effaf3 0%, #f7fdf9 100%);
+  text-align: center;
+}
+
+.payzone-roi-amount {
+  margin: 0;
+  color: #1d7a4d;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  font-family: var(--font-heading), serif;
+}
+
+.payzone-roi-label {
+  margin: 2px 0 0;
+  color: #2f6b4c;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.payzone-roi-sub {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.payzone-deadline-next {
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.payzone-deadline-next-urgent {
+  border: 1px solid #e6b3bf;
+  background: #fcf0f3;
+  color: #9a2540;
+}
+
+.payzone-deadline-next-soon {
+  border: 1px solid #e7d2a8;
+  background: #fdf8ef;
+  color: #7a5a1e;
+}
+
 .payzone-meta-next {
   display: flex;
   align-items: center;

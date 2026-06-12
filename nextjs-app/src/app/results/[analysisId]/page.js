@@ -224,7 +224,7 @@ const generatePdf = (analysis, templates) => {
   return pdf;
 };
 
-function PaymentButton({ analysisId, pricing, disabled, onRecovered }) {
+function PaymentButton({ analysisId, pricing, disabled, onRecovered, context }) {
   const [isLoading, setIsLoading] = useState(false);
   const [showRecovery, setShowRecovery] = useState(false);
   const [recoveryEmail, setRecoveryEmail] = useState("");
@@ -298,13 +298,35 @@ function PaymentButton({ analysisId, pricing, disabled, onRecovered }) {
         </p>
       </div>
 
+      {context?.potentialSavings > 0 ? (
+        <div className="payzone-roi-next">
+          <p className="payzone-roi-amount">{formatMoney(context.potentialSavings)}</p>
+          <p className="payzone-roi-label">
+            {context.cautiousLabel ? "in potential review value flagged on your EOB" : "in potential savings flagged on your EOB"}
+          </p>
+          <p className="payzone-roi-sub">
+            Unlock the full toolkit for {formatUsdFromCents(pricing.amountCents)} to act on it with confidence.
+          </p>
+        </div>
+      ) : null}
+
+      {context?.topDeadline ? (
+        <div className={`payzone-deadline-next payzone-deadline-next-${context.topDeadline.urgency}`} role="alert">
+          {context.topDeadline.urgency === "urgent" ? "⚠️" : "⏰"} {context.topDeadline.note} — prepare your response before the appeal window closes.
+        </div>
+      ) : null}
+
       <div className="payzone-meta-next">
         <p className="payzone-price-next">{formatUsdFromCents(pricing.amountCents)} one-time</p>
         <p className="payzone-status-next">Locked until payment</p>
       </div>
 
       <ul>
-        <li>Customized appeal letter template</li>
+        <li>
+          {context?.appealCount > 0
+            ? `Customized appeal letter templates for your ${context.appealCount} flagged ${context.appealCount === 1 ? "claim" : "claims"}`
+            : "Customized appeal letter template"}
+        </li>
         <li>Phone scripts for insurer and provider</li>
         <li>Step-by-step appeal and verification checklist</li>
         <li>Negotiation talking points</li>
@@ -315,7 +337,7 @@ function PaymentButton({ analysisId, pricing, disabled, onRecovered }) {
         onClick={handlePayment}
         type="button"
       >
-        {isLoading ? "Redirecting to secure checkout..." : `Get Toolkit - ${formatUsdFromCents(pricing.amountCents)}`}
+        {isLoading ? "Redirecting to secure checkout..." : `Unlock My Appeal Toolkit - ${formatUsdFromCents(pricing.amountCents)}`}
       </button>
       <p className="payment-gate-note-next">Secure Stripe checkout. One-time payment. No subscription.</p>
       <p className="safety-disclaimer-next">
@@ -728,6 +750,20 @@ function ResultsContent() {
   const shouldUseCautiousSavingsLabel = hasLowConfidenceOpportunities || hasUnknownNetworkClaims || Boolean(parserWarning);
   const actionAppealsGuideLink = getAffiliateLink("appealsGuide", "results-actions");
 
+  const paywallContext = useMemo(() => {
+    const flagged = (opportunities || [])
+      .map((o) => ({ note: o.appeal_deadline_note, urgency: getDeadlineUrgency(o.appeal_deadline_note) }))
+      .filter((d) => d.note && (d.urgency === "urgent" || d.urgency === "soon"));
+    const topDeadline = flagged.find((d) => d.urgency === "urgent") || flagged[0] || null;
+    return {
+      potentialSavings: analysis?.total_potential_savings || 0,
+      opportunityCount: opportunities.length,
+      appealCount: appeals.length,
+      cautiousLabel: shouldUseCautiousSavingsLabel,
+      topDeadline,
+    };
+  }, [analysis, opportunities, appeals, shouldUseCautiousSavingsLabel]);
+
   const handleToggleOpportunity = (opportunity) => {
     const isCurrentlyOpen = expandedOpportunity === opportunity.opportunity_id;
     setExpandedOpportunity(isCurrentlyOpen ? null : opportunity.opportunity_id);
@@ -870,7 +906,7 @@ function ResultsContent() {
 
       {!hasDownloadedPackage ? (
         <>
-          <PaymentButton analysisId={analysisId} pricing={pricing} disabled={isCheckingPayment} onRecovered={() => refreshPaymentStatus()} />
+          <PaymentButton analysisId={analysisId} pricing={pricing} disabled={isCheckingPayment} onRecovered={() => refreshPaymentStatus()} context={paywallContext} />
           {paymentMessage ? <p className="payment-message-next">{paymentMessage}</p> : null}
         </>
       ) : null}
