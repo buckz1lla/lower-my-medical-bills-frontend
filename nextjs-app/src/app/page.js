@@ -49,7 +49,7 @@ export default function Home() {
         name: "Is my medical information safe when I upload?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Files are sent over encrypted HTTPS, analyzed in memory, and not retained on our servers after processing.",
+          text: "Yes. Files are sent over encrypted HTTPS and analyzed in memory — the uploaded file itself is never stored. Your analysis results auto-delete within 24 hours, and you can delete them yourself at any time.",
         },
       },
       {
@@ -304,8 +304,8 @@ export default function Home() {
             <div className="trust-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
             <h3>Secure Uploads</h3>
             <p>
-              Files move through encrypted HTTPS and are removed after
-              processing whenever possible.
+              Files move through encrypted HTTPS and are analyzed in memory — the
+              uploaded file itself is never stored on our servers.
             </p>
           </div>
           <div className="trust-card">
@@ -324,6 +324,38 @@ export default function Home() {
               today.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="home-resources" aria-label="Free medical billing resources">
+        <div className="home-resources-header">
+          <h2>Free tools &amp; guides — no upload required</h2>
+          <p>
+            Not ready to upload an EOB? Start with these free resources to understand what your
+            care should cost and how to push back on a bill.
+          </p>
+        </div>
+        <div className="home-resources-grid">
+          <Link href="/procedures" className="home-resource-card">
+            <h3>Procedure Cost Guide</h3>
+            <p>Medicare benchmark rates for 80+ common procedures, so you know what&rsquo;s fair.</p>
+            <span className="home-resource-cta">Browse procedure costs →</span>
+          </Link>
+          <Link href="/fair-price" className="home-resource-card">
+            <h3>Bill Fairness Checker</h3>
+            <p>Enter what you were charged and instantly see how it compares to the benchmark.</p>
+            <span className="home-resource-cta">Check a charge →</span>
+          </Link>
+          <Link href="/denial-codes" className="home-resource-card">
+            <h3>Denial Code Library</h3>
+            <p>Look up what your insurer&rsquo;s denial code means and how to respond.</p>
+            <span className="home-resource-cta">Decode a denial →</span>
+          </Link>
+          <Link href="/guides" className="home-resource-card">
+            <h3>Appeal &amp; Billing Guides</h3>
+            <p>Step-by-step guides for appeals, negotiation, and your patient rights.</p>
+            <span className="home-resource-cta">Read the guides →</span>
+          </Link>
         </div>
       </section>
 
@@ -355,8 +387,9 @@ export default function Home() {
           <details className="faq-item">
             <summary>Is my medical information safe when I upload?</summary>
             <p>
-              Yes. Files are sent over encrypted HTTPS, analyzed in memory, and
-              not retained on our servers after processing.
+              Yes. Files are sent over encrypted HTTPS and analyzed in memory &mdash; the
+              uploaded file itself is never stored. Your analysis results auto-delete within
+              24 hours, and you can <Link href="/privacy">delete them yourself anytime</Link>.
             </p>
           </details>
           <details className="faq-item">
