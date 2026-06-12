@@ -650,13 +650,15 @@ function ResultsContent() {
     const rightsLink = getAffiliateLink("rights", "results-recommendations");
     const appealsGuideLink = getAffiliateLink("appealsGuide", "results-recommendations");
     const coverageLink = getAffiliateLink("coverageOptions", "results-recommendations");
+    const billHelpLink = getAffiliateLink("billHelp", "results-recommendations");
+    const hsaLink = getAffiliateLink("hsa", "results-recommendations");
 
     const next = [];
     if (analysis.total_patient_responsibility > 500) {
       next.push({
         title: "Compare Your Health Plan Options",
         description: "High out-of-pocket costs may mean your current plan is not ideal.",
-        cta: plansLink.isAffiliate ? "Compare Plans (Partner)" : "Compare Plans on HealthCare.gov",
+        cta: plansLink.cta,
         onClick: () => handleAffiliateClick("PlanOptions", plansLink.url),
         icon: "📊",
       });
@@ -666,7 +668,7 @@ function ResultsContent() {
       next.push({
         title: "Learn Surprise Billing Protections",
         description: "The No Surprises Act may protect you from certain out-of-network charges.",
-        cta: rightsLink.isAffiliate ? "See Protection Options (Partner)" : "Read Your Rights (CMS.gov)",
+        cta: rightsLink.cta,
         onClick: () => handleAffiliateClick("BillingRights", rightsLink.url),
         icon: "🏥",
       });
@@ -676,16 +678,36 @@ function ResultsContent() {
       next.push({
         title: "File a Formal Appeal",
         description: "CMS guidance can help you submit a stronger denied-claim appeal.",
-        cta: appealsGuideLink.isAffiliate ? "Appeal Support Guide (Partner)" : "Appeal Guide (CMS.gov)",
+        cta: appealsGuideLink.cta,
         onClick: () => handleAffiliateClick("AppealsGuide", appealsGuideLink.url),
         icon: "🤝",
+      });
+    }
+
+    if (analysis.total_patient_responsibility > 500) {
+      next.push({
+        title: "Get Help Negotiating This Bill",
+        description: "Large balances are often negotiable. Use proven scripts yourself, or get hands-on help.",
+        cta: billHelpLink.cta,
+        onClick: () => handleAffiliateClick("BillHelp", billHelpLink.url),
+        icon: "💬",
+      });
+    }
+
+    if (analysis.total_patient_responsibility > 250) {
+      next.push({
+        title: "Pay Medical Costs Pre-Tax",
+        description: "An HSA or FSA lets you pay qualified medical bills with pre-tax dollars.",
+        cta: hsaLink.cta,
+        onClick: () => handleAffiliateClick("HSA", hsaLink.url),
+        icon: "💰",
       });
     }
 
     next.push({
       title: "Explore All Coverage Options",
       description: "Browse ACA marketplace, Medicaid, and Medicare options.",
-      cta: coverageLink.isAffiliate ? "Browse Coverage (Partner)" : "Browse Options (HealthCare.gov)",
+      cta: coverageLink.cta,
       onClick: () => handleAffiliateClick("CoverageOptions", coverageLink.url),
       icon: "🏛️",
     });
