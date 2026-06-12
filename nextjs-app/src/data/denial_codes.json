@@ -1034,5 +1034,335 @@
     ],
     "related_guides": ["how-to-read-denial-codes-on-eob"],
     "related_codes": ["133"]
+  },
+  {
+    "code": "20",
+    "type": "CARC",
+    "group": "Non-Covered",
+    "short": "This injury/illness is covered by the liability carrier",
+    "plain": "Your health insurer says another party's liability insurance — like an auto or homeowner's policy — should pay for this care.",
+    "what_it_means": "When an injury results from an accident where someone else may be at fault, the liability carrier (for example, the at-fault driver's auto insurance) is often the primary payer. Your health plan can deny on this basis until the liability claim is resolved.",
+    "action_steps": [
+      "If a liability claim is open (auto accident, slip-and-fall), provide your health insurer with the liability carrier's claim information.",
+      "If no liability coverage applies, write to your health insurer explaining that there is no third-party carrier and request the claim be processed under your health plan.",
+      "Ask your provider to hold billing while the correct payer is determined, and keep records of all correspondence."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["21", "19", "176"]
+  },
+  {
+    "code": "21",
+    "type": "CARC",
+    "group": "Non-Covered",
+    "short": "This injury/illness is the liability of the no-fault carrier",
+    "plain": "Your insurer says a no-fault auto policy (PIP coverage) should pay for this care first.",
+    "what_it_means": "In no-fault states, Personal Injury Protection (PIP) coverage on an auto policy is the primary payer for accident-related medical care, regardless of who caused the accident. Your health plan can deny until PIP benefits are exhausted.",
+    "action_steps": [
+      "If the care relates to a car accident, submit the claim to your auto insurer's PIP coverage first.",
+      "Once PIP benefits are exhausted, provide your health insurer with documentation so they can process the remaining balance.",
+      "If the injury was unrelated to a vehicle, dispute the classification in writing with your health insurer."
+    ],
+    "related_guides": ["how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["20", "19", "176"]
+  },
+  {
+    "code": "39",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Services denied at the time authorization/pre-certification was requested",
+    "plain": "When your provider asked for prior authorization, the insurer reviewed it and denied the service in advance.",
+    "what_it_means": "Unlike a missing-authorization denial, this means authorization was requested but the insurer declined it — usually on medical necessity or coverage grounds. The denial reasoning should be available and is appealable.",
+    "action_steps": [
+      "Request the written authorization denial letter, which must state the clinical reason and the criteria used.",
+      "Ask your treating physician to submit additional clinical documentation or request a peer-to-peer review with the insurer's medical director.",
+      "File a formal appeal — pre-service denials often qualify for expedited review if the care is time-sensitive."
+    ],
+    "related_guides": ["appeal-prior-authorization-denial", "claim-denied-medical-necessity-appeal-guide"],
+    "related_codes": ["197", "50", "171"]
+  },
+  {
+    "code": "40",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Charges do not meet qualifications for emergent/urgent care",
+    "plain": "Your insurer decided the visit didn't qualify as a true emergency, so it was processed at a lower benefit level or denied.",
+    "what_it_means": "Some plans apply a 'prudent layperson standard' to emergency claims. If the insurer concludes your symptoms didn't warrant emergency care, they may downgrade or deny the claim — but this determination is frequently challengeable.",
+    "action_steps": [
+      "Invoke the prudent layperson standard: under federal and most state law, coverage should be based on your symptoms at the time, not the final diagnosis.",
+      "Request the emergency room records and your triage notes, then file an appeal documenting the symptoms that made you reasonably believe it was an emergency.",
+      "If you went to the ER for chest pain, severe abdominal pain, difficulty breathing, or similar symptoms, emphasize that any reasonable person would have sought emergency care."
+    ],
+    "related_guides": ["er-bill-too-high-how-emergency-claims-should-be-processed", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["50", "96", "204"]
+  },
+  {
+    "code": "94",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Processed in excess of charges",
+    "plain": "The payment calculation came out higher than the amount actually billed, so an adjustment was made.",
+    "what_it_means": "This code appears when the system's calculated payment would exceed the provider's submitted charge. It's typically an administrative reconciliation, not a denial, but it's worth verifying the math.",
+    "action_steps": [
+      "Compare the billed amount, allowed amount, and payment on your EOB to confirm the totals reconcile.",
+      "If the numbers don't add up, request a detailed claim recalculation from member services.",
+      "Confirm you aren't being asked to pay more than your correct share of the allowed amount."
+    ],
+    "related_guides": ["what-is-an-eob-and-how-to-read-it", "medical-bill-too-high-what-to-do"],
+    "related_codes": ["45", "23"]
+  },
+  {
+    "code": "95",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Plan procedures not followed",
+    "plain": "A required plan rule — like getting a referral or using a designated facility — wasn't followed before this service.",
+    "what_it_means": "HMO and POS plans often require steps such as a primary care referral, using an in-network lab, or notifying the plan in advance. Skipping a required step can reduce or deny the benefit even when the service itself is covered.",
+    "action_steps": [
+      "Ask your insurer exactly which plan procedure was not followed (referral, notification, designated provider, etc.).",
+      "If a referral was required and your PCP can provide one retroactively, request it and ask for the claim to be reprocessed.",
+      "If you reasonably relied on incorrect information from the plan or provider, document it and file an appeal."
+    ],
+    "related_guides": ["in-network-vs-out-of-network-costs", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["242", "243", "197"]
+  },
+  {
+    "code": "146",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Diagnosis was invalid for the date(s) of service reported",
+    "plain": "The diagnosis code on the claim wasn't valid for the date the service was performed.",
+    "what_it_means": "ICD-10 diagnosis codes are added, revised, and retired over time. If a code that was discontinued or not yet active is used for a given service date, the claim is rejected as a coding error.",
+    "action_steps": [
+      "Ask your provider's billing office to verify the diagnosis code was active and valid for your date of service.",
+      "Request a corrected claim with the proper ICD-10 code for that service period.",
+      "Confirm a new EOB is issued after the corrected claim is processed."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template", "how-to-read-cpt-and-hcpcs-codes-on-medical-bill"],
+    "related_codes": ["47", "9", "181"]
+  },
+  {
+    "code": "150",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Payer deems the information submitted does not support this level of service",
+    "plain": "Your insurer decided the documentation doesn't justify the complexity (and cost) of the service that was billed — often called 'downcoding.'",
+    "what_it_means": "Evaluation and management visits are billed at levels (for example, a level 4 vs. level 3 office visit). If the insurer believes the records don't support the higher level, they reduce payment to a lower level. This affects how much of the bill is your responsibility.",
+    "action_steps": [
+      "Request an itemized bill and ask your provider which service level was billed and which the insurer paid.",
+      "Ask your provider to submit the visit documentation supporting the level billed and to appeal the downcoding if warranted.",
+      "Verify that your patient responsibility was recalculated against the correct allowed amount after any adjustment."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template", "claim-denied-medical-necessity-appeal-guide"],
+    "related_codes": ["151", "152", "50"]
+  },
+  {
+    "code": "152",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Payer deems the information submitted does not support this length of service",
+    "plain": "Your insurer says the records don't justify how long the service or stay lasted.",
+    "what_it_means": "This commonly applies to time-based services (like extended infusions or prolonged visits) or inpatient stays where the insurer believes a shorter duration was appropriate. The disputed portion may shift to you.",
+    "action_steps": [
+      "Ask your provider to submit documentation supporting the full duration of the service or stay.",
+      "If an inpatient stay was reduced, ask whether a peer-to-peer review or level-of-care appeal can be filed.",
+      "File an appeal with clinical notes showing why the full length of service was medically necessary."
+    ],
+    "related_guides": ["claim-denied-medical-necessity-appeal-guide", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["150", "151", "50"]
+  },
+  {
+    "code": "181",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Procedure code was invalid on the date of service",
+    "plain": "The CPT or HCPCS procedure code on the claim wasn't valid for the date the service was performed.",
+    "what_it_means": "Procedure codes are updated annually. Using a retired or not-yet-effective code for a given service date causes an automatic rejection. This is almost always a fixable billing error.",
+    "action_steps": [
+      "Ask your provider to verify the procedure code was active for your date of service.",
+      "Request a corrected claim with the valid procedure code for that period.",
+      "Track the resubmission and confirm a new EOB is issued."
+    ],
+    "related_guides": ["how-to-read-cpt-and-hcpcs-codes-on-medical-bill", "request-itemized-medical-bill-template"],
+    "related_codes": ["182", "146", "16"]
+  },
+  {
+    "code": "182",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Procedure modifier was invalid on the date of service",
+    "plain": "A modifier attached to the procedure code wasn't valid for the date the service was performed.",
+    "what_it_means": "Modifiers, like procedure codes, are added and retired over time. An outdated or invalid modifier for a given service date will cause the claim to be adjusted or rejected.",
+    "action_steps": [
+      "Ask your provider to confirm the modifier used was valid for your date of service.",
+      "Request a corrected claim with the appropriate modifier.",
+      "Compare the corrected EOB to the original to confirm the adjustment was resolved."
+    ],
+    "related_guides": ["how-to-read-cpt-and-hcpcs-codes-on-medical-bill", "request-itemized-medical-bill-template"],
+    "related_codes": ["181", "6", "16"]
+  },
+  {
+    "code": "198",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Precertification/authorization exceeded",
+    "plain": "Authorization was obtained, but the services delivered went beyond what was approved.",
+    "what_it_means": "If your insurer authorized a specific number of visits, days, or units, and the actual care exceeded that amount, the excess can be denied — even though the initial authorization was valid.",
+    "action_steps": [
+      "Ask your provider to request retroactive authorization for the additional services with clinical justification.",
+      "Have your physician document why the care needed to exceed the original authorization (e.g., complications, slower recovery).",
+      "File an appeal for the excess amount with supporting medical records."
+    ],
+    "related_guides": ["denied-claim-after-prior-authorization", "appeal-prior-authorization-denial"],
+    "related_codes": ["171", "197", "5"]
+  },
+  {
+    "code": "227",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Information requested from the patient was not provided or was insufficient/incomplete",
+    "plain": "Your insurer asked you (not the provider) for information and didn't receive a complete response in time.",
+    "what_it_means": "Insurers sometimes send the patient a questionnaire — for example, asking about other insurance coverage, accident details, or student status for a dependent. If you didn't respond or the response was incomplete, the claim is held or denied.",
+    "action_steps": [
+      "Check your mail and member portal for any letters or forms the insurer sent requesting information.",
+      "Complete and return the requested information promptly, keeping a copy and proof of submission.",
+      "Once you respond, ask the insurer to reprocess the claim and confirm the timeline for the new decision."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix", "coordination-of-benefits-denial-how-to-fix-primary-secondary-insurance"],
+    "related_codes": ["226", "16", "22"]
+  },
+  {
+    "code": "231",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Mutually exclusive procedures cannot be done in the same day/setting",
+    "plain": "Two procedures that can't clinically be performed together on the same day were billed together.",
+    "what_it_means": "Correct Coding Initiative (CCI) edits flag procedure pairs that are considered mutually exclusive. When both appear for the same date, one is denied as part of the edit.",
+    "action_steps": [
+      "Ask your provider whether the two procedures were genuinely separate and distinct (different sites or sessions).",
+      "If they were distinct, an appropriate modifier (such as -59 or an X-modifier) plus documentation may allow separate payment.",
+      "Request the provider review the CCI edit and resubmit with proper coding if a billing error occurred."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template", "how-to-read-cpt-and-hcpcs-codes-on-medical-bill"],
+    "related_codes": ["55", "97", "234"]
+  },
+  {
+    "code": "242",
+    "type": "CARC",
+    "group": "Non-Covered",
+    "short": "Services not provided by network/primary care providers",
+    "plain": "The service was delivered by a provider outside your plan's network when an in-network provider was required.",
+    "what_it_means": "Many plans only cover care from network providers (or require a primary care provider to deliver or coordinate it). Out-of-network services can be denied or paid at a much lower rate.",
+    "action_steps": [
+      "Verify the provider's network status as of your date of service with your insurer.",
+      "If you were referred to this provider by an in-network doctor or facility, you may qualify for in-network processing — file an appeal citing the referral.",
+      "If no in-network provider was reasonably available, request a network gap exception (single case agreement)."
+    ],
+    "related_guides": ["in-network-vs-out-of-network-costs", "single-case-agreement-network-gap-exception"],
+    "related_codes": ["243", "95", "45"]
+  },
+  {
+    "code": "243",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Services not authorized by network/primary care providers",
+    "plain": "Your plan required a referral or authorization from your primary care provider, and it wasn't on file.",
+    "what_it_means": "In gatekeeper plans (HMO/POS), specialist and certain services must be referred or authorized by your PCP. Without that referral, the claim is denied even if the specialist is in-network.",
+    "action_steps": [
+      "Ask your primary care provider whether a referral was issued and whether it was submitted to the insurer.",
+      "If a referral should have been on file, ask your PCP to submit it retroactively and request claim reprocessing.",
+      "If you reasonably believed a referral wasn't needed, document the circumstances and file an appeal."
+    ],
+    "related_guides": ["in-network-vs-out-of-network-costs", "appeal-prior-authorization-denial"],
+    "related_codes": ["242", "95", "197"]
+  },
+  {
+    "code": "256",
+    "type": "CARC",
+    "group": "Contractual Obligation",
+    "short": "Service not payable per managed care contract",
+    "plain": "Under the managed care contract between your provider and insurer, this specific service isn't separately payable.",
+    "what_it_means": "Managed care contracts define exactly which services are reimbursed and how. A service excluded or bundled under that contract won't be paid separately — but the provider typically cannot bill you for it either.",
+    "action_steps": [
+      "Confirm with your insurer that this is a provider-contract issue, not a patient-responsibility charge.",
+      "If the provider bills you for a charge denied under their managed care contract, dispute it — contractually adjusted amounts usually cannot be passed to you.",
+      "Request the specific contract provision if you need to escalate the dispute."
+    ],
+    "related_guides": ["balance-billing-explained-when-it-may-be-illegal", "medical-bill-too-high-what-to-do"],
+    "related_codes": ["45", "97", "24"]
+  },
+  {
+    "code": "M127",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Missing patient medical record for this service",
+    "plain": "The insurer needs your medical records for this service and didn't receive them.",
+    "what_it_means": "Certain services require chart documentation before payment. This remark accompanies a denial or hold while the insurer waits for the provider to submit the medical record.",
+    "action_steps": [
+      "Ask your provider's billing office whether the insurer requested records and whether they were sent.",
+      "If records weren't submitted, ask the provider to send them and to appeal the denial.",
+      "Get proof of submission (fax confirmation or portal receipt) so you can follow up if the records aren't logged."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix"],
+    "related_codes": ["252", "226", "16"]
+  },
+  {
+    "code": "N362",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "The number of days or units of service exceeds our acceptable maximum",
+    "plain": "More units or days of a service were billed than the insurer's allowed maximum.",
+    "what_it_means": "Many services have unit or frequency caps (for example, a maximum number of therapy units per day). Billing above the cap results in the excess being denied — sometimes due to a clinical limit, sometimes a billing error.",
+    "action_steps": [
+      "Ask your provider to confirm the number of units billed matches what was actually provided.",
+      "If the units were correct and medically necessary, ask the provider to submit documentation and appeal the excess.",
+      "If a billing error inflated the units, request a corrected claim."
+    ],
+    "related_guides": ["request-itemized-medical-bill-template", "claim-denied-medical-necessity-appeal-guide"],
+    "related_codes": ["151", "119", "96"]
+  },
+  {
+    "code": "N179",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Additional information has been requested from the member",
+    "plain": "Your insurer has asked you directly for more information before they can finish processing the claim.",
+    "what_it_means": "This remark signals that the ball is in your court — the insurer sent you a request (often about other coverage, accident details, or eligibility) and is waiting on your response.",
+    "action_steps": [
+      "Check your mail and insurer member portal for the specific request and its deadline.",
+      "Respond completely and keep a copy plus proof of the date you submitted it.",
+      "After responding, contact the insurer to confirm receipt and ask when the claim will be reprocessed."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix", "coordination-of-benefits-denial-how-to-fix-primary-secondary-insurance"],
+    "related_codes": ["227", "22", "16"]
+  },
+  {
+    "code": "N386",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "This decision was based on a National Coverage Determination (NCD)",
+    "plain": "A nationwide Medicare coverage policy was used to decide whether this service is covered.",
+    "what_it_means": "National Coverage Determinations (NCDs) are Medicare policies that apply across the entire country, specifying when a service is covered. These are public documents you can look up and cite in an appeal.",
+    "action_steps": [
+      "Look up the relevant NCD in the CMS Coverage Database at cms.gov using the service or procedure code.",
+      "Compare your clinical situation to the NCD's coverage criteria.",
+      "If you meet the NCD requirements, appeal with chart notes citing the specific NCD provisions."
+    ],
+    "related_guides": ["claim-denied-medical-necessity-appeal-guide", "how-to-appeal-a-denied-insurance-claim"],
+    "related_codes": ["N115", "50", "96"]
+  },
+  {
+    "code": "MA130",
+    "type": "RARC",
+    "group": "Remark",
+    "short": "Your claim contains incomplete and/or invalid information; no appeal rights are afforded because the claim is unprocessable",
+    "plain": "The claim couldn't be processed at all because of missing or invalid information — so it must be corrected and resubmitted, not appealed.",
+    "what_it_means": "An 'unprocessable' claim is rejected before adjudication. There are no appeal rights because no coverage decision was actually made. The fix is a corrected resubmission, not an appeal.",
+    "action_steps": [
+      "Ask your provider's billing office which fields were incomplete or invalid.",
+      "Request a corrected claim be submitted with the proper information — do not file an appeal, as it will be rejected.",
+      "Confirm the corrected claim is processed and that a real EOB with a coverage decision is issued."
+    ],
+    "related_guides": ["claim-denied-missing-information-how-to-fix", "request-itemized-medical-bill-template"],
+    "related_codes": ["16", "125", "252"]
   }
 ]
