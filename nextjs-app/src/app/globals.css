@@ -4873,6 +4873,35 @@ a {
   border-bottom: 2px solid #e5e7eb;
 }
 
+.proc-category-heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.proc-category-heading-row .proc-category-heading {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.proc-category-viewall {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.proc-category-viewall:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
 .proc-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

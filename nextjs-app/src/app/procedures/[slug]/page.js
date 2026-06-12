@@ -4,6 +4,7 @@ import {
   getAllSlugs,
   getProcedureBySlug,
   toSlug,
+  categoryToSlug,
   getRelated,
   commercialLow,
   commercialHigh,
@@ -101,7 +102,7 @@ export default async function ProcedurePage({ params }) {
         "@type": "ListItem",
         position: 2,
         name: p.category,
-        item: pageUrl,
+        item: `https://lowermymedicalbills.com/procedures/category/${categoryToSlug(p.category)}`,
       },
       {
         "@type": "ListItem",
@@ -131,7 +132,7 @@ export default async function ProcedurePage({ params }) {
         <nav className="proc-breadcrumb" aria-label="Breadcrumb">
           <Link href="/procedures">Procedure Cost Guide</Link>
           <span aria-hidden="true"> › </span>
-          <span>{p.category}</span>
+          <Link href={`/procedures/category/${categoryToSlug(p.category)}`}>{p.category}</Link>
           <span aria-hidden="true"> › </span>
           <span>{p.description}</span>
         </nav>

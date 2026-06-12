@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getProceduresByCategory, toSlug, fmt } from "@/lib/procedures";
+import { getProceduresByCategory, toSlug, categoryToSlug, fmt } from "@/lib/procedures";
 
 export const metadata = {
   title: "Medical Procedure Cost Guide — Medicare Benchmark Rates | Lower My Medical Bills",
@@ -72,7 +72,12 @@ export default function ProceduresIndexPage() {
 
         {ordered.map((cat) => (
           <section key={cat} id={slugifyCategory(cat)} className="proc-category-section">
-            <h2 className="proc-category-heading">{cat}</h2>
+            <div className="proc-category-heading-row">
+              <h2 className="proc-category-heading">{cat}</h2>
+              <Link href={`/procedures/category/${categoryToSlug(cat)}`} className="proc-category-viewall">
+                View {cat} cost guide →
+              </Link>
+            </div>
             <div className="proc-card-grid">
               {byCategory[cat].map((p) => (
                 <Link

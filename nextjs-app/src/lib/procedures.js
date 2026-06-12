@@ -42,6 +42,36 @@ export function getProceduresByCategory() {
   }, {});
 }
 
+/** Convert a category name into a URL-friendly slug. e.g. "Emergency Room" => "emergency-room" */
+export function categoryToSlug(category) {
+  return category
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+/** All unique category names. */
+export function getAllCategories() {
+  return [...new Set(rates.map((p) => p.category))];
+}
+
+/** All category slugs — used by generateStaticParams. */
+export function getAllCategorySlugs() {
+  return getAllCategories().map((c) => categoryToSlug(c));
+}
+
+/** Find a category (and its procedures) by slug. Returns { category, procedures } or null. */
+export function getCategoryBySlug(slug) {
+  const category = getAllCategories().find((c) => categoryToSlug(c) === slug);
+  if (!category) return null;
+  return {
+    category,
+    procedures: rates.filter((p) => p.category === category),
+  };
+}
+
 /** Typical commercial range helpers. */
 export function commercialLow(medicareRate) {
   return Math.round(medicareRate * 1.2 * 100) / 100;
