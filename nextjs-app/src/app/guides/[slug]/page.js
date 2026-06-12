@@ -4,6 +4,7 @@ import GuideToc from "@/components/GuideToc";
 import ReadingProgress from "@/components/ReadingProgress";
 import { guides, findGuideBySlug } from "@/lib/guides";
 import { getAffiliateLink } from "@/lib/affiliateLinks";
+import { getGuideSources } from "@/lib/sources";
 import { notFound } from "next/navigation";
 
 const SITE_URL = "https://lowermymedicalbills.com";
@@ -98,6 +99,7 @@ export default async function GuideArticlePage({ params }) {
   const appealsLink = getAffiliateLink("appealsGuide", "guide-article");
   const plansLink = getAffiliateLink("plans", "guide-article");
   const canonicalUrl = `${SITE_URL}/guides/${guide.slug}`;
+  const guideSources = getGuideSources(guide.slug);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -121,9 +123,18 @@ export default async function GuideArticlePage({ params }) {
     datePublished: guide.updatedAt,
     mainEntityOfPage: canonicalUrl,
     author: {
-      "@type": "Organization",
-      name: "Lower My Medical Bills",
-      url: SITE_URL,
+      "@type": "Person",
+      name: "Lower My Medical Bills Editorial Team",
+      jobTitle: "Health insurance data engineer",
+      description:
+        "Written and reviewed by a health insurance data engineer who works inside claims processing.",
+      url: `${SITE_URL}/about`,
+    },
+    reviewedBy: {
+      "@type": "Person",
+      name: "Lower My Medical Bills Editorial Team",
+      jobTitle: "Health insurance data engineer",
+      url: `${SITE_URL}/about`,
     },
     publisher: {
       "@type": "Organization",
@@ -133,6 +144,12 @@ export default async function GuideArticlePage({ params }) {
         url: `${SITE_URL}/logo.png`,
       },
     },
+    citation: guideSources.map((source) => ({
+      "@type": "CreativeWork",
+      name: source.label,
+      publisher: source.publisher,
+      url: source.url,
+    })),
     isAccessibleForFree: true,
   };
 
@@ -196,7 +213,10 @@ export default async function GuideArticlePage({ params }) {
           <div className="guide-authorship">
             <span className="guide-badge">Fact-Checked Guide</span>
             <span className="guide-attribution">
-              Written and reviewed by <strong>Lower My Medical Bills</strong>
+              Written and reviewed by a{" "}
+              <Link href="/about" className="guide-author-link">
+                health insurance data engineer
+              </Link>
             </span>
           </div>
           <div className="guide-dates">
@@ -286,6 +306,32 @@ export default async function GuideArticlePage({ params }) {
           </details>
         ))}
       </section>
+
+      {guideSources.length ? (
+        <section className="guide-sources" aria-labelledby="guide-sources-heading">
+          <h2 id="guide-sources-heading">Sources &amp; references</h2>
+          <p className="guide-sources-intro">
+            This guide is grounded in primary government sources. Verify the details that apply to
+            your specific plan and claim.
+          </p>
+          <ul className="guide-sources-list">
+            {guideSources.map((source) => (
+              <li key={source.url}>
+                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  {source.label}
+                </a>
+                <span className="guide-source-publisher">{source.publisher}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="guide-sources-method">
+            See our{" "}
+            <Link href="/sources">sources and methodology</Link> and{" "}
+            <Link href="/editorial-policy">editorial policy</Link> for how this guidance is built
+            and reviewed.
+          </p>
+        </section>
+      ) : null}
 
       {guidedPathway.length ? (
         <section className="guide-cta-box guide-cta-box-pathway">

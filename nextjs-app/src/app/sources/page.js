@@ -1,3 +1,5 @@
+import { getAllSources } from "@/lib/sources";
+
 export const metadata = {
   title: "Sources and Methodology | Lower My Medical Bills",
   description:
@@ -7,6 +9,7 @@ export const metadata = {
 };
 
 export default function SourcesPage() {
+  const sources = getAllSources();
   return (
     <main className="content-page">
       <section className="content-card">
@@ -16,6 +19,22 @@ export default function SourcesPage() {
           materials, and recurring denial and billing workflows seen in real-world patient scenarios.
           We prioritize primary sources whenever possible.
         </p>
+
+        <h2>Primary sources we cite</h2>
+        <p>
+          These are the authoritative government sources our guides reference directly. Each guide
+          links to the sources most relevant to its topic.
+        </p>
+        <ul className="sources-link-list">
+          {sources.map((source) => (
+            <li key={source.url}>
+              <a href={source.url} target="_blank" rel="noopener noreferrer">
+                {source.label}
+              </a>
+              <span className="sources-link-publisher">{source.publisher}</span>
+            </li>
+          ))}
+        </ul>
 
         <h2>Primary source categories</h2>
         <ul>

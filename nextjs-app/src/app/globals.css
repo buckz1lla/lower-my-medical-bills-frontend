@@ -1611,6 +1611,40 @@ a {
   color: var(--ink);
 }
 
+.sources-link-list {
+  list-style: none;
+  margin: 12px 0 20px;
+  padding: 0;
+}
+
+.sources-link-list li {
+  border-top: 1px solid var(--line);
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sources-link-list li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.sources-link-list a {
+  color: var(--accent-strong);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sources-link-list a:hover {
+  text-decoration: underline;
+}
+
+.sources-link-publisher {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
 .about-limit-box {
   background: #f0f4fb;
   border: 1px solid #b8cce8;
@@ -3976,6 +4010,85 @@ a {
   margin: 8px 0 0;
   color: #385f84;
   line-height: 1.7;
+}
+
+.guide-author-link {
+  color: #0b4880;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.guide-author-link:hover {
+  color: #073f72;
+}
+
+.guide-sources {
+  background: #fbfdff;
+  border: 1px solid #dbe8f7;
+  border-radius: 12px;
+  padding: 22px;
+  margin-top: 14px;
+}
+
+.guide-sources h2 {
+  margin: 0 0 6px;
+  color: #073f72;
+  font-size: 18px;
+  font-family: var(--font-heading), serif;
+}
+
+.guide-sources-intro {
+  margin: 0 0 12px;
+  color: #4a6178;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.guide-sources-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.guide-sources-list li {
+  border-top: 1px solid #edf3fa;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.guide-sources-list li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.guide-sources-list a {
+  color: #0456a3;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.guide-sources-list a:hover {
+  text-decoration: underline;
+}
+
+.guide-source-publisher {
+  color: #6f879f;
+  font-size: 0.78rem;
+}
+
+.guide-sources-method {
+  margin: 14px 0 0;
+  color: #4a6178;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.guide-sources-method a {
+  color: #0456a3;
+  font-weight: 600;
 }
 
 /* ============================================================
