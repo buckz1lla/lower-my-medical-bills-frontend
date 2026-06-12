@@ -73,6 +73,10 @@ export default function AnalyzerPage() {
   const handleRemoveRecent = useCallback((analysisId) => {
     removeRecentAnalysis(analysisId);
     setRecentAnalyses(loadRecentAnalyses());
+    // Also permanently delete the parsed analysis (and its PHI) from the server.
+    // Fire-and-forget: the local list is already updated and a failure here is
+    // non-fatal (the record will auto-purge after the retention window anyway).
+    fetch(`${API_BASE}/api/eob/analysis/${analysisId}`, { method: "DELETE", keepalive: true }).catch(() => {});
   }, []);
 
   const PROCESSING_STEPS = [
@@ -193,7 +197,8 @@ export default function AnalyzerPage() {
                   </a>
                   <button
                     className="recent-analyses-remove"
-                    aria-label={`Remove ${entry.fileName} from recent`}
+                    aria-label={`Delete ${entry.fileName} and its data`}
+                    title="Delete this analysis and its data"
                     onClick={() => handleRemoveRecent(entry.analysisId)}
                   >✕</button>
                 </li>
@@ -239,7 +244,10 @@ export default function AnalyzerPage() {
             <span className="trust-strip-icon">🔒</span>
             <div>
               <strong>Is my data safe?</strong>
-              <span>Your file is processed for this review only and not retained</span>
+              <span>
+                Your file is never stored — only analyzed. Results auto-delete after 24 hours, or remove them anytime.{" "}
+                <a href="/privacy">How we handle your data</a>
+              </span>
             </div>
           </div>
         </div>
