@@ -1,5 +1,6 @@
 import { guides } from "@/lib/guides";
 import { allCodes, toSlug } from "@/lib/denialCodes";
+import { getAllProcedures, toSlug as procToSlug } from "@/lib/procedures";
 
 const SITE_URL = "https://lowermymedicalbills.com";
 
@@ -43,5 +44,12 @@ export default function sitemap() {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...guideRoutes, ...denialCodeRoutes];
+  const procedureRoutes = getAllProcedures().map((p) => ({
+    url: `${SITE_URL}/procedures/${procToSlug(p.description, p.cpt)}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  return [...staticRoutes, ...guideRoutes, ...denialCodeRoutes, ...procedureRoutes];
 }

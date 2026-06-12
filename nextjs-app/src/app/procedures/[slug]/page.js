@@ -45,6 +45,7 @@ export default async function ProcedurePage({ params }) {
   const related = getRelated(p.cpt, p.category);
   const low = commercialLow(p.medicare_rate);
   const high = commercialHigh(p.medicare_rate);
+  const pageUrl = `https://lowermymedicalbills.com/procedures/${slug}`;
 
   // Structured data for Google rich results
   const jsonLd = {
@@ -55,11 +56,75 @@ export default async function ProcedurePage({ params }) {
     code: { "@type": "MedicalCode", codeValue: p.cpt, codingSystem: "CPT" },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `How much does ${p.description} cost without insurance?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Without insurance, you may be billed the chargemaster (list) rate, which can be 3–10× the Medicare rate. For ${p.description}, that could mean a bill of $${fmt(p.medicare_rate * 3)}–$${fmt(p.medicare_rate * 5)} or more. Always ask for the self-pay or cash-pay rate before accepting the listed price — providers often offer significant discounts.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `What is CPT code ${p.cpt}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `CPT ${p.cpt} is the Current Procedural Terminology code assigned to ${p.description}. It is used by providers, insurers, and Medicare to identify and bill for this specific service. You will find it on your Explanation of Benefits (EOB) or itemized bill.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Can I negotiate the cost of ${p.description}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Yes. Negotiating medical bills is common and often successful. Referencing the Medicare rate of $${fmt(p.medicare_rate)} gives you a credible, federally published benchmark to anchor the conversation. Many providers will accept 1–1.5× Medicare as a cash settlement.`,
+        },
+      },
+    ],
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Procedure Cost Guide",
+        item: "https://lowermymedicalbills.com/procedures",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: p.category,
+        item: pageUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: p.description,
+        item: pageUrl,
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <div className="proc-page">

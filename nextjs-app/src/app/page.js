@@ -16,8 +16,59 @@ export const metadata = {
 };
 
 export default function Home() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is an Explanation of Benefits (EOB)?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "An EOB is a statement from your insurance company showing what was billed, what the plan paid, and what you owe. It is not a bill itself, but it tells you how your claim was processed.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What issues do you usually flag?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Common errors include duplicate charges, upcoding, unbundling, and out-of-network billing for in-network providers.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does this work for hospital bills, not just insurance EOBs?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Our tool is optimized for EOB documents from your insurer. Itemized hospital bills in CSV format also work.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is my medical information safe when I upload?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Files are sent over encrypted HTTPS, analyzed in memory, and not retained on our servers after processing.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What if my claim was denied, can I still appeal?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. If we detect a denied claim on your EOB, we highlight it and can generate a customized appeal prep document.",
+        },
+      },
+    ],
+  };
+
   return (
     <div className="home-page home">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="hero">
         <div className="hero-text">
           <span className="hero-kicker">EOB Review &middot; Appeal Guidance</span>
@@ -81,6 +132,50 @@ export default function Home() {
           <Link href="/sources">Source Methodology</Link>
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/contact">Contact</Link>
+        </div>
+      </section>
+
+      <section className="home-credibility" aria-label="Why you can trust this tool">
+        <div className="home-cred-header">
+          <h2>Why you can trust this review</h2>
+          <p>
+            No fake testimonials, no vague promises — just a clear method, real sources, and an
+            honest account of what the tool can and can&rsquo;t do.
+          </p>
+        </div>
+        <div className="home-cred-grid">
+          <article className="home-cred-card">
+            <div className="home-cred-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+            </div>
+            <h3>Built by an industry insider</h3>
+            <p>
+              Created by a health insurance data engineer who works inside claims processing — so the
+              checks reflect how claims are actually adjudicated.{" "}
+              <Link href="/about">Read the methodology →</Link>
+            </p>
+          </article>
+          <article className="home-cred-card">
+            <div className="home-cred-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>
+            </div>
+            <h3>Grounded in primary sources</h3>
+            <p>
+              Guidance cites federal sources — CMS, HealthCare.gov, the IRS, and the CFPB — not
+              opinion.{" "}
+              <Link href="/sources">See our sources →</Link>
+            </p>
+          </article>
+          <article className="home-cred-card">
+            <div className="home-cred-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3>Transparent about limits</h3>
+            <p>
+              Findings are confidence-rated, and we tell you exactly what to verify with your insurer
+              before acting. It&rsquo;s educational guidance — never a guaranteed outcome.
+            </p>
+          </article>
         </div>
       </section>
 

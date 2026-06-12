@@ -567,6 +567,84 @@ a {
   background: #deeaf7;
 }
 
+.home-credibility {
+  margin: 0 0 28px;
+}
+
+.home-cred-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 18px;
+}
+
+.home-cred-header h2 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-family: var(--font-heading), serif;
+}
+
+.home-cred-header p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.home-cred-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.home-cred-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(15, 33, 51, 0.05);
+}
+
+.home-cred-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--accent-strong);
+  margin-bottom: 12px;
+}
+
+.home-cred-card h3 {
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+
+.home-cred-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  font-size: 0.92rem;
+}
+
+.home-cred-card a {
+  color: var(--accent-strong);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.home-cred-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .home-cred-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .cta-button {
   display: inline-block;
   background: linear-gradient(145deg, #f8d39f 0%, #e7b96f 100%);
