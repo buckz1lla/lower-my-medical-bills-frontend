@@ -9,6 +9,7 @@ import {
   commercialHigh,
   fmt,
 } from "@/lib/procedures";
+import { getCategoryContent } from "@/lib/procedureCategoryContent";
 
 export async function generateStaticParams() {
   return getAllCategorySlugs().map((category) => ({ category }));
@@ -45,6 +46,7 @@ export default async function ProcedureCategoryPage({ params }) {
 
   const { category, procedures } = data;
   const pageUrl = `https://lowermymedicalbills.com/procedures/category/${categorySlug}`;
+  const categoryContent = getCategoryContent(category);
 
   const rateValues = procedures.map((p) => p.medicare_rate);
   const minRate = Math.min(...rateValues);
@@ -167,13 +169,17 @@ export default async function ProcedureCategoryPage({ params }) {
 
           <section className="proc-explainer">
             <h2>Understanding {category.toLowerCase()} costs</h2>
-            <p>
-              The rates shown above are 2024 CMS Medicare national average payment rates — the
-              amounts the federal government pays providers for each service. They are the most
-              widely published benchmark for what a procedure &ldquo;should&rdquo; cost, and
-              commercial insurers use them as a reference point when negotiating their own
-              contracts.
-            </p>
+            {categoryContent ? (
+              <p>{categoryContent.summary}</p>
+            ) : (
+              <p>
+                The rates shown above are 2024 CMS Medicare national average payment rates — the
+                amounts the federal government pays providers for each service. They are the most
+                widely published benchmark for what a procedure &ldquo;should&rdquo; cost, and
+                commercial insurers use them as a reference point when negotiating their own
+                contracts.
+              </p>
+            )}
             <p>
               For {category.toLowerCase()} services, commercial insurers typically pay between{" "}
               <strong>${fmt(commercialLow(minRate))}</strong> and{" "}
@@ -186,6 +192,22 @@ export default async function ProcedureCategoryPage({ params }) {
               range, and specific steps for disputing an overcharge.
             </p>
           </section>
+
+          {categoryContent && (
+            <section className="proc-category-guidance">
+              <h2>Common billing problems with {category.toLowerCase()} charges</h2>
+              <div className="proc-issue-list">
+                {categoryContent.commonIssues.map((issue, idx) => (
+                  <div className="proc-issue-item" key={idx}>
+                    <h3>{issue.title}</h3>
+                    <p>{issue.body}</p>
+                  </div>
+                ))}
+              </div>
+              <h3>How to push back on a {category.toLowerCase()} charge</h3>
+              <p>{categoryContent.negotiation}</p>
+            </section>
+          )}
         </section>
 
         <section className="proc-index-disclaimer">

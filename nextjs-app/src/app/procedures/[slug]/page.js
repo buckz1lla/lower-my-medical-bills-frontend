@@ -10,6 +10,7 @@ import {
   commercialHigh,
   fmt,
 } from "@/lib/procedures";
+import { getCategoryContent } from "@/lib/procedureCategoryContent";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -47,6 +48,7 @@ export default async function ProcedurePage({ params }) {
   const low = commercialLow(p.medicare_rate);
   const high = commercialHigh(p.medicare_rate);
   const pageUrl = `https://lowermymedicalbills.com/procedures/${slug}`;
+  const categoryContent = getCategoryContent(p.category);
 
   // Structured data for Google rich results
   const jsonLd = {
@@ -222,6 +224,27 @@ export default async function ProcedurePage({ params }) {
                 </li>
               </ul>
             </section>
+
+            {/* Category-specific billing guidance (unique per service type) */}
+            {categoryContent && (
+              <section className="proc-category-guidance">
+                <h2>How {p.category.toLowerCase()} charges like this are billed</h2>
+                <p>{categoryContent.summary}</p>
+
+                <h3>Common billing problems with {p.category.toLowerCase()} charges</h3>
+                <div className="proc-issue-list">
+                  {categoryContent.commonIssues.map((issue, idx) => (
+                    <div className="proc-issue-item" key={idx}>
+                      <h4>{issue.title}</h4>
+                      <p>{issue.body}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <h3>How to push back on this charge</h3>
+                <p>{categoryContent.negotiation}</p>
+              </section>
+            )}
 
             {/* FAQ */}
             <section className="proc-faq">

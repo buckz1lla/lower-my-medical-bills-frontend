@@ -5225,6 +5225,65 @@ a {
   margin-bottom: 20px;
 }
 
+/* Category-specific billing guidance */
+.proc-category-guidance {
+  margin-bottom: 36px;
+  padding-top: 4px;
+}
+
+.proc-category-guidance h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.proc-category-guidance h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin: 24px 0 10px;
+}
+
+.proc-category-guidance > p {
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.proc-issue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 4px 0 8px;
+}
+
+.proc-issue-item {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid var(--brand, #2563eb);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.proc-issue-item h3,
+.proc-issue-item h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin: 0 0 6px;
+}
+
+.proc-issue-item p {
+  font-size: 0.88rem;
+  color: #374151;
+  line-height: 1.65;
+  margin: 0;
+}
+
 /* Sidebar */
 .proc-sidebar {
   display: flex;
@@ -5692,6 +5751,44 @@ a {
   font-size: 0.95rem;
   color: #374151;
   line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Group-specific guidance ── */
+.dc-guidance-section > p {
+  margin: 0 0 1rem;
+}
+
+.dc-guidance-section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.dc-guidance-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.dc-guidance-point {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-left: 3px solid #2563eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+}
+
+.dc-guidance-point h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.4rem;
+}
+
+.dc-guidance-point p {
+  font-size: 0.9rem;
+  line-height: 1.65;
   margin: 0;
 }
 

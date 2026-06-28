@@ -6,6 +6,7 @@ import {
   getRelatedCodes,
   toSlug,
 } from "@/lib/denialCodes";
+import { getDenialGuidance } from "@/lib/denialCodeGuidance";
 
 export async function generateStaticParams() {
   return getAllSlugs();
@@ -40,6 +41,7 @@ export default async function DenialCodePage({ params }) {
   if (!entry) notFound();
 
   const relatedCodes = getRelatedCodes(entry.code);
+  const guidance = getDenialGuidance(entry.group);
 
   // FAQPage JSON-LD — action steps as Q&A
   const jsonLd = {
@@ -115,6 +117,23 @@ export default async function DenialCodePage({ params }) {
                 ))}
               </ol>
             </section>
+
+            {guidance && (
+              <section className="dc-detail-section dc-guidance-section">
+                <h2>{guidance.heading}</h2>
+                <p>{guidance.intro}</p>
+                <div className="dc-guidance-points">
+                  {guidance.points.map((pt, i) => (
+                    <div className="dc-guidance-point" key={i}>
+                      <h3>{pt.title}</h3>
+                      <p>{pt.body}</p>
+                    </div>
+                  ))}
+                </div>
+                <h3>Your appeal rights for {entry.type} {entry.code}</h3>
+                <p>{guidance.appeal}</p>
+              </section>
+            )}
 
             {entry.related_guides && entry.related_guides.length > 0 && (
               <section className="dc-detail-section dc-related-guides-section">
