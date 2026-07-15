@@ -25,6 +25,38 @@ export default function AboutPage() {
           <p className="about-byline-meta">Last reviewed: April 2026</p>
         </div>
 
+        <h2>Who we are</h2>
+        <p>
+          Lower My Medical Bills is an independent, self-funded project &mdash; not a hospital,
+          insurer, law firm, or debt-collection company. We have no financial relationship with any
+          provider or health plan, so our guidance is written to serve the patient reading it, not to
+          steer you toward a particular company.
+        </p>
+        <p style={{ marginTop: "10px" }}>
+          Our work is organized and maintained by the Lower My Medical Bills editorial team. Rather
+          than publishing opinions, we translate the rules that already govern medical billing and
+          claims into plain-English steps. Every guide is built from public, primary sources &mdash;
+          including CMS billing guidance, the AMA CPT code set, NUBC and NUCC claim-form instructions,
+          and the standard X12 835 adjustment and remark codes &mdash; and each guide links the
+          sources it draws on. See our{" "}
+          <Link href="/editorial-policy" className="about-inline-link">
+            editorial policy
+          </Link>{" "}
+          and{" "}
+          <Link href="/sources" className="about-inline-link">
+            sources &amp; methodology
+          </Link>{" "}
+          for how this content is researched, reviewed, and updated.
+        </p>
+        <p style={{ marginTop: "10px" }}>
+          The project is funded in part through clearly labeled affiliate links, disclosed on our{" "}
+          <Link href="/affiliate-disclosure" className="about-inline-link">
+            affiliate disclosure
+          </Link>{" "}
+          page. Affiliate relationships never change which issues the tool flags or what the guidance
+          recommends.
+        </p>
+
         <h2>Who this is for</h2>
         <p>
           This tool is for people who received an Explanation of Benefits (EOB) from their insurer
