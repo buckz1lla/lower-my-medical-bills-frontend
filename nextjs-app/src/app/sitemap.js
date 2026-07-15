@@ -1,6 +1,4 @@
 import { guides } from "@/lib/guides";
-import { allCodes, toSlug } from "@/lib/denialCodes";
-import { getAllProcedures, toSlug as procToSlug, getAllCategorySlugs } from "@/lib/procedures";
 
 const SITE_URL = "https://lowermymedicalbills.com";
 
@@ -37,26 +35,10 @@ export default function sitemap() {
     priority: 0.9,
   }));
 
-  const denialCodeRoutes = allCodes.map((c) => ({
-    url: `${SITE_URL}/denial-codes/${toSlug(c.code)}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.85,
-  }));
-
-  const procedureRoutes = getAllProcedures().map((p) => ({
-    url: `${SITE_URL}/procedures/${procToSlug(p.description, p.cpt)}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.85,
-  }));
-
-  const procedureCategoryRoutes = getAllCategorySlugs().map((slug) => ({
-    url: `${SITE_URL}/procedures/category/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
-  return [...staticRoutes, ...guideRoutes, ...denialCodeRoutes, ...procedureRoutes, ...procedureCategoryRoutes];
+  // NOTE: Individual procedure, procedure-category, and denial-code detail pages
+  // are intentionally excluded from the sitemap and marked noindex. They remain
+  // live as on-site reference tools, but are kept out of Google's index so the
+  // site is evaluated on its long-form guides and editorial/trust pages.
+  return [...staticRoutes, ...guideRoutes];
 }
+

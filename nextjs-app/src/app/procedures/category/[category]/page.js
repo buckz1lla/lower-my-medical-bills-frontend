@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
     title,
     description,
     alternates: { canonical: `https://lowermymedicalbills.com/procedures/category/${categorySlug}` },
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: true },
     openGraph: {
       title,
       description,

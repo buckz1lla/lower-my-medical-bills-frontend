@@ -37,9 +37,53 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://lowermymedicalbills.com/#organization",
+        name: "Lower My Medical Bills",
+        url: "https://lowermymedicalbills.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://lowermymedicalbills.com/logo.png",
+        },
+        description:
+          "Educational tools and guides that help patients understand their Explanation of Benefits, spot medical billing errors, and prepare stronger insurance appeals.",
+        knowsAbout: [
+          "Medical billing",
+          "Explanation of Benefits (EOB)",
+          "Health insurance claim denials",
+          "Insurance appeals",
+          "Medical bill negotiation",
+          "The No Surprises Act",
+        ],
+        publishingPrinciples: "https://lowermymedicalbills.com/editorial-policy",
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          url: "https://lowermymedicalbills.com/contact",
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://lowermymedicalbills.com/#website",
+        url: "https://lowermymedicalbills.com",
+        name: "Lower My Medical Bills",
+        publisher: { "@id": "https://lowermymedicalbills.com/#organization" },
+        inLanguage: "en-US",
+      },
+    ],
+  };
+
   return (
       <html lang="en" className={`${headingFont.variable} ${bodyFont.variable} ${logoFont.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
         <RouteScripts adsenseClient={adsenseClient} gaMeasurementId={gaMeasurementId} />
         <header className="header">
           <div className="header-container">
