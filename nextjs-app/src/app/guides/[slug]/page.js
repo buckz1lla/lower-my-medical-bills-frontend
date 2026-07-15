@@ -123,18 +123,16 @@ export default async function GuideArticlePage({ params }) {
     datePublished: guide.updatedAt,
     mainEntityOfPage: canonicalUrl,
     author: {
-      "@type": "Person",
-      name: "Lower My Medical Bills Editorial Team",
-      jobTitle: "Health insurance data engineer",
-      description:
-        "Written and reviewed by a health insurance data engineer who works inside claims processing.",
+      "@type": "Organization",
+      "@id": "https://lowermymedicalbills.com/#organization",
+      name: "Lower My Medical Bills",
       url: `${SITE_URL}/about`,
     },
     reviewedBy: {
-      "@type": "Person",
-      name: "Lower My Medical Bills Editorial Team",
-      jobTitle: "Health insurance data engineer",
-      url: `${SITE_URL}/about`,
+      "@type": "Organization",
+      "@id": "https://lowermymedicalbills.com/#organization",
+      name: "Lower My Medical Bills",
+      url: `${SITE_URL}/editorial-policy`,
     },
     publisher: {
       "@type": "Organization",
@@ -213,9 +211,9 @@ export default async function GuideArticlePage({ params }) {
           <div className="guide-authorship">
             <span className="guide-badge">Fact-Checked Guide</span>
             <span className="guide-attribution">
-              Written and reviewed by a{" "}
+              Researched and reviewed by the{" "}
               <Link href="/about" className="guide-author-link">
-                health insurance data engineer
+                Lower My Medical Bills editorial team
               </Link>
             </span>
           </div>

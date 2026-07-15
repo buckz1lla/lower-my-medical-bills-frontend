@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "About & Methodology | Lower My Medical Bills",
   description:
-    "How Lower My Medical Bills works, who built it, and what the tool can and cannot determine. Written by a health insurance data engineer.",
+    "How Lower My Medical Bills works, what the tool can and cannot determine, and how our guidance is researched and grounded in public sources.",
   alternates: { canonical: "https://lowermymedicalbills.com/about" },
   robots: { index: true, follow: true },
 };
@@ -16,10 +16,11 @@ export default function AboutPage() {
 
         <div className="about-byline">
           <p>
-            <strong>Built by a health insurance data engineer.</strong> I work inside the industry
-            and see how claims are processed, where billing errors occur, and what consumers
-            typically don&apos;t know to ask. This site exists to close that gap — giving you the
-            same working knowledge of the system that people inside it already have.
+            <strong>Lower My Medical Bills is an independent educational resource.</strong> We build
+            plain-English tools and guides that help patients understand their Explanation of Benefits
+            (EOB), spot common medical billing errors, and prepare stronger insurance appeals. Our
+            guidance is researched and grounded in public, authoritative sources &mdash; not opinion
+            &mdash; so you can approach billing and insurance conversations with more confidence.
           </p>
           <p className="about-byline-meta">Last reviewed: April 2026</p>
         </div>
@@ -121,8 +122,8 @@ export default function AboutPage() {
           Billing error patterns are grounded in publicly available references including CMS billing
           guidelines, the AMA CPT code set, NUBC and NUCC claim form instructions, and published
           insurer processing manuals. The denial code library references the standard X12 835
-          transaction set (CARCs and RARCs). This content reflects my working knowledge from the
-          industry and is updated periodically as patterns evolve.
+          transaction set (CARCs and RARCs). This guidance is compiled and maintained by the Lower My
+          Medical Bills editorial team and updated periodically as billing rules and patterns evolve.
         </p>
 
         <div className="about-cta-block">
