@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Look up what Medicare pays for 80+ common medical procedures. Compare against your bill to spot overcharges and negotiate with confidence.",
   alternates: { canonical: "https://lowermymedicalbills.com/procedures" },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Medical Procedure Cost Guide — What Should You Pay?",
     description:

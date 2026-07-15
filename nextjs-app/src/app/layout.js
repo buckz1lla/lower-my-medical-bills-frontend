@@ -31,6 +31,22 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    title: "Lower My Medical Bills - Appeal-First Claim Review",
+    description:
+      "Review your EOB with an appeal-first workflow that prioritizes claim risk and next actions.",
+    url: "https://lowermymedicalbills.com",
+    siteName: "Lower My Medical Bills",
+    type: "website",
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: "Lower My Medical Bills" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Lower My Medical Bills - Appeal-First Claim Review",
+    description:
+      "Review your EOB with an appeal-first workflow that prioritizes claim risk and next actions.",
+    images: ["/logo.png"],
+  },
   verification: {
     google: "OKVAopyrrH0mopSTY7ce-29WN-Rq6BPMnmjhXqMGLRo",
   },

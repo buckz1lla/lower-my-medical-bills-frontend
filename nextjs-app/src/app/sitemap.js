@@ -18,8 +18,6 @@ export default function sitemap() {
     "/terms",
     "/disclaimer",
     "/affiliate-disclosure",
-    "/denial-codes",
-    "/procedures",
     "/fair-price",
   ].map((path) => ({
     url: `${SITE_URL}${path}`,

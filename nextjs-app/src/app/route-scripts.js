@@ -7,6 +7,11 @@ import Script from "next/script";
 const MARKETING_ROUTES = new Set([
   "/",
   "/guides",
+  "/about",
+  "/contact",
+  "/sources",
+  "/editorial-policy",
+  "/templates",
   "/privacy",
   "/terms",
   "/disclaimer",

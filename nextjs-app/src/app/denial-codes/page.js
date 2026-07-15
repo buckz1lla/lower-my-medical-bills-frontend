@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Plain-English explanations of the most common insurance denial and adjustment codes (CARC and RARC). Understand why your claim was adjusted and exactly what to do next.",
   alternates: { canonical: "https://lowermymedicalbills.com/denial-codes" },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Insurance Denial Code Library — CARC & RARC Explained",
     description:
